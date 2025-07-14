@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+
+class PrimaryButtonWidget extends StatelessWidget {
+  final String? name;
+  final Widget? child;
+  final VoidCallback onTap;
+  final bool isLoading;
+  final double? width;
+  final double? height;
+  PrimaryButtonWidget({
+    super.key,
+    required this.onTap,
+    required this.isLoading,
+    this.width,
+    this.height,
+    this.name,
+    this.child,
+  });
+
+  final themeController = Get.find<ThemeController>();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = themeController.appTheme.value!;
+
+    return Material(
+      color: Colors.transparent,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          splashColor: Colors.white,
+          onTap: isLoading ? null : onTap,
+          child: Container(
+            width: width,
+            height: height ?? 48,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: theme.primaryColor,
+            ),
+            child: Center(
+              child:
+                  child ??
+                  Text(
+                    name ?? '',
+                    style: TypographyStyles.snigletNormal6Inverse(),
+                  ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

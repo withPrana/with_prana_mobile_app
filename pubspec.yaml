@@ -34,6 +34,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  animated_text_kit: ^4.2.3
+  flutter_hooks: ^0.21.2
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +59,33 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/logos/
+
+  fonts:
+    - family: Sniglet
+      fonts:
+        - asset: assets/fonts/sniglet/Sniglet-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/sniglet/Sniglet-ExtraBold.ttf
+          weight: 600  
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 300
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 500  
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800  
+        - asset: assets/fonts/Poppins/Poppins-LightItalic.ttf   
+          weight: 500 
+          style: italic
 
   # To add assets to your application, add an assets section, like this:
   # assets:
