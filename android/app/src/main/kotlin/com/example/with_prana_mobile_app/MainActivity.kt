@@ -1,4 +1,4 @@
-package com.example.with_prana_mobile_app
+package com.withprana.app
 
 import io.flutter.embedding.android.FlutterActivity
 

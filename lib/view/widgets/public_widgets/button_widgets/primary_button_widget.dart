@@ -35,7 +35,7 @@ class PrimaryButtonWidget extends StatelessWidget {
           onTap: isLoading ? null : onTap,
           child: Container(
             width: width,
-            height: height ?? 48,
+            height: height ?? 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: theme.primaryColor,
