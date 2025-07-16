@@ -8,14 +8,14 @@ Map<String, Widget Function(BuildContext context)> routes(
 ) {
   // final args = ModalRoute.of(context)!.settings.arguments;
   return {
-    SplashScreen.routepath: (context) => SplashScreen(),
+    SplashScreen.routePath: (context) => SplashScreen(),
     NameEntryScreen.routePath: (context) => NameEntryScreen(),
   };
 }
 
 Route getRoute(RouteSettings settings, BuildContext context) {
   switch (settings.name) {
-    case SplashScreen.routepath:
+    case SplashScreen.routePath:
       return _buildRoute(SplashScreen(), settings);
     case NameEntryScreen.routePath:
       return _buildRoute(NameEntryScreen(), settings);

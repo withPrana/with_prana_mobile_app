@@ -76,7 +76,7 @@ class TextFieldWidget extends StatelessWidget {
             maxLength: maxLength,
             keyboardType: keyboardType,
             textAlign: textAlign,
-            cursorColor: theme.primaryColor,
+            cursorColor: theme.secondaryColor,
             onTapOutside: (_) {
               FocusScope.of(context).unfocus();
             },
@@ -113,7 +113,7 @@ class TextFieldWidget extends StatelessWidget {
               fillColor: theme.inverseColor,
               filled: true,
               hintText: hintText,
-              errorStyle: TypographyStyles.poppinsNormal8Error(),
+              errorStyle: TypographyStyles.poppinsNormal0Error(),
               hintStyle: TypographyStyles.poppins50016Disabled(),
               border: _border(theme),
               enabledBorder: _border(theme),
@@ -130,7 +130,7 @@ class TextFieldWidget extends StatelessWidget {
 
   OutlineInputBorder _border(ColorPalette theme) {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: theme.textFieldBorder),
+      borderSide: BorderSide(color: theme.textFieldBorder, width: 2),
       borderRadius: BorderRadius.circular(10),
     );
   }

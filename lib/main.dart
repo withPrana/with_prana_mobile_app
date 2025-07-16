@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:with_prana_mobile_app/core/dependencies/getx_dependencies.dart';
 import 'package:with_prana_mobile_app/core/route/routes.dart';
+import 'package:with_prana_mobile_app/view/screens/splash_screen.dart';
 
 void main() {
   setupGetxDependencies();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Sniglet',
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: "/splash",
+        initialRoute: SplashScreen.routePath,
         onGenerateRoute: (settings) => getRoute(settings, context),
         builder:
             (context, child) => MediaQuery(

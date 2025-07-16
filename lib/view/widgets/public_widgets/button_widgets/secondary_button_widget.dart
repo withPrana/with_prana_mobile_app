@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
-class PrimaryButtonWidget extends StatelessWidget {
+class SecondaryButtonWidget extends StatelessWidget {
   final String? name;
   final Widget? child;
   final VoidCallback onTap;
@@ -11,7 +11,7 @@ class PrimaryButtonWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? borderColor;
-  PrimaryButtonWidget({
+  SecondaryButtonWidget({
     super.key,
     required this.onTap,
     required this.isLoading,
@@ -44,7 +44,7 @@ class PrimaryButtonWidget extends StatelessWidget {
                 color: borderColor ?? theme.inverseColor,
                 width: 2,
               ),
-              color: theme.primaryColor,
+              color: theme.secondaryColor,
             ),
             child: Center(
               child:

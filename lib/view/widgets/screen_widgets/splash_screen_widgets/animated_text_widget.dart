@@ -28,10 +28,7 @@ class _TypewriterTextState extends State<TypewriterText> {
     //// Typing the first line
     for (int i = 0; i <= _firstLine.length; i++) {
       setState(() {
-        _visibleFirstLineChars = List.generate(
-          i,
-          (index) => index,
-        ); 
+        _visibleFirstLineChars = List.generate(i, (index) => index);
       });
       await Future.delayed(Duration(milliseconds: _typingSpeed));
     }
@@ -42,15 +39,10 @@ class _TypewriterTextState extends State<TypewriterText> {
     //// Typing the second line
     for (int i = 0; i <= _secondLine.length; i++) {
       setState(() {
-        _visibleSecondLineChars = List.generate(
-          i,
-          (index) => index,
-        ); 
+        _visibleSecondLineChars = List.generate(i, (index) => index);
       });
       await Future.delayed(Duration(milliseconds: _typingSpeed));
     }
-
-
   }
 
   @override
@@ -68,7 +60,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24Colored(),
+                style: TypographyStyles.snigletNormal24secondaryColored(),
               ),
             );
           }),
@@ -82,7 +74,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24Colored(),
+                style: TypographyStyles.snigletNormal24secondaryColored(),
               ),
             );
           }),

@@ -4,7 +4,6 @@ class GradientImageWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? fit;
-  final List<Color> colors;
   final LinearGradient gradient;
   final ImageProvider image;
   final double? opacity;
@@ -14,7 +13,6 @@ class GradientImageWidget extends StatelessWidget {
     this.height,
     this.fit,
     this.opacity,
-    required this.colors,
     required this.gradient,
     required this.image,
   });
@@ -26,6 +24,7 @@ class GradientImageWidget extends StatelessWidget {
         return gradient.createShader(bounds);
       },
       child: Image(
+        color: Colors.white,
         image: image,
         width: width,
         height: height,

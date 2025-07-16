@@ -9,11 +9,11 @@ import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/name_entry_screen.dart';
-import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/secondary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/splash_screen_widgets/animated_text_widget.dart';
 
 class SplashScreen extends HookWidget {
-  static const routepath = "/splash";
+  static const routePath = "/splash";
   const SplashScreen({super.key});
 
   @override
@@ -149,7 +149,8 @@ class SplashScreen extends HookWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'Reconnect. Heal. Awaken.',
-                  style: TypographyStyles.poppinsNormal12ColoredItalic(),
+                  style:
+                      TypographyStyles.poppinsNormal12secondaryColoredItalic(),
                 ),
               ),
             ),
@@ -210,7 +211,7 @@ class SplashScreen extends HookWidget {
                         width: 2,
                       ),
                     ),
-                    child: PrimaryButtonWidget(
+                    child: SecondaryButtonWidget(
                       width: 128,
                       onTap: () {
                         RouteController.pushAndRemoveUntil(
@@ -219,6 +220,7 @@ class SplashScreen extends HookWidget {
                         );
                       },
                       isLoading: false,
+                      borderColor: Color(0xffF5F5F5),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         spacing: 8,

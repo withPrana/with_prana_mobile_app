@@ -8,6 +8,16 @@ class VerticalSpace8 extends StatelessWidget {
     return SizedBox(height: 8);
   }
 }
+
+class VerticalSpace16 extends StatelessWidget {
+  const VerticalSpace16({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 16);
+  }
+}
+
 class VerticalSpace24 extends StatelessWidget {
   const VerticalSpace24({super.key});
 
@@ -79,6 +89,7 @@ class VerticalSpace80 extends StatelessWidget {
     return SizedBox(height: 80);
   }
 }
+
 class VerticalSpace88 extends StatelessWidget {
   const VerticalSpace88({super.key});
 
@@ -87,6 +98,7 @@ class VerticalSpace88 extends StatelessWidget {
     return SizedBox(height: 88);
   }
 }
+
 class VerticalSpace96 extends StatelessWidget {
   const VerticalSpace96({super.key});
 
@@ -95,6 +107,7 @@ class VerticalSpace96 extends StatelessWidget {
     return SizedBox(height: 96);
   }
 }
+
 class VerticalSpace104 extends StatelessWidget {
   const VerticalSpace104({super.key});
 
@@ -103,6 +116,7 @@ class VerticalSpace104 extends StatelessWidget {
     return SizedBox(height: 104);
   }
 }
+
 class VerticalSpace112 extends StatelessWidget {
   const VerticalSpace112({super.key});
 
@@ -111,6 +125,7 @@ class VerticalSpace112 extends StatelessWidget {
     return SizedBox(height: 112);
   }
 }
+
 class VerticalSpace120 extends StatelessWidget {
   const VerticalSpace120({super.key});
 
@@ -119,6 +134,7 @@ class VerticalSpace120 extends StatelessWidget {
     return SizedBox(height: 120);
   }
 }
+
 class VerticalSpace136 extends StatelessWidget {
   const VerticalSpace136({super.key});
 
@@ -127,6 +143,7 @@ class VerticalSpace136 extends StatelessWidget {
     return SizedBox(height: 136);
   }
 }
+
 class VerticalSpace152 extends StatelessWidget {
   const VerticalSpace152({super.key});
 
