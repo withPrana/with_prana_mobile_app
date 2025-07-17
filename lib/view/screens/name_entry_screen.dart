@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
@@ -26,8 +27,8 @@ class NameEntryScreen extends HookWidget {
     final formKey = useMemoized(() => GlobalKey<FormState>());
 
     final theme = themeController.appTheme.value!;
-    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: ScreenSize.width(context),
         height: ScreenSize.height(context),
@@ -56,7 +57,7 @@ class NameEntryScreen extends HookWidget {
 
             Positioned.fill(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Form(
                   key: formKey,
                   child: Column(
@@ -66,23 +67,23 @@ class NameEntryScreen extends HookWidget {
                       Text(
                         "A moment for your mind,\na path to your soul.",
                         textAlign: TextAlign.center,
-                        style: TypographyStyles.snigletNormal24Inverse(),
+                        style: TypographyStyles.snigletNormal22Inverse(),
                       ),
                       VerticalSpace24(),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           text: "Let ",
-                          style: TypographyStyles.poppinsNormal12Inverse(),
+                          style: TypographyStyles.poppinsNormal10Inverse(),
                           children: [
                             TextSpan(
                               text: "With Prana ",
-                              style: TypographyStyles.poppinsBold12Inverse(),
+                              style: TypographyStyles.poppinsBold10Inverse(),
                             ),
                             TextSpan(
                               text:
                                   "guide you toward peace,\nclarity, and connection",
-                              style: TypographyStyles.poppinsNormal12Inverse(),
+                              style: TypographyStyles.poppinsNormal10Inverse(),
                             ),
                           ],
                         ),
@@ -90,7 +91,7 @@ class NameEntryScreen extends HookWidget {
                       VerticalSpace136(),
                       Text(
                         "What can we call you?",
-                        style: TypographyStyles.poppinsNormal12Inverse(),
+                        style: TypographyStyles.poppinsNormal10Inverse(),
                       ),
                       VerticalSpace8(),
                       ////name field
@@ -99,36 +100,36 @@ class NameEntryScreen extends HookWidget {
                         hintText: "Enter your name",
                         enabled: true,
                         textInputType: TextInputTypeEnum.name,
+                        emptyValidationErrorText: "Please enter your name",
                       ),
                       Spacer(),
-                      if (keyboardHeight == 0)
-                        SecondaryButtonWidget(
-                          width: 200,
-                          onTap: () {
-                            if (formKey.currentState!.validate()) {
-                              RouteController.push(
-                                context,
-                                InitialQuestionScreenOne.routePath,
-                              );
-                            }
-                          },
-                          isLoading: false,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            spacing: 8,
-                            children: [
-                              Text(
-                                "Let's Get Started",
-                                style: TypographyStyles.poppinsBold16Inverse(),
-                              ),
-                              ImageIcon(
-                                AssetImage(IconConstants.icArrowRight),
-                                color: theme.inverseColor,
-                                size: 18,
-                              ),
-                            ],
-                          ),
+                      SecondaryButtonWidget(
+                        width: 200.r,
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            RouteController.push(
+                              context,
+                              InitialQuestionScreenOne.routePath,
+                            );
+                          }
+                        },
+                        isLoading: false,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 8.r,
+                          children: [
+                            Text(
+                              "Let's Get Started",
+                              style: TypographyStyles.poppinsBold14Inverse(),
+                            ),
+                            ImageIcon(
+                              AssetImage(IconConstants.icArrowRight),
+                              color: theme.inverseColor,
+                              size: 18.r,
+                            ),
+                          ],
                         ),
+                      ),
                       VerticalSpace40(),
                     ],
                   ),

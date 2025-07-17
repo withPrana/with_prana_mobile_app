@@ -6,7 +6,7 @@ class TypewriterText extends StatefulWidget {
   const TypewriterText({super.key});
 
   @override
-  _TypewriterTextState createState() => _TypewriterTextState();
+  State<TypewriterText> createState() => _TypewriterTextState();
 }
 
 class _TypewriterTextState extends State<TypewriterText> {
@@ -60,7 +60,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24secondaryColored(),
+                style: TypographyStyles.snigletNormal22secondaryColored(),
               ),
             );
           }),
@@ -74,7 +74,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24secondaryColored(),
+                style: TypographyStyles.snigletNormal22secondaryColored(),
               ),
             );
           }),

@@ -7,7 +7,8 @@ import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
 class IntialQuestionOptionsWidget extends StatelessWidget {
-  IntialQuestionOptionsWidget({super.key});
+  final bool firstQuestion;
+  IntialQuestionOptionsWidget({super.key, required this.firstQuestion});
 
   final themeController = Get.find<ThemeController>();
   final initialQuestionOptionController =
@@ -21,12 +22,21 @@ class IntialQuestionOptionsWidget extends StatelessWidget {
       () => Column(
         spacing: 18,
         children: List.generate(
-          initialQuestionOptionController.options.value.length,
+          firstQuestion
+              ? initialQuestionOptionController.options.value.length
+              : initialQuestionOptionController.optionsTwo.value.length,
           (index) {
-            final option = initialQuestionOptionController.options.value[index];
+            final option =
+                firstQuestion
+                    ? initialQuestionOptionController.options.value[index]
+                    : initialQuestionOptionController.optionsTwo.value[index];
             return GestureDetector(
               onTap: () {
-                initialQuestionOptionController.selectOption(index);
+                if (firstQuestion) {
+                  initialQuestionOptionController.selectOption(index);
+                } else {
+                  initialQuestionOptionController.selectOptionTwo(index);
+                }
               },
               child: Row(
                 spacing: 10,
@@ -54,8 +64,8 @@ class IntialQuestionOptionsWidget extends StatelessWidget {
                     option.optionName,
                     style:
                         option.isSelected
-                            ? TypographyStyles.poppinsBold16()
-                            : TypographyStyles.poppins40016(),
+                            ? TypographyStyles.poppinsBold14()
+                            : TypographyStyles.poppins40014(),
                   ),
                 ],
               ),

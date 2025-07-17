@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -29,10 +30,10 @@ class ContentAndActionWidget extends StatelessWidget {
     final theme = themeController.appTheme.value!;
     return Container(
       width: ScreenSize.width(context),
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.r),
       decoration: BoxDecoration(
         color: theme.primaryLightColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.r),
       ),
       child: Column(
         children: [
@@ -45,7 +46,7 @@ class ContentAndActionWidget extends StatelessWidget {
                   if (contentIconPath != null)
                     ImageIcon(
                       AssetImage(contentIconPath!),
-                      size: 50,
+                      size: 50.r,
                       color: theme.primaryColor,
                     ),
                   Flexible(
@@ -56,14 +57,14 @@ class ContentAndActionWidget extends StatelessWidget {
                           Text(
                             contentHeading ?? '',
                             style:
-                                TypographyStyles.poppins60014PrimaryColored(),
+                                TypographyStyles.poppins60012PrimaryColored(),
                           ),
                         if (contentHeading != null) VerticalSpace8(),
                         if (contentString != null)
                           Text(
                             contentString ?? '',
                             style:
-                                TypographyStyles.poppins40012PrimaryColored(),
+                                TypographyStyles.poppins40010PrimaryColored(),
                           ),
                       ],
                     ),

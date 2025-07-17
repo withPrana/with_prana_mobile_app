@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/initial_question_option_controller.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
@@ -13,19 +12,18 @@ import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_question_screen_two.dart';
+import 'package:with_prana_mobile_app/view/screens/mail_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_image_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/initial_question_screen_widgets/intial_question_options_widget.dart';
 
-class InitialQuestionScreenOne extends StatelessWidget {
-  static const routePath = "/initial-question-one";
-  InitialQuestionScreenOne({super.key});
+class InitialQuestionScreenTwo extends StatelessWidget {
+  static const routePath = "/initial-question-two";
+  InitialQuestionScreenTwo({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final loginController = Get.find<LoginController>();
   final initialQuestionOptionController =
       Get.find<InitialQuestionOptionController>();
 
@@ -46,19 +44,21 @@ class InitialQuestionScreenOne extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
+              top: -64.h,
               left: 24.w,
               right: 24.w,
               child: GradientImageWidget(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
+                  stops: [0.4, 1],
                   colors: [
                     theme.primaryScreenGradient[0],
                     theme.primaryScreenGradient[1].withValues(alpha: 0.5),
                   ],
                 ),
                 width: ScreenSize.width(context) / 1.15,
-                image: AssetImage(ImageConstants.imgCareHand),
+                image: AssetImage(ImageConstants.imgBoatSteering),
               ),
             ),
             SafeArea(
@@ -79,7 +79,7 @@ class InitialQuestionScreenOne extends StatelessWidget {
                               onTap: () {
                                 RouteController.push(
                                   context,
-                                  InitialQuestionScreenTwo.routePath,
+                                  MailEntryScreen.routePath,
                                 );
                               },
                               child: Text(
@@ -91,36 +91,35 @@ class InitialQuestionScreenOne extends StatelessWidget {
                           ),
                           VerticalSpace56(),
                           Text(
-                            "Hi, ${loginController.nameController.text.trim()}!",
+                            "Time preference",
                             style: TypographyStyles.snigletNormal14(),
                           ),
                           VerticalSpace8(),
                           Text(
-                            "What do you feel your heart\nneeds right now?",
+                            "When do you prefer to take\na moment for yourself?",
                             style:
                                 TypographyStyles.poppins40018SecondaryColored(),
                           ),
                           VerticalSpace104(),
                           /////options
-                          IntialQuestionOptionsWidget(firstQuestion: true),
+                          IntialQuestionOptionsWidget(firstQuestion: false),
                         ],
                       ),
                     ),
                     Spacer(),
                     /////bottom
                     ContentAndActionWidget(
-                      contentIconPath: ImageConstants.imgMusicTherapy,
-                      contentHeading: "Soulful Soundscapes, Not Lessons",
+                      contentIconPath: ImageConstants.imgMeditation,
+                      contentHeading: "Spirit-Connected Listening",
                       contentString:
-                          "we give you calming, immersive sounds to help you relax instantly.",
+                          "With meditations inspired by spiritual traditions, reconnect to your faith, heart, or inner peace.",
                       actions: PrimaryButtonWidget(
                         onTap: () {
-                          if (initialQuestionOptionController.options.value.any(
-                            (element) => element.isSelected,
-                          )) {
+                          if (initialQuestionOptionController.optionsTwo.value
+                              .any((element) => element.isSelected)) {
                             RouteController.push(
                               context,
-                              InitialQuestionScreenTwo.routePath,
+                              MailEntryScreen.routePath,
                             );
                           } else {
                             AppDialogs.showToast(

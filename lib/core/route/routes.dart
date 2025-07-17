@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_question_screen_one.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_question_screen_two.dart';
+import 'package:with_prana_mobile_app/view/screens/mail_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/splash_screen.dart';
-
-Map<String, Widget Function(BuildContext context)> routes(
-  BuildContext context,
-) {
-  // final args = ModalRoute.of(context)!.settings.arguments;
-  return {
-    SplashScreen.routePath: (context) => SplashScreen(),
-    NameEntryScreen.routePath: (context) => NameEntryScreen(),
-  };
-}
 
 Route getRoute(RouteSettings settings, BuildContext context) {
   switch (settings.name) {
@@ -21,6 +13,10 @@ Route getRoute(RouteSettings settings, BuildContext context) {
       return _buildRoute(NameEntryScreen(), settings);
     case InitialQuestionScreenOne.routePath:
       return _buildRoute(InitialQuestionScreenOne(), settings);
+    case InitialQuestionScreenTwo.routePath:
+      return _buildRoute(InitialQuestionScreenTwo(), settings);
+    case MailEntryScreen.routePath:
+      return _buildRoute(MailEntryScreen(), settings);
     default:
       return _buildRoute(const SplashScreen(), settings);
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
@@ -39,7 +40,7 @@ class SplashScreen extends HookWidget {
       CurvedAnimation(parent: iconMoveController, curve: Curves.easeOutBack),
     );
 
-    final iconScale = Tween<double>(begin: 1.0, end: 0.4).animate(
+    final iconScale = Tween<double>(begin: 1.0, end: 0.35).animate(
       CurvedAnimation(parent: iconMoveController, curve: Curves.easeOutBack),
     );
 
@@ -77,26 +78,27 @@ class SplashScreen extends HookWidget {
                 end: Alignment.bottomCenter,
                 colors: theme.splashGradient,
               ),
-              image:
-                  showBackground.value
-                      ? DecorationImage(
-                        image: AssetImage(
-                          ImageConstants.imgSplashScreenCenterBg,
-                        ),
-                        opacity: 0.5,
-                        // fit: BoxFit.cover,
-                      )
-                      : null,
             ),
           ),
 
+          AnimatedOpacity(
+            duration: const Duration(seconds: 1),
+            opacity: showBackground.value ? 1.0 : 0.0,
+            child: Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                ImageConstants.imgSplashScreenCenterBg,
+                width: ScreenSize.width(context) / 1.1,
+              ),
+            ),
+          ),
           AnimatedOpacity(
             duration: const Duration(milliseconds: 300),
             opacity: showInitial.value ? 1.0 : 0.0,
             child: Align(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                ImageConstants.imgcareHand,
+                ImageConstants.imgCareHand,
                 width: ScreenSize.width(context) / 1.2,
               ),
             ),
@@ -104,7 +106,7 @@ class SplashScreen extends HookWidget {
 
           Center(
             child: Padding(
-              padding: EdgeInsets.only(bottom: 150),
+              padding: EdgeInsets.only(bottom: 50),
               child: AnimatedOpacity(
                 duration: Duration(milliseconds: 300),
                 opacity: showLogo.value ? 1 : 0,
@@ -112,7 +114,7 @@ class SplashScreen extends HookWidget {
                   position: iconOffset,
                   child: ScaleTransition(
                     scale: iconScale,
-                    child: Image.asset(width: 158, LogoConstants.logoMain),
+                    child: Image.asset(width: 158.r, LogoConstants.logoMain),
                   ),
                 ),
               ),
@@ -121,7 +123,7 @@ class SplashScreen extends HookWidget {
 
           Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 80),
+              padding: EdgeInsets.only(top: 190),
               child: AnimatedOpacity(
                 opacity: showInitial.value ? 1 : 0,
                 duration: const Duration(milliseconds: 300),
@@ -140,8 +142,8 @@ class SplashScreen extends HookWidget {
           //// Bottom text
           Positioned(
             bottom: 150,
-            right: 10,
-            left: 10,
+            right: 10.r,
+            left: 10.r,
             child: AnimatedOpacity(
               opacity: showInitial.value ? 1 : 0,
               duration: const Duration(milliseconds: 300),
@@ -150,7 +152,7 @@ class SplashScreen extends HookWidget {
                 child: Text(
                   'Reconnect. Heal. Awaken.',
                   style:
-                      TypographyStyles.poppinsNormal12secondaryColoredItalic(),
+                      TypographyStyles.poppinsNormal10secondaryColoredItalic(),
                 ),
               ),
             ),
@@ -170,7 +172,7 @@ class SplashScreen extends HookWidget {
                     duration: Duration(milliseconds: 500),
                     child: Text(
                       "— Rumi",
-                      style: TypographyStyles.poppinsNormal16Brown(),
+                      style: TypographyStyles.poppins50014Brown(),
                     ),
                   ),
                 ],
@@ -184,35 +186,35 @@ class SplashScreen extends HookWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.all(12),
+                padding: EdgeInsets.all(12.r),
                 margin: EdgeInsets.only(bottom: 8),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(30.r),
                   border: Border.all(
                     color: Color(0xffF5F5F5).withValues(alpha: 0.4),
-                    width: 2,
+                    width: 2.r,
                   ),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12.r),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(30.r),
                     border: Border.all(
                       color: Color(0xffF5F5F5).withValues(alpha: 0.6),
                       width: 2,
                     ),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(12),
+                    padding: EdgeInsets.all(12.r),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                       border: Border.all(
                         color: Color(0xffF5F5F5).withValues(alpha: 0.8),
-                        width: 2,
+                        width: 2.r,
                       ),
                     ),
                     child: SecondaryButtonWidget(
-                      width: 128,
+                      width: 128.r,
                       onTap: () {
                         RouteController.pushAndRemoveUntil(
                           context,
@@ -227,12 +229,12 @@ class SplashScreen extends HookWidget {
                         children: [
                           Text(
                             "Begin",
-                            style: TypographyStyles.poppinsBold16Inverse(),
+                            style: TypographyStyles.poppinsBold14Inverse(),
                           ),
                           ImageIcon(
                             AssetImage(IconConstants.icArrowRight),
                             color: theme.inverseColor,
-                            size: 18,
+                            size: 18.r,
                           ),
                         ],
                       ),

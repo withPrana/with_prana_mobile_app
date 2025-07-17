@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -31,18 +32,18 @@ class SecondaryButtonWidget extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         child: InkWell(
           splashColor: Colors.white,
           onTap: isLoading ? null : onTap,
           child: Container(
             width: width,
-            height: height ?? 40,
+            height: height ?? 40.r,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(
                 color: borderColor ?? theme.inverseColor,
-                width: 2,
+                width: 2.r,
               ),
               color: theme.secondaryColor,
             ),
@@ -51,7 +52,7 @@ class SecondaryButtonWidget extends StatelessWidget {
                   child ??
                   Text(
                     name ?? '',
-                    style: TypographyStyles.snigletNormal6Inverse(),
+                    style: TypographyStyles.snigletNormal14Inverse(),
                   ),
             ),
           ),

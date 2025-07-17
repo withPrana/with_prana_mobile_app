@@ -17,6 +17,13 @@ class InitialOption {
 class InitialQuestionOptionController extends GetxController {
   final options =
       <InitialOption>[
+        InitialOption(optionName: "🌙 Sleep better", isSelected: false),
+        InitialOption(optionName: "🌿 Manage anxiety", isSelected: false),
+        InitialOption(optionName: "✨ Reconnect spiritually", isSelected: false),
+        InitialOption(optionName: "💓 Heal emotionally", isSelected: false),
+      ].obs;
+  final optionsTwo =
+      <InitialOption>[
         InitialOption(optionName: "🌅 In the morning", isSelected: false),
         InitialOption(optionName: "🌞 Midday", isSelected: false),
         InitialOption(optionName: "🌙 Before bed", isSelected: false),
@@ -31,5 +38,15 @@ class InitialQuestionOptionController extends GetxController {
       options[index].isSelected = true;
     }
     options.refresh();
+  }
+
+  void selectOptionTwo(index) {
+    final selectedOption = optionsTwo.value[index];
+    if (selectedOption.isSelected) {
+      optionsTwo[index].isSelected = false;
+    } else {
+      optionsTwo[index].isSelected = true;
+    }
+    optionsTwo.refresh();
   }
 }

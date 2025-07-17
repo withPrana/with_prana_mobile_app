@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+class VerticalSpace6 extends StatelessWidget {
+  const VerticalSpace6({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 6);
+  }
+}
+
 class VerticalSpace8 extends StatelessWidget {
   const VerticalSpace8({super.key});
 

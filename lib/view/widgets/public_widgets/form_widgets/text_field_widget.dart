@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
@@ -21,6 +22,7 @@ class TextFieldWidget extends StatelessWidget {
   final void Function(String value)? onChanged;
   final TextAlign textAlign;
   final GlobalKey<FormState>? formKey;
+  final String? emptyValidationErrorText;
 
   TextFieldWidget({
     super.key,
@@ -32,6 +34,7 @@ class TextFieldWidget extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.formKey,
+    this.emptyValidationErrorText,
     this.enableValidation = true,
     this.textAlign = TextAlign.center,
     required this.controller,
@@ -70,7 +73,7 @@ class TextFieldWidget extends StatelessWidget {
           height: height,
           width: width,
           child: TextFormField(
-            cursorHeight: 16,
+            cursorHeight: 16.r,
             controller: controller,
             enabled: enabled,
             maxLength: maxLength,
@@ -80,13 +83,14 @@ class TextFieldWidget extends StatelessWidget {
             onTapOutside: (_) {
               FocusScope.of(context).unfocus();
             },
-            style: TypographyStyles.poppins50016(),
+            style: TypographyStyles.poppins50014(),
             validator:
                 validator ??
                 (value) {
                   if (enableValidation) {
                     if (value!.trim().isEmpty) {
-                      return "This field is required";
+                      return emptyValidationErrorText ??
+                          "This field is required";
                     } else if (textInputType == TextInputTypeEnum.name) {
                       if (value.length < 3) {
                         return "Name must contain at least 3 characters";
@@ -109,12 +113,12 @@ class TextFieldWidget extends StatelessWidget {
                 },
             inputFormatters: formatters,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(left: 16, right: 16),
+              contentPadding: EdgeInsets.only(left: 16.r, right: 16.r),
               fillColor: theme.inverseColor,
               filled: true,
               hintText: hintText,
-              errorStyle: TypographyStyles.poppinsNormal0Error(),
-              hintStyle: TypographyStyles.poppins50016Disabled(),
+              errorStyle: TypographyStyles.poppinsNormal8Error(),
+              hintStyle: TypographyStyles.poppins50014Disabled(),
               border: _border(theme),
               enabledBorder: _border(theme),
               focusedBorder: _border(theme),
@@ -130,8 +134,8 @@ class TextFieldWidget extends StatelessWidget {
 
   OutlineInputBorder _border(ColorPalette theme) {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: theme.textFieldBorder, width: 2),
-      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: theme.textFieldBorder, width: 2.r),
+      borderRadius: BorderRadius.circular(10.r),
     );
   }
 }
