@@ -77,23 +77,23 @@ class SubscriptionWidget extends StatelessWidget {
           "What You Get",
           style: TypographyStyles.poppinsBold10PrimaryColored(),
         ),
-        VerticalSpace10(),
+        VerticalSpace16(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             eachSubscriptionFeatureWidget(
               theme,
-              IconConstants.icSubscriptionExclusiveSleepAudios,
+              IconConstants.icSubscriptionFullAccess,
               "Full Access to All Meditations",
             ),
             eachSubscriptionFeatureWidget(
               theme,
-              IconConstants.icSubscriptionFullAccess,
+              IconConstants.icSubscriptionExclusiveSleepAudios,
               "Exclusive Sleep & Rest Audios",
             ),
           ],
         ),
-        VerticalSpace10(),
+        VerticalSpace16(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
