@@ -190,7 +190,7 @@ class TypographyStyles {
   static TextStyle poppinsBold10PrimaryColored() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
-      fontSize: 10.r,
+      fontSize: 11.r,
       color: themeController.appTheme.value?.primaryColor,
       fontWeight: FontWeight.bold,
       fontFamily: "Poppins",

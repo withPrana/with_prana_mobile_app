@@ -40,6 +40,7 @@ dependencies:
   flutter_smart_dialog: ^4.9.8+8
   dotted_line: ^3.2.3
   intl: ^0.20.2
+  double_tap_to_exit: ^1.0.3
 
 dev_dependencies:
   flutter_test:

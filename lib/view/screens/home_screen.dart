@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
 
   final themeController = Get.find<ThemeController>();
   final loginController = Get.find<LoginController>();
+  final homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +40,14 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           ////top bg image and its contents
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.symmetric(horizontal: 18.w),
             child: Column(
               children: [
+                ////
                 TodaySuggestionWidget(
                   theme: theme,
                   loginController: loginController,
+                  homeController: homeController,
                 ),
                 VerticalSpace32(),
                 ////

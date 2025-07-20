@@ -108,6 +108,21 @@ class HomeController extends GetxController {
         "✨ Spiritual Connection",
       ].obs;
 
+  ////Greet user in home screen based on the current time
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour < 11) {
+      return 'Good morning';
+    } else if (hour < 17) {
+      return 'Good afternoon';
+    } else if (hour < 21) {
+      return 'Good evening';
+    } else {
+      return 'Good night';
+    }
+  }
+
   void changeBottomNavScreenIndex(int index) {
     currentIndex(index);
   }

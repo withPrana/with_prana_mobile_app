@@ -123,7 +123,7 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                             );
                           } else {
                             AppDialogs.showToast(
-                              message: "Please select any",
+                              message: "You haven’t selected anything yet.",
                               toastType: ToastTypeEnum.info,
                             );
                           }

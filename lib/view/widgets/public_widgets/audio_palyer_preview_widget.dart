@@ -65,7 +65,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 140.w,
+                width: 160.w,
                 child: Text(
                   audioDetails.title,
                   style: TypographyStyles.poppins60012PrimaryColored(),

@@ -1,3 +1,4 @@
+import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
@@ -19,10 +20,12 @@ class BottomNavigationScreen extends StatelessWidget {
       HomeScreen(),
       HomeScreen(),
     ];
-    return Scaffold(
-      extendBody: true,
-      body: Obx(() => screens[homeController.currentIndex.value]),
-      bottomNavigationBar: BottomNavigationBarWidget(),
+    return DoubleTapToExit(
+      child: Scaffold(
+        extendBody: true,
+        body: Obx(() => screens[homeController.currentIndex.value]),
+        bottomNavigationBar: BottomNavigationBarWidget(),
+      ),
     );
   }
 }

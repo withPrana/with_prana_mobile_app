@@ -30,7 +30,7 @@ class SplashScreen extends HookWidget {
     final showAuthor = useState(false);
 
     final iconMoveController = useAnimationController(
-      duration: const Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 500),
     );
 
     final iconOffset = Tween<Offset>(
@@ -68,8 +68,7 @@ class SplashScreen extends HookWidget {
     return Scaffold(
       body: Stack(
         children: [
-          AnimatedContainer(
-            duration: const Duration(seconds: 1),
+          Container(
             width: ScreenSize.width(context),
             height: ScreenSize.height(context),
             decoration: BoxDecoration(

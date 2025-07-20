@@ -78,36 +78,43 @@ class SubscriptionWidget extends StatelessWidget {
           style: TypographyStyles.poppinsBold10PrimaryColored(),
         ),
         VerticalSpace16(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            eachSubscriptionFeatureWidget(
-              theme,
-              IconConstants.icSubscriptionFullAccess,
-              "Full Access to All Meditations",
-            ),
-            eachSubscriptionFeatureWidget(
-              theme,
-              IconConstants.icSubscriptionExclusiveSleepAudios,
-              "Exclusive Sleep & Rest Audios",
-            ),
-          ],
-        ),
-        VerticalSpace16(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            eachSubscriptionFeatureWidget(
-              theme,
-              IconConstants.icSubscriptionWeeklyContent,
-              "New Weekly Content",
-            ),
-            eachSubscriptionFeatureWidget(
-              theme,
-              IconConstants.icSubscriptionDownload,
-              "Download & Listen Offline",
-            ),
-          ],
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.r),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  eachSubscriptionFeatureWidget(
+                    theme,
+                    IconConstants.icSubscriptionFullAccess,
+                    "Full Access to All Meditations",
+                  ),
+                  eachSubscriptionFeatureWidget(
+                    theme,
+                    IconConstants.icSubscriptionExclusiveSleepAudios,
+                    "Exclusive Sleep & Rest Audios",
+                  ),
+                ],
+              ),
+              VerticalSpace16(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  eachSubscriptionFeatureWidget(
+                    theme,
+                    IconConstants.icSubscriptionWeeklyContent,
+                    "New Weekly Content",
+                  ),
+                  eachSubscriptionFeatureWidget(
+                    theme,
+                    IconConstants.icSubscriptionDownload,
+                    "Download & Listen Offline",
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ],
     );

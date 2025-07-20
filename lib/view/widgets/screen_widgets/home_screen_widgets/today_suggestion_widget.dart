@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
@@ -11,14 +12,15 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/play_today_suggestion_button_widget.dart';
 
 class TodaySuggestionWidget extends StatelessWidget {
+  final ColorPalette theme;
+  final LoginController loginController;
+  final HomeController homeController;
   const TodaySuggestionWidget({
     super.key,
     required this.theme,
     required this.loginController,
+    required this.homeController,
   });
-
-  final ColorPalette theme;
-  final LoginController loginController;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class TodaySuggestionWidget extends StatelessWidget {
                           color: theme.textColor,
                         ),
                         Text(
-                          "Good morning, ${loginController.nameController.text.trim()}",
+                          "${homeController.getGreeting()}, ${loginController.nameController.text.trim()}",
                           style: TypographyStyles.poppins40010Dark(),
                         ),
                       ],
