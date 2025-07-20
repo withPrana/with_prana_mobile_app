@@ -7,8 +7,10 @@ import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
@@ -107,7 +109,12 @@ class MailEntryScreen extends HookWidget {
                           children: [
                             PrimaryButtonWidget(
                               onTap: () {
-                                if (formKey.currentState!.validate()) {}
+                                if (formKey.currentState!.validate()) {
+                                  RouteController.pushAndRemoveUntil(
+                                    context,
+                                    BottomNavigationScreen.routePath,
+                                  );
+                                }
                               },
                               isLoading: false,
                               child: Row(
@@ -128,10 +135,18 @@ class MailEntryScreen extends HookWidget {
                               ),
                             ),
                             VerticalSpace16(),
-                            Text(
-                              "Skip for now",
-                              style:
-                                  TypographyStyles.poppinsBold12PrimaryColored(),
+                            GestureDetector(
+                              onTap: () {
+                                RouteController.pushAndRemoveUntil(
+                                  context,
+                                  BottomNavigationScreen.routePath,
+                                );
+                              },
+                              child: Text(
+                                "Skip for now",
+                                style:
+                                    TypographyStyles.poppinsBold12PrimaryColored(),
+                              ),
                             ),
                           ],
                         ),

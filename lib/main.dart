@@ -18,13 +18,14 @@ class MyApp extends StatelessWidget {
     return SafeArea(
       top: false,
       child: ScreenUtilInit(
+        designSize: const Size(360, 800),
         minTextAdapt: true,
         splitScreenMode: true,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'With Prana',
           theme: ThemeData(
-            fontFamily: 'Sniglet',
+            fontFamily: 'Poppins',
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
           onGenerateRoute: (settings) => getRoute(settings, context),

@@ -36,12 +36,13 @@ class ContentAndActionWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.r),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           enableCustomContent
               ? customContent ?? SizedBox.fromSize()
               : Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 20,
+                spacing: 20.r,
                 children: [
                   if (contentIconPath != null)
                     ImageIcon(

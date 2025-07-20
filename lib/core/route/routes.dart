@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/home_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_question_screen_one.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_question_screen_two.dart';
 import 'package:with_prana_mobile_app/view/screens/mail_entry_screen.dart';
@@ -17,6 +19,10 @@ Route getRoute(RouteSettings settings, BuildContext context) {
       return _buildRoute(InitialQuestionScreenTwo(), settings);
     case MailEntryScreen.routePath:
       return _buildRoute(MailEntryScreen(), settings);
+    case BottomNavigationScreen.routePath:
+      return _buildRoute(BottomNavigationScreen(), settings);
+    case HomeScreen.routePath:
+      return _buildRoute(HomeScreen(), settings);
     default:
       return _buildRoute(const SplashScreen(), settings);
   }

@@ -1,5 +1,23 @@
 import 'package:flutter/material.dart';
 
+class VerticalSpace2 extends StatelessWidget {
+  const VerticalSpace2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 2);
+  }
+}
+
+class VerticalSpace4 extends StatelessWidget {
+  const VerticalSpace4({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 4);
+  }
+}
+
 class VerticalSpace6 extends StatelessWidget {
   const VerticalSpace6({super.key});
 
@@ -15,6 +33,15 @@ class VerticalSpace8 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(height: 8);
+  }
+}
+
+class VerticalSpace10 extends StatelessWidget {
+  const VerticalSpace10({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 10);
   }
 }
 

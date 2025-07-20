@@ -7,7 +7,7 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 class PrimaryButtonWidget extends StatelessWidget {
   final String? name;
   final Widget? child;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool isLoading;
   final double? width;
   final double? height;
@@ -52,7 +52,7 @@ class PrimaryButtonWidget extends StatelessWidget {
                   child ??
                   Text(
                     name ?? '',
-                    style: TypographyStyles.snigletNormal14Inverse(),
+                    style: TypographyStyles.poppinsBold14Inverse(),
                   ),
             ),
           ),

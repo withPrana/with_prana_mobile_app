@@ -9,9 +9,13 @@ class ColorPalette {
   final Color secondaryColor;
   final Color primaryLightColor;
   final Color textColor;
+  final Color textDarkColor;
   final Color inverseColor;
   final Color textFieldBorder;
   final Color shadowColor;
+  final Color disabledLightColor;
+  final Color disabledColor;
+  final Color selectedBottomNavigationItemColor;
 
   ColorPalette({
     required this.splashGradient,
@@ -21,9 +25,13 @@ class ColorPalette {
     required this.secondaryColor,
     required this.primaryLightColor,
     required this.textColor,
+    required this.textDarkColor,
     required this.inverseColor,
     required this.textFieldBorder,
     required this.shadowColor,
+    required this.disabledLightColor,
+    required this.disabledColor,
+    required this.selectedBottomNavigationItemColor,
   });
 }
 
@@ -37,8 +45,12 @@ class LightTheme extends ColorPalette {
         secondaryColor: Color(0xff2B7272),
         primaryLightColor: Color(0xffDDF3E5),
         textColor: Color(0xff484848),
+        textDarkColor: Colors.black,
         inverseColor: Color(0xffFFFFFF),
         textFieldBorder: Color(0xffF5F5F5),
         shadowColor: Colors.black26,
+        disabledLightColor: Color(0xffEDEDED),
+        disabledColor: Color(0xff808080),
+        selectedBottomNavigationItemColor: Color(0xffC6ECE9),
       );
 }
