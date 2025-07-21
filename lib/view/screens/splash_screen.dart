@@ -30,7 +30,7 @@ class SplashScreen extends HookWidget {
     final showAuthor = useState(false);
 
     final iconMoveController = useAnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 600),
     );
 
     final iconOffset = Tween<Offset>(

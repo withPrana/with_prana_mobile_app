@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/initial_question_option_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
+import 'package:with_prana_mobile_app/controller/otp_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 
 void setupGetxDependencies() {
@@ -16,5 +17,8 @@ void setupGetxDependencies() {
   }
   if (!Get.isRegistered<HomeController>()) {
     Get.put(HomeController(), permanent: true);
+  }
+  if (!Get.isRegistered<OtpController>()) {
+    Get.put(OtpController(), permanent: true);
   }
 }

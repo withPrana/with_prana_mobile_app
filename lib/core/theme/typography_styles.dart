@@ -15,6 +15,16 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle snigletNormal16secondaryColored() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 16.r,
+      color: themeController.appTheme.value?.secondaryColor,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Sniglet",
+    );
+  }
+
   static TextStyle snigletNormal22secondaryColored() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(

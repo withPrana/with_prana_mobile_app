@@ -10,7 +10,7 @@ import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/otp_verification_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
@@ -110,9 +110,9 @@ class MailEntryScreen extends HookWidget {
                             PrimaryButtonWidget(
                               onTap: () {
                                 if (formKey.currentState!.validate()) {
-                                  RouteController.pushAndRemoveUntil(
+                                  RouteController.push(
                                     context,
-                                    BottomNavigationScreen.routePath,
+                                    OtpVerificationScreen.routePath,
                                   );
                                 }
                               },
@@ -122,7 +122,7 @@ class MailEntryScreen extends HookWidget {
                                 spacing: 8,
                                 children: [
                                   Text(
-                                    "Start Free Trial",
+                                    "Next",
                                     style:
                                         TypographyStyles.poppinsBold14Inverse(),
                                   ),
@@ -134,20 +134,20 @@ class MailEntryScreen extends HookWidget {
                                 ],
                               ),
                             ),
-                            VerticalSpace16(),
-                            GestureDetector(
-                              onTap: () {
-                                RouteController.pushAndRemoveUntil(
-                                  context,
-                                  BottomNavigationScreen.routePath,
-                                );
-                              },
-                              child: Text(
-                                "Skip for now",
-                                style:
-                                    TypographyStyles.poppinsBold12PrimaryColored(),
-                              ),
-                            ),
+                            // VerticalSpace16(),
+                            // GestureDetector(
+                            //   onTap: () {
+                            //     RouteController.pushAndRemoveUntil(
+                            //       context,
+                            //       BottomNavigationScreen.routePath,
+                            //     );
+                            //   },
+                            //   child: Text(
+                            //     "Skip for now",
+                            //     style:
+                            //         TypographyStyles.poppinsBold12PrimaryColored(),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
