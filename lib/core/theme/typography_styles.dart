@@ -106,6 +106,15 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle poppins4008Inverse() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 8.r,
+      color: themeController.appTheme.value?.inverseColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
   static TextStyle poppins4008PrimaryColored() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -232,6 +241,15 @@ class TypographyStyles {
     return TextStyle(
       fontSize: 12.r,
       color: themeController.appTheme.value?.primaryColor,
+      fontWeight: FontWeight.w600,
+      fontFamily: "Poppins",
+    );
+  }
+  static TextStyle poppins60012Inverse() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 12.r,
+      color: themeController.appTheme.value?.inverseColor,
       fontWeight: FontWeight.w600,
       fontFamily: "Poppins",
     );

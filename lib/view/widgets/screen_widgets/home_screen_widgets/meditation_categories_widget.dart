@@ -20,43 +20,53 @@ class MeditationCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
-    return Container(
-      width: ScreenSize.width(context),
-      padding: EdgeInsets.all(20.r),
-      decoration: BoxDecoration(
-        color: theme.inverseColor,
-        border: Border.all(color: theme.primaryScreenGradient[0], width: 1.r),
-        borderRadius: BorderRadius.circular(30.r),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Let’s Begin With", style: TypographyStyles.sniglet40014()),
-          VerticalSpace8(),
-          LayoutBuilder(
-            builder: (context, contraints) {
-              final maxWidth = contraints.maxWidth;
-              final mainAxisExtend = (maxWidth / 2) - 20.r;
-              return GridViewBuilderWidget(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisExtent: mainAxisExtend,
-                  crossAxisSpacing: 20.r,
-                  mainAxisSpacing: 20.r,
-                ),
-                itemCount: 4,
-                itemBuilder:
-                    (context, index) => Obx(
-                      () => EachMeditationCategoryWidget(
-                        meditationCategory:
-                            homeController.meditationCategories.value[index],
-                      ),
-                    ),
-              );
-            },
+    return Column(
+      children: [
+        Container(
+          width: ScreenSize.width(context),
+          padding: EdgeInsets.all(20.r),
+          decoration: BoxDecoration(
+            color: theme.inverseColor,
+            border: Border.all(
+              color: theme.primaryScreenGradient[0],
+              width: 1.r,
+            ),
+            borderRadius: BorderRadius.circular(30.r),
           ),
-        ],
-      ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Let’s Begin With", style: TypographyStyles.sniglet40014()),
+              VerticalSpace8(),
+              LayoutBuilder(
+                builder: (context, contraints) {
+                  final maxWidth = contraints.maxWidth;
+                  final mainAxisExtend = (maxWidth / 2) - 20.r;
+                  return GridViewBuilderWidget(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisExtent: mainAxisExtend,
+                      crossAxisSpacing: 20.r,
+                      mainAxisSpacing: 20.r,
+                    ),
+                    itemCount: 4,
+                    itemBuilder:
+                        (context, index) => Obx(
+                          () => EachMeditationCategoryWidget(
+                            meditationCategory:
+                                homeController
+                                    .meditationCategories
+                                    .value[index],
+                          ),
+                        ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+        VerticalSpace32(),
+      ],
     );
   }
 }

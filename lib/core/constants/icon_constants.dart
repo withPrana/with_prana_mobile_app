@@ -36,4 +36,6 @@ class IconConstants {
       "assets/icons/ic_subscription_weekly_content.png";
   static const icSubscriptionDownload =
       "assets/icons/ic_subscription_download.png";
+
+  static const icFavourite = "assets/icons/ic_favourite.png";
 }

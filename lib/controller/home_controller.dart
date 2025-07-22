@@ -1,8 +1,11 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 
+////
 class MeditationCategoryModel {
   final String iconPath;
   final String name;
@@ -17,6 +20,7 @@ class MeditationCategoryModel {
   });
 }
 
+//////
 class AudioPreviewModel {
   final String iconPath;
   final String title;
@@ -32,6 +36,22 @@ class AudioPreviewModel {
     required this.minutes,
   });
 }
+
+////
+class MadeForYouContentModel {
+  bool isLiked;
+  String imagePath;
+  String title;
+  String subTitle;
+
+  MadeForYouContentModel({
+    required this.isLiked,
+    required this.imagePath,
+    required this.title,
+    required this.subTitle,
+  });
+}
+////
 
 class HomeController extends GetxController {
   final currentIndex = 0.obs;
@@ -108,6 +128,34 @@ class HomeController extends GetxController {
         "✨ Spiritual Connection",
       ].obs;
 
+  final madeForYouContents =
+      [
+        MadeForYouContentModel(
+          isLiked: false,
+          imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+          title: "Soft Heart, Strong Boundaries",
+          subTitle: "14 min • Healing & Connection",
+        ),
+        MadeForYouContentModel(
+          isLiked: false,
+          imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+          title: "Soft Heart, Strong Boundaries",
+          subTitle: "14 min • Healing & Connection",
+        ),
+        MadeForYouContentModel(
+          isLiked: false,
+          imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+          title: "Soft Heart, Strong Boundaries",
+          subTitle: "14 min • Healing & Connection",
+        ),
+        MadeForYouContentModel(
+          isLiked: false,
+          imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+          title: "Soft Heart, Strong Boundaries",
+          subTitle: "14 min • Healing & Connection",
+        ),
+      ].obs;
+
   ////Greet user in home screen based on the current time
   String getGreeting() {
     final hour = DateTime.now().hour;
@@ -121,6 +169,15 @@ class HomeController extends GetxController {
     } else {
       return 'Good night';
     }
+  }
+
+  void likeContent(int index) {
+    if (madeForYouContents.value[index].isLiked) {
+      madeForYouContents.value[index].isLiked = false;
+    } else {
+      madeForYouContents.value[index].isLiked = true;
+    }
+    madeForYouContents.refresh();
   }
 
   void changeBottomNavScreenIndex(int index) {

@@ -10,6 +10,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/daily_thought_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/explore_topics_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/listen_again_section_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/made_for_you_section_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/meditation_categories_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/subscription_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/today_suggestion_widget.dart';
@@ -52,6 +53,8 @@ class HomeScreen extends StatelessWidget {
                 VerticalSpace32(),
                 ////
                 MeditationCategoriesWidget(),
+                ////
+                MadeForYouSectionWidget(),
                 ////
                 GradientDashedLineWidget(),
                 ////
