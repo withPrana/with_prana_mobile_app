@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -14,12 +12,10 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 class TodaySuggestionWidget extends StatelessWidget {
   final ColorPalette theme;
   final LoginController loginController;
-  final HomeController homeController;
   const TodaySuggestionWidget({
     super.key,
     required this.theme,
     required this.loginController,
-    required this.homeController,
   });
 
   @override
@@ -56,60 +52,26 @@ class TodaySuggestionWidget extends StatelessWidget {
               ),
             ),
           ),
-          Column(
-            children: [
-              VerticalSpace72(),
-
-              ///
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ////Daily wishes like good morning, afternoon, etc
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 6.r,
-                      horizontal: 10.r,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(500.r),
-                      color: theme.inverseColor.withValues(alpha: 0.25),
-                    ),
-                    child: Row(
-                      spacing: 5.r,
-                      children: [
-                        ImageIcon(
-                          AssetImage(IconConstants.icMorning),
-                          size: 18.r,
-                          color: theme.textColor,
-                        ),
-                        Text(
-                          "${homeController.getGreeting()}, ${loginController.nameController.text.trim()}",
-                          style: TypographyStyles.poppins40010Dark(),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ImageIcon(
-                    AssetImage(IconConstants.icFlower),
-                    color: theme.textDarkColor,
-                    size: 24.r,
-                  ),
-                ],
-              ),
-              VerticalSpace32(),
-              ////Today's suggestion
-              Text(
-                "Today’s Suggestion",
-                style: TypographyStyles.poppins40010Dark(),
-              ),
-              Text(
-                "Inhale peace,\nexhale tension.",
-                textAlign: TextAlign.center,
-                style: TypographyStyles.sniglet40034secondaryColored(),
-              ),
-              VerticalSpace8(),
-              PlayTodaySuggestionButtonWidget(),
-            ],
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 12.r,
+            child: Column(
+              children: [
+                ////Today's suggestion
+                Text(
+                  "Today’s Suggestion",
+                  style: TypographyStyles.poppins40010Dark(),
+                ),
+                Text(
+                  "Inhale peace,\nexhale tension.",
+                  textAlign: TextAlign.center,
+                  style: TypographyStyles.sniglet40034secondaryColored(),
+                ),
+                VerticalSpace8(),
+                PlayTodaySuggestionButtonWidget(),
+              ],
+            ),
           ),
         ],
       ),

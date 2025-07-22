@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/home_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_question_screen_one.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_question_screen_two.dart';
-import 'package:with_prana_mobile_app/view/screens/mail_entry_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/name_entry_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/otp_verification_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/splash_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_one.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_two.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/mail_entry_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/splash_screen.dart';
 
 Route getRoute(RouteSettings settings, BuildContext context) {
   switch (settings.name) {

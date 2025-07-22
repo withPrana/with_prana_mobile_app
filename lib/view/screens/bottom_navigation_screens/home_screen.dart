@@ -9,6 +9,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_dashe
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/daily_thought_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/explore_topics_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/home_top_bar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/listen_again_section_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/made_for_you_section_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/meditation_categories_widget.dart';
@@ -38,43 +39,51 @@ class HomeScreen extends StatelessWidget {
             colors: theme.primaryScreenGradient,
           ),
         ),
-        child: SingleChildScrollView(
-          ////top bg image and its contents
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 18.w),
-            child: Column(
-              children: [
-                ////
-                TodaySuggestionWidget(
-                  theme: theme,
-                  loginController: loginController,
-                  homeController: homeController,
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              ////top bg image and its contents
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
+                child: Column(
+                  children: [
+                    ////
+                    TodaySuggestionWidget(
+                      theme: theme,
+                      loginController: loginController,
+                    ),
+                    VerticalSpace32(),
+                    ////
+                    MeditationCategoriesWidget(),
+                    ////
+                    MadeForYouSectionWidget(),
+                    ////
+                    GradientDashedLineWidget(),
+                    ////
+                    DailyThoughtWidget(),
+                    ////
+                    GradientDashedLineWidget(),
+                    ////
+                    ExploreTopicsWidget(),
+                    ////
+                    GradientDashedLineWidget(),
+                    ////
+                    ListenAgainSectionWidget(),
+                    ////
+                    GradientDashedLineWidget(),
+                    ////
+                    SubscriptionWidget(),
+                    VerticalSpace152(),
+                  ],
                 ),
-                VerticalSpace32(),
-                ////
-                MeditationCategoriesWidget(),
-                ////
-                MadeForYouSectionWidget(),
-                ////
-                GradientDashedLineWidget(),
-                ////
-                DailyThoughtWidget(),
-                ////
-                GradientDashedLineWidget(),
-                ////
-                ExploreTopicsWidget(),
-                ////
-                GradientDashedLineWidget(),
-                ////
-                ListenAgainSectionWidget(),
-                ////
-                GradientDashedLineWidget(),
-                ////
-                SubscriptionWidget(),
-                VerticalSpace152(),
-              ],
+              ),
             ),
-          ),
+            HomeTopBarWidget(
+              homeController: homeController,
+              theme: theme,
+              loginController: loginController,
+            ),
+          ],
         ),
       ),
     );
