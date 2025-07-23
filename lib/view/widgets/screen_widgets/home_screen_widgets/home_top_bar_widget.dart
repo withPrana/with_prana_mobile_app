@@ -20,9 +20,23 @@ class HomeTopBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 64.r, bottom: 8.r),
+      padding: EdgeInsets.only(
+        left: 16.w,
+        right: 16.w,
+        top: 64.r,
+        bottom: 16.r,
+      ),
       decoration: BoxDecoration(
         color: theme.primaryLightColor,
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0.8, 1],
+          colors: [
+            theme.primaryScreenGradient[0],
+            theme.primaryScreenGradient[0].withValues(alpha: 0),
+          ],
+        ),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(24.r)),
       ),
       child: Row(

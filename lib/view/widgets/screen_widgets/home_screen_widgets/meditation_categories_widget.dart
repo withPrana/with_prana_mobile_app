@@ -7,7 +7,7 @@ import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/widgets/public_widgets/layout_widgets/grid_view_builder_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/grid_view_builder_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/each_meditation_category_widget.dart';
 

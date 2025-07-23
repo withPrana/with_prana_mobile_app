@@ -106,7 +106,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
               isSelected
                   ? TweenAnimationBuilder<double>(
                     tween: Tween(begin: 0.5, end: 1),
-                    duration: const Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.easeOutBack,
                     builder:
                         (context, scale, child) => Transform.scale(

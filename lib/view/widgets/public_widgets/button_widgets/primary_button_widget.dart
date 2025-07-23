@@ -13,6 +13,8 @@ class PrimaryButtonWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? borderColor;
+  final bool borderOnly;
+  final bool primaryColorText;
   PrimaryButtonWidget({
     super.key,
     required this.onTap,
@@ -22,6 +24,8 @@ class PrimaryButtonWidget extends StatelessWidget {
     this.name,
     this.child,
     this.borderColor,
+    this.borderOnly = false,
+    this.primaryColorText = false,
   });
 
   final themeController = Get.find<ThemeController>();
@@ -46,7 +50,7 @@ class PrimaryButtonWidget extends StatelessWidget {
                 color: borderColor ?? theme.inverseColor,
                 width: 2.r,
               ),
-              color: theme.primaryColor,
+              color: borderOnly ? null : theme.primaryColor,
             ),
             child: Center(
               child:
@@ -58,7 +62,10 @@ class PrimaryButtonWidget extends StatelessWidget {
                       : child ??
                           Text(
                             name ?? '',
-                            style: TypographyStyles.poppinsBold14Inverse(),
+                            style:
+                                primaryColorText
+                                    ? TypographyStyles.poppinsBold14PrimaryColored()
+                                    : TypographyStyles.poppinsBold14Inverse(),
                           ),
             ),
           ),

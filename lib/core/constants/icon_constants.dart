@@ -1,5 +1,6 @@
 class IconConstants {
   static const icArrowRight = "assets/icons/ic_arrow_right.png";
+  static const icArrowBack = "assets/icons/ic_arrow_back.png";
 
   ////Bottom navigation
   static const icBottomNavHome = "assets/icons/ic_bottom_nav_home.png";

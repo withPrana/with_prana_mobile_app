@@ -16,6 +16,10 @@ class ImageConstants {
   ////Audio preview
   static const imgAudioPreviewOne = "assets/images/img_audio_preview_one.png";
   static const imgAudioPreviewTwo = "assets/images/img_audio_preview_two.png";
-  static const imgAudioPreviewThree = "assets/images/img_audio_preview_three.png";
+  static const imgAudioPreviewThree =
+      "assets/images/img_audio_preview_three.png";
   static const imgAudioPreviewFour = "assets/images/img_audio_preview_four.png";
+
+  ////
+  static const imgOfflineDownloadBg = "assets/images/img_offline_download.png";
 }

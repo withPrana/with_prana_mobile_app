@@ -39,12 +39,14 @@ class AudioPreviewModel {
 
 ////
 class MadeForYouContentModel {
+  int index;
   bool isLiked;
   String imagePath;
   String title;
   String subTitle;
 
   MadeForYouContentModel({
+    required this.index,
     required this.isLiked,
     required this.imagePath,
     required this.title,
@@ -131,24 +133,28 @@ class HomeController extends GetxController {
   final madeForYouContents =
       [
         MadeForYouContentModel(
+          index: 0,
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_one.jpg",
           title: "Soft Heart, Strong Boundaries",
           subTitle: "14 min • Healing & Connection",
         ),
         MadeForYouContentModel(
+          index: 1,
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_two.jpg",
           title: "Soft Heart, Strong Boundaries",
           subTitle: "14 min • Healing & Connection",
         ),
         MadeForYouContentModel(
+          index: 2,
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_one.jpg",
           title: "Soft Heart, Strong Boundaries",
           subTitle: "14 min • Healing & Connection",
         ),
         MadeForYouContentModel(
+          index: 3,
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_two.jpg",
           title: "Soft Heart, Strong Boundaries",

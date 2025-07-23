@@ -30,6 +30,10 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'With Prana',
           theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
             fontFamily: 'Poppins',
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),

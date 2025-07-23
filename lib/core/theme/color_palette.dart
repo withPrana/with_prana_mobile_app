@@ -14,6 +14,7 @@ class ColorPalette {
   final Color textFieldBorder;
   final Color shadowColor;
   final Color disabledLightColor;
+  final Color disabledLightestColor;
   final Color disabledColor;
   final Color selectedBottomNavigationItemColor;
 
@@ -30,6 +31,7 @@ class ColorPalette {
     required this.textFieldBorder,
     required this.shadowColor,
     required this.disabledLightColor,
+    required this.disabledLightestColor,
     required this.disabledColor,
     required this.selectedBottomNavigationItemColor,
   });
@@ -50,6 +52,7 @@ class LightTheme extends ColorPalette {
         textFieldBorder: Color(0xffF5F5F5),
         shadowColor: Colors.black26,
         disabledLightColor: Color(0xffEDEDED),
+        disabledLightestColor: Color(0xffF5F5F5),
         disabledColor: Color(0xff808080),
         selectedBottomNavigationItemColor: Color(0xffC6ECE9),
       );
