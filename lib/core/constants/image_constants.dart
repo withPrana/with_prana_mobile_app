@@ -13,6 +13,8 @@ class ImageConstants {
 
   static const imgFlower = "assets/images/img_flower.png";
 
+  static const imgCategoriesCenterFlower = "assets/images/img_categories_center_flower.png";
+
   ////Audio preview
   static const imgAudioPreviewOne = "assets/images/img_audio_preview_one.png";
   static const imgAudioPreviewTwo = "assets/images/img_audio_preview_two.png";

@@ -15,6 +15,7 @@ class MainAppbarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
     return AppBar(
+      toolbarHeight: 72.r,
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,

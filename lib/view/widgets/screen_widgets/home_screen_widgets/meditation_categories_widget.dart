@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/grid_view_builder_widget.dart';
@@ -42,23 +43,35 @@ class MeditationCategoriesWidget extends StatelessWidget {
                 builder: (context, contraints) {
                   final maxWidth = contraints.maxWidth;
                   final mainAxisExtend = (maxWidth / 2) - 20.r;
-                  return GridViewBuilderWidget(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisExtent: mainAxisExtend,
-                      crossAxisSpacing: 20.r,
-                      mainAxisSpacing: 20.r,
-                    ),
-                    itemCount: 4,
-                    itemBuilder:
-                        (context, index) => Obx(
-                          () => EachMeditationCategoryWidget(
-                            meditationCategory:
-                                homeController
-                                    .meditationCategories
-                                    .value[index],
+                  return Stack(
+                    children: [
+                      GridViewBuilderWidget(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisExtent: mainAxisExtend,
+                          crossAxisSpacing: 20.r,
+                          mainAxisSpacing: 20.r,
+                        ),
+                        itemCount: 4,
+                        itemBuilder:
+                            (context, index) => Obx(
+                              () => EachMeditationCategoryWidget(
+                                meditationCategory:
+                                    homeController
+                                        .meditationCategories
+                                        .value[index],
+                              ),
+                            ),
+                      ),
+                      Positioned.fill(
+                        child: Center(
+                          child: Image.asset(
+                            ImageConstants.imgCategoriesCenterFlower,
+                            width: 24.r,
                           ),
                         ),
+                      ),
+                    ],
                   );
                 },
               ),

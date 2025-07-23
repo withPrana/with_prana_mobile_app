@@ -55,6 +55,26 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle sniglet40014PrimaryColored() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 14.r,
+      color: themeController.appTheme.value?.primaryColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  static TextStyle sniglet40016PrimaryColored() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 16.r,
+      color: themeController.appTheme.value?.primaryColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
   static TextStyle snigletNormal10Inverse() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
