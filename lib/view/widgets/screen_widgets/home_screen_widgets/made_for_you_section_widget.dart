@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -12,10 +13,16 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_with_i
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class MadeForYouSectionWidget extends HookWidget {
-  MadeForYouSectionWidget({super.key});
+  final ThemeController themeController;
+  final HomeController homeController;
+  final LikedContentsController likedContentsController;
 
-  final themeController = Get.find<ThemeController>();
-  final homeController = Get.find<HomeController>();
+  const MadeForYouSectionWidget({
+    super.key,
+    required this.themeController,
+    required this.homeController,
+    required this.likedContentsController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +46,16 @@ class MadeForYouSectionWidget extends HookWidget {
                 return Obx(() {
                   final content =
                       homeController.madeForYouContents.value[index];
-                  return ContentWithImageWidget(
-                    theme: theme,
-                    content: content,
-                    onLiked: () {
-                      homeController.likeContent(content.index);
-                    },
+                  return Obx(
+                    () => ContentWithImageWidget(
+                      theme: theme,
+                      content: content,
+                      isLiked: likedContentsController.likedContents.value
+                          .contains(content),
+                      onLiked: () {
+                        likedContentsController.likeContent(content);
+                      },
+                    ),
                   );
                 });
               },
@@ -57,4 +68,3 @@ class MadeForYouSectionWidget extends HookWidget {
     );
   }
 }
-

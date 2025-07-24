@@ -40,17 +40,23 @@ class AudioPreviewModel {
 ////
 class MadeForYouContentModel {
   int index;
+  String iconPath;
+  Color iconColor;
   bool isLiked;
   String imagePath;
   String title;
-  String subTitle;
+  String category;
+  int minutes;
 
   MadeForYouContentModel({
     required this.index,
+    required this.iconPath,
+    required this.iconColor,
     required this.isLiked,
     required this.imagePath,
     required this.title,
-    required this.subTitle,
+    required this.category,
+    required this.minutes,
   });
 }
 ////
@@ -134,31 +140,43 @@ class HomeController extends GetxController {
       [
         MadeForYouContentModel(
           index: 0,
+          iconPath: ImageConstants.imgAudioPreviewOne,
+          iconColor: Color(0xffFCCCFF),
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_one.jpg",
           title: "Soft Heart, Strong Boundaries",
-          subTitle: "14 min • Healing & Connection",
+          category: "Healing & Connection",
+          minutes: 5,
         ),
         MadeForYouContentModel(
           index: 1,
+          iconPath: ImageConstants.imgAudioPreviewTwo,
+          iconColor: Color(0xffBAE2BA),
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_two.jpg",
           title: "Soft Heart, Strong Boundaries",
-          subTitle: "14 min • Healing & Connection",
+          category: "Healing & Connection",
+          minutes: 7,
         ),
         MadeForYouContentModel(
           index: 2,
+          iconPath: ImageConstants.imgAudioPreviewThree,
+          iconColor: Color(0xffFFCDC9),
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_one.jpg",
           title: "Soft Heart, Strong Boundaries",
-          subTitle: "14 min • Healing & Connection",
+          category: "Healing & Connection",
+          minutes: 4,
         ),
         MadeForYouContentModel(
           index: 3,
+          iconPath: ImageConstants.imgAudioPreviewFour,
+          iconColor: Color(0xffCCD3FF),
           isLiked: false,
           imagePath: "assets/images/made_for_you_bg_image_two.jpg",
           title: "Soft Heart, Strong Boundaries",
-          subTitle: "14 min • Healing & Connection",
+          category: "Healing & Connection",
+          minutes: 9,
         ),
       ].obs;
 
@@ -175,15 +193,6 @@ class HomeController extends GetxController {
     } else {
       return 'Good night';
     }
-  }
-
-  void likeContent(int index) {
-    if (madeForYouContents.value[index].isLiked) {
-      madeForYouContents.value[index].isLiked = false;
-    } else {
-      madeForYouContents.value[index].isLiked = true;
-    }
-    madeForYouContents.refresh();
   }
 
   void changeBottomNavScreenIndex(int index) {

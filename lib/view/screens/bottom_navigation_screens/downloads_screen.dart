@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -22,6 +23,7 @@ class DownloadsScreen extends HookWidget {
 
   final themeController = Get.find<ThemeController>();
   final homeController = Get.find<HomeController>();
+  final likedContentsController = Get.find<LikedContentsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,7 @@ class DownloadsScreen extends HookWidget {
 
     return BottomNavigationScreenLayoutWidget(
       appBar: MainAppbarWidget(name: "📥 Downloads"),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+      body: SingleChildScrollView(
         child:
             isSubscribed.value
                 ? Column(
@@ -55,10 +56,18 @@ class DownloadsScreen extends HookWidget {
                         itemBuilder: (context, index) {
                           final content =
                               homeController.madeForYouContents.value[index];
-                          return ContentWithImageWidget(
-                            theme: theme,
-                            content: content,
-                            onLiked: () {},
+                          return Obx(
+                            () => ContentWithImageWidget(
+                              theme: theme,
+                              content: content,
+                              isLiked: likedContentsController
+                                  .likedContents
+                                  .value
+                                  .contains(content),
+                              onLiked: () {
+                                likedContentsController.likeContent(content);
+                              },
+                            ),
                           );
                         },
                       ),

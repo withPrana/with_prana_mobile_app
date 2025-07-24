@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
   final themeController = Get.find<ThemeController>();
   final loginController = Get.find<LoginController>();
   final homeController = Get.find<HomeController>();
+  final likedContentsController = Get.find<LikedContentsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,37 +46,49 @@ class HomeScreen extends StatelessWidget {
             SingleChildScrollView(
               ////top bg image and its contents
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18.w),
-                child: Column(
-                  children: [
-                    ////
-                    TodaySuggestionWidget(
-                      theme: theme,
-                      loginController: loginController,
-                    ),
-                    VerticalSpace32(),
-                    ////
-                    MeditationCategoriesWidget(),
-                    ////
-                    MadeForYouSectionWidget(),
-                    ////
-                    GradientDashedLineWidget(),
-                    ////
-                    DailyThoughtWidget(),
-                    ////
-                    GradientDashedLineWidget(),
-                    ////
-                    ExploreTopicsWidget(),
-                    ////
-                    GradientDashedLineWidget(),
-                    ////
-                    ListenAgainSectionWidget(),
-                    ////
-                    GradientDashedLineWidget(),
-                    ////
-                    SubscriptionWidget(),
-                    VerticalSpace152(),
-                  ],
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: TweenAnimationBuilder<double>(
+                  tween: Tween(begin: 0, end: 1),
+                  duration: Duration(milliseconds: 500),
+                  builder:
+                      (context, opacity, child) => Opacity(
+                        opacity: opacity,
+                        child: Column(
+                          children: [
+                            ////
+                            TodaySuggestionWidget(
+                              theme: theme,
+                              loginController: loginController,
+                            ),
+                            VerticalSpace32(),
+                            ////
+                            MeditationCategoriesWidget(),
+                            ////
+                            MadeForYouSectionWidget(
+                              homeController: homeController,
+                              themeController: themeController,
+                              likedContentsController: likedContentsController,
+                            ),
+                            ////
+                            GradientDashedLineWidget(),
+                            ////
+                            DailyThoughtWidget(),
+                            ////
+                            GradientDashedLineWidget(),
+                            ////
+                            ExploreTopicsWidget(),
+                            ////
+                            GradientDashedLineWidget(),
+                            ////
+                            ListenAgainSectionWidget(),
+                            ////
+                            GradientDashedLineWidget(),
+                            ////
+                            SubscriptionWidget(),
+                            VerticalSpace152(),
+                          ],
+                        ),
+                      ),
                 ),
               ),
             ),

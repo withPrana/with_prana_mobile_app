@@ -9,12 +9,14 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 class ContentWithImageWidget extends StatelessWidget {
   final ColorPalette theme;
   final MadeForYouContentModel content;
+  final bool isLiked;
   final void Function()? onLiked;
   const ContentWithImageWidget({
     super.key,
     required this.theme,
     required this.content,
     required this.onLiked,
+    required this.isLiked,
   });
 
   @override
@@ -68,11 +70,11 @@ class ContentWithImageWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Soft Heart, Strong Boundaries",
+                  content.title,
                   style: TypographyStyles.poppins60012Inverse(),
                 ),
                 Text(
-                  "14 min • Healing & Connection",
+                  "${content.minutes} min • ${content.category}",
                   style: TypographyStyles.poppins4008Inverse(),
                 ),
               ],
@@ -86,17 +88,14 @@ class ContentWithImageWidget extends StatelessWidget {
               child: CircleAvatar(
                 radius: 14.r,
                 backgroundColor:
-                    content.isLiked
+                    isLiked
                         ? Colors.red
                         : theme.inverseColor.withValues(alpha: 0.6),
                 child: Center(
                   child: ImageIcon(
                     AssetImage(IconConstants.icFavourite),
                     size: 16.r,
-                    color:
-                        content.isLiked
-                            ? theme.inverseColor
-                            : theme.disabledColor,
+                    color: isLiked ? theme.inverseColor : theme.disabledColor,
                   ),
                 ),
               ),

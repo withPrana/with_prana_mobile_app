@@ -31,10 +31,10 @@ class TodaySuggestionWidget extends StatelessWidget {
             left: -24.w,
             right: -24.w,
             child: SizedBox(
-              height: 410.h,
+              height: 420.h,
               child: OverflowBox(
                 maxWidth: ScreenSize.width(context) + 48.w,
-                maxHeight: 410.h,
+                maxHeight: 420.h,
                 child: GradientImageWidget(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,

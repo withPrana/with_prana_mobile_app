@@ -155,6 +155,7 @@ class TypographyStyles {
       fontFamily: "Poppins",
     );
   }
+  
 
   static TextStyle poppins40012() {
     final themeController = Get.find<ThemeController>();

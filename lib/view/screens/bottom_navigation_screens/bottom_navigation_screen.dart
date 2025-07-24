@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/downloads_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/liked_contents_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/my_library_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
 
 class BottomNavigationScreen extends StatelessWidget {
@@ -17,8 +19,8 @@ class BottomNavigationScreen extends StatelessWidget {
     final screens = [
       HomeScreen(),
       DownloadsScreen(),
-      HomeScreen(),
-      HomeScreen(),
+      MyLibraryScreen(),
+      LikedContentsScreen(),
       HomeScreen(),
     ];
     return DoubleTapToExit(
