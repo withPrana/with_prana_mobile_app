@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
@@ -141,8 +140,8 @@ class BottomNavigationBarWidget extends StatelessWidget {
                 item.name,
                 style:
                     isSelected
-                        ? TypographyStyles.poppinsNormal10PrimaryColored()
-                        : TypographyStyles.poppinsNormal10Disabled(),
+                        ? TypographyStyles.poppins40010PrimaryColored()
+                        : TypographyStyles.poppins40010Disabled(),
               ),
             ],
           ),

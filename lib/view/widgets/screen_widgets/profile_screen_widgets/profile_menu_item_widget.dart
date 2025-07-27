@@ -20,30 +20,37 @@ class ProfileMenuItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ImageIcon(AssetImage(iconPath), color: theme.textDarkColor, size: 20.r),
-        SizedBox(width: 10.r),
-        Text(menuName, style: TypographyStyles.poppins40012Dark()),
-        Spacer(),
-        if (badge != null) badge!,
-        SizedBox(width: 10.r),
-        Container(
-          width: 24.r,
-          height: 24.r,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.r),
-            border: Border.all(color: theme.disabledLightColor, width: 1.r),
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        children: [
+          ImageIcon(
+            AssetImage(iconPath),
+            color: theme.textDarkColor,
+            size: 20.r,
           ),
-          child: Center(
-            child: Icon(
-              Icons.arrow_forward,
-              color: theme.textDarkColor,
-              size: 12.r,
+          SizedBox(width: 10.r),
+          Text(menuName, style: TypographyStyles.poppins40012Dark()),
+          Spacer(),
+          if (badge != null) badge!,
+          SizedBox(width: 10.r),
+          Container(
+            width: 24.r,
+            height: 24.r,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.r),
+              border: Border.all(color: theme.disabledLightColor, width: 1.r),
+            ),
+            child: Center(
+              child: Icon(
+                Icons.arrow_forward,
+                color: theme.textDarkColor,
+                size: 12.r,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

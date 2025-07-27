@@ -76,7 +76,7 @@ class CropProfileImagePopupWidget extends HookWidget {
                       },
                       child: Text(
                         "Cancel",
-                        style: TypographyStyles.poppinsNormal14Inverse(),
+                        style: TypographyStyles.poppinsNormal16Inverse(),
                       ),
                     ),
                   ),
@@ -101,7 +101,7 @@ class CropProfileImagePopupWidget extends HookWidget {
                       },
                       child: Text(
                         "Save",
-                        style: TypographyStyles.poppinsNormal14Inverse(),
+                        style: TypographyStyles.poppinsNormal16Inverse(),
                       ),
                     ),
                   ),

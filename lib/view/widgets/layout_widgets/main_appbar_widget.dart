@@ -30,19 +30,24 @@ class MainAppbarWidget extends StatelessWidget {
         spacing: 16.r,
         children: [
           ////back button
-          Container(
-            width: 24.r,
-            height: 24.r,
-            decoration: BoxDecoration(
-              color: theme.inverseColor,
-              border: Border.all(color: theme.disabledLightestColor),
-              borderRadius: BorderRadius.circular(5.r),
-            ),
-            child: Center(
-              child: ImageIcon(
-                AssetImage(IconConstants.icArrowBack),
-                size: 14.r,
-                color: Colors.black,
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              width: 24.r,
+              height: 24.r,
+              decoration: BoxDecoration(
+                color: theme.inverseColor,
+                border: Border.all(color: theme.disabledLightestColor),
+                borderRadius: BorderRadius.circular(5.r),
+              ),
+              child: Center(
+                child: ImageIcon(
+                  AssetImage(IconConstants.icArrowBack),
+                  size: 14.r,
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
@@ -50,8 +55,8 @@ class MainAppbarWidget extends StatelessWidget {
             name,
             style:
                 isInverse
-                    ? TypographyStyles.poppinsBold14Inverse()
-                    : TypographyStyles.poppinsBold14DarkColored(),
+                    ? TypographyStyles.poppinsBold16Inverse()
+                    : TypographyStyles.poppinsBold16DarkColored(),
           ),
         ],
       ),

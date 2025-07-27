@@ -60,7 +60,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal22secondaryColored(),
+                style: TypographyStyles.snigletNormal24secondaryColored(),
               ),
             );
           }),
@@ -74,7 +74,7 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal22secondaryColored(),
+                style: TypographyStyles.snigletNormal24secondaryColored(),
               ),
             );
           }),

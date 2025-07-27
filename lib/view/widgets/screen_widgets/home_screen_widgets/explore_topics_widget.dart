@@ -21,7 +21,7 @@ class ExploreTopicsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Explore by Topic", style: TypographyStyles.sniglet40014()),
+        Text("Explore by Topic", style: TypographyStyles.sniglet40016()),
         VerticalSpace8(),
         Obx(
           () => Wrap(
@@ -45,7 +45,7 @@ class ExploreTopicsWidget extends StatelessWidget {
         border: Border.all(color: theme.primaryColor),
         borderRadius: BorderRadius.circular(500.r),
       ),
-      child: Text(topicName, style: TypographyStyles.poppins40010()),
+      child: Text(topicName, style: TypographyStyles.poppins40012()),
     );
   }
 }

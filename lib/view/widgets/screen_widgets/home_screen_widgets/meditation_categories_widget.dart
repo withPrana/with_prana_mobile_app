@@ -37,7 +37,7 @@ class MeditationCategoriesWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Let’s Begin With", style: TypographyStyles.sniglet40014()),
+              Text("Let’s Begin With", style: TypographyStyles.sniglet40016()),
               VerticalSpace8(),
               LayoutBuilder(
                 builder: (context, contraints) {

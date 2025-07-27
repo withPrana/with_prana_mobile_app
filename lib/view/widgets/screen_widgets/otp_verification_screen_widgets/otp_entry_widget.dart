@@ -31,7 +31,7 @@ class OtpEntryWidget extends StatelessWidget {
               child: Text(
                 "Just a quick step to verify your email. Enter the code we sent to continue your journey.",
                 textAlign: TextAlign.center,
-                style: TypographyStyles.poppinsNormal8(),
+                style: TypographyStyles.poppinsNormal10(),
               ),
             ),
           ],

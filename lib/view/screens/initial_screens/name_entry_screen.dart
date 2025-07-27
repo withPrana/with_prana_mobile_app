@@ -67,23 +67,23 @@ class NameEntryScreen extends HookWidget {
                       Text(
                         "A moment for your mind,\na path to your soul.",
                         textAlign: TextAlign.center,
-                        style: TypographyStyles.snigletNormal22Inverse(),
+                        style: TypographyStyles.snigletNormal24Inverse(),
                       ),
                       VerticalSpace24(),
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           text: "Let ",
-                          style: TypographyStyles.poppinsNormal10Inverse(),
+                          style: TypographyStyles.poppinsNormal12Inverse(),
                           children: [
                             TextSpan(
                               text: "With Prana ",
-                              style: TypographyStyles.poppinsBold10Inverse(),
+                              style: TypographyStyles.poppinsBold12Inverse(),
                             ),
                             TextSpan(
                               text:
                                   "guide you toward peace,\nclarity, and connection",
-                              style: TypographyStyles.poppinsNormal10Inverse(),
+                              style: TypographyStyles.poppinsNormal12Inverse(),
                             ),
                           ],
                         ),
@@ -91,7 +91,7 @@ class NameEntryScreen extends HookWidget {
                       VerticalSpace136(),
                       Text(
                         "What can we call you?",
-                        style: TypographyStyles.poppinsNormal10Inverse(),
+                        style: TypographyStyles.poppinsNormal12Inverse(),
                       ),
                       VerticalSpace8(),
                       ////name field
@@ -120,7 +120,7 @@ class NameEntryScreen extends HookWidget {
                           children: [
                             Text(
                               "Let's Get Started",
-                              style: TypographyStyles.poppinsBold14Inverse(),
+                              style: TypographyStyles.poppinsBold16Inverse(),
                             ),
                             ImageIcon(
                               AssetImage(IconConstants.icArrowRight),

@@ -22,8 +22,8 @@ class ContentWithImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 190.r,
-      height: 220.r,
+      width: 200.r,
+      height: 240.r,
       decoration: BoxDecoration(
         border: Border.all(width: 10.r, color: theme.disabledLightestColor),
         borderRadius: BorderRadius.circular(26.r),
@@ -64,18 +64,18 @@ class ContentWithImageWidget extends StatelessWidget {
           ),
           ////
           Padding(
-            padding: EdgeInsets.all(10.r),
+            padding: EdgeInsets.all(6.r),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   content.title,
-                  style: TypographyStyles.poppins60012Inverse(),
+                  style: TypographyStyles.poppins60014Inverse(),
                 ),
                 Text(
                   "${content.minutes} min • ${content.category}",
-                  style: TypographyStyles.poppins4008Inverse(),
+                  style: TypographyStyles.poppins40010Inverse(),
                 ),
               ],
             ),

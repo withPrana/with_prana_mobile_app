@@ -18,7 +18,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Listen Again", style: TypographyStyles.sniglet40014()),
+        Text("Listen Again", style: TypographyStyles.sniglet40016()),
         VerticalSpace8(),
         Obx(
           () => ListViewBuilderWidget(

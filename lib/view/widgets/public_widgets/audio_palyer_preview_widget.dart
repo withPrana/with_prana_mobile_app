@@ -68,7 +68,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
                 width: 160.w,
                 child: Text(
                   audioDetails.title,
-                  style: TypographyStyles.poppins60012PrimaryColored(),
+                  style: TypographyStyles.poppins60014PrimaryColored(),
                 ),
               ),
               VerticalSpace4(),
@@ -76,7 +76,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
                 audioDetails.category.isNotEmpty
                     ? "${audioDetails.minutes} min • ${audioDetails.category}"
                     : "${audioDetails.minutes} min",
-                style: TypographyStyles.poppins40010(),
+                style: TypographyStyles.poppins40012(),
               ),
             ],
           ),

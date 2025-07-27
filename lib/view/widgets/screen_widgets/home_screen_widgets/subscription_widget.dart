@@ -36,7 +36,7 @@ class SubscriptionWidget extends StatelessWidget {
           VerticalSpace10(),
           Text(
             "Experience deeper rest, healing, and clarity — anytime you need.",
-            style: TypographyStyles.poppins40010PrimaryColored(),
+            style: TypographyStyles.poppins40012PrimaryColored(),
           ),
           VerticalSpace24(),
           subscriptionFeaturesWidget(theme),
@@ -53,13 +53,13 @@ class SubscriptionWidget extends StatelessWidget {
           RichText(
             text: TextSpan(
               text: "*14-day free trial ends on ",
-              style: TypographyStyles.poppins4008PrimaryColored(),
+              style: TypographyStyles.poppins40010PrimaryColored(),
               children: [
                 TextSpan(
                   text: DateFormatter.formatDate(
                     "${DateTime.now().add(Duration(days: 14))}",
                   ),
-                  style: TypographyStyles.poppins6008PrimaryColored(),
+                  style: TypographyStyles.poppins60010PrimaryColored(),
                 ),
               ],
             ),
@@ -75,11 +75,11 @@ class SubscriptionWidget extends StatelessWidget {
       children: [
         Text(
           "What You Get",
-          style: TypographyStyles.poppinsBold10PrimaryColored(),
+          style: TypographyStyles.poppinsBold12PrimaryColored(),
         ),
         VerticalSpace16(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.r),
+          padding: EdgeInsets.symmetric(horizontal: 10.r),
           child: Column(
             children: [
               Row(
@@ -129,12 +129,19 @@ class SubscriptionWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       spacing: 8.r,
       children: [
-        ImageIcon(AssetImage(iconPath), color: theme.primaryColor, size: 16.r),
+        ImageIcon(AssetImage(iconPath), color: theme.primaryColor, size: 20.r),
         SizedBox(
-          width: 94.w,
+          width: 100.w,
           child: Text(
             featureName,
-            style: TypographyStyles.poppinsBold10PrimaryColored(),
+
+            style: TextStyle(
+              height: 1.6,
+              fontSize: 12.r,
+              color: themeController.appTheme.value?.primaryColor,
+              fontWeight: FontWeight.bold,
+              fontFamily: "Poppins",
+            ),
           ),
         ),
       ],

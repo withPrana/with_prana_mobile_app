@@ -83,7 +83,7 @@ class TextFieldWidget extends StatelessWidget {
             onTapOutside: (_) {
               FocusScope.of(context).unfocus();
             },
-            style: TypographyStyles.poppins50014(),
+            style: TypographyStyles.poppins50016(),
             validator:
                 validator ??
                 (value) {
@@ -117,8 +117,8 @@ class TextFieldWidget extends StatelessWidget {
               fillColor: theme.inverseColor,
               filled: true,
               hintText: hintText,
-              errorStyle: TypographyStyles.poppinsNormal8Error(),
-              hintStyle: TypographyStyles.poppins50014Disabled(),
+              errorStyle: TypographyStyles.poppinsNormal10Error(),
+              hintStyle: TypographyStyles.poppins50016Disabled(),
               border: _border(theme),
               enabledBorder: _border(theme),
               focusedBorder: _border(theme),

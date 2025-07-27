@@ -59,7 +59,7 @@ class HomeTopBarWidget extends StatelessWidget {
                 ),
                 Text(
                   "${homeController.getGreeting()}, ${loginController.nameController.text.trim()}",
-                  style: TypographyStyles.poppins40010Dark(),
+                  style: TypographyStyles.poppins40012Dark(),
                 ),
               ],
             ),

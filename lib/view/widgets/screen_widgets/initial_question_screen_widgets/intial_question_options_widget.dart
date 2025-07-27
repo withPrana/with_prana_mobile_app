@@ -64,7 +64,7 @@ class IntialQuestionOptionsWidget extends StatelessWidget {
                     option.optionName,
                     style:
                         option.isSelected
-                            ? TypographyStyles.poppinsBold14()
+                            ? TypographyStyles.poppinsBold16()
                             : TypographyStyles.poppins40014(),
                   ),
                 ],

@@ -5,6 +5,8 @@ import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/controller/user_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_group_widget.dart';
@@ -63,7 +65,12 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      RouteController.push(
+                        context,
+                        SubscriptionStatusScreen.routePath,
+                      );
+                    },
                   ),
                   ProfileMenuItemWidget(
                     iconPath: IconConstants.icProfileMenuAccoutInfo,

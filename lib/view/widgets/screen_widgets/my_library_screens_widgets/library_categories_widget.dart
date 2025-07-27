@@ -62,8 +62,8 @@ class LibraryCategoriesWidget extends StatelessWidget {
                       category,
                       style:
                           isSelected
-                              ? TypographyStyles.poppins40010PrimaryColored()
-                              : TypographyStyles.poppins40010(),
+                              ? TypographyStyles.poppins40012PrimaryColored()
+                              : TypographyStyles.poppins40012(),
                     ),
                   ),
                 ),

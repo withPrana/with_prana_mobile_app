@@ -64,8 +64,8 @@ class PrimaryButtonWidget extends StatelessWidget {
                             name ?? '',
                             style:
                                 primaryColorText
-                                    ? TypographyStyles.poppinsBold14PrimaryColored()
-                                    : TypographyStyles.poppinsBold14Inverse(),
+                                    ? TypographyStyles.poppinsBold16PrimaryColored()
+                                    : TypographyStyles.poppinsBold16Inverse(),
                           ),
             ),
           ),

@@ -30,7 +30,7 @@ class ContentAndActionWidget extends StatelessWidget {
     final theme = themeController.appTheme.value!;
     return Container(
       width: ScreenSize.width(context),
-      padding: EdgeInsets.all(20.r),
+      padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: theme.primaryLightColor,
         borderRadius: BorderRadius.circular(30.r),
@@ -42,12 +42,12 @@ class ContentAndActionWidget extends StatelessWidget {
               ? customContent ?? SizedBox.fromSize()
               : Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 20.r,
+                spacing: 14.r,
                 children: [
                   if (contentIconPath != null)
                     ImageIcon(
                       AssetImage(contentIconPath!),
-                      size: 50.r,
+                      size: 48.r,
                       color: theme.primaryColor,
                     ),
                   Flexible(
@@ -58,14 +58,14 @@ class ContentAndActionWidget extends StatelessWidget {
                           Text(
                             contentHeading ?? '',
                             style:
-                                TypographyStyles.poppins60012PrimaryColored(),
+                                TypographyStyles.poppins60014PrimaryColored(),
                           ),
                         if (contentHeading != null) VerticalSpace8(),
                         if (contentString != null)
                           Text(
                             contentString ?? '',
                             style:
-                                TypographyStyles.poppins40010PrimaryColored(),
+                                TypographyStyles.poppins40012PrimaryColored(),
                           ),
                       ],
                     ),

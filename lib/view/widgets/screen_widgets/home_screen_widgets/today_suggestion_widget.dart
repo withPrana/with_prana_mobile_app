@@ -61,12 +61,12 @@ class TodaySuggestionWidget extends StatelessWidget {
                 ////Today's suggestion
                 Text(
                   "Today’s Suggestion",
-                  style: TypographyStyles.poppins40010Dark(),
+                  style: TypographyStyles.poppins40012Dark(),
                 ),
                 Text(
                   "Inhale peace,\nexhale tension.",
                   textAlign: TextAlign.center,
-                  style: TypographyStyles.sniglet40034secondaryColored(),
+                  style: TypographyStyles.sniglet40036secondaryColored(),
                 ),
                 VerticalSpace8(),
                 PlayTodaySuggestionButtonWidget(),

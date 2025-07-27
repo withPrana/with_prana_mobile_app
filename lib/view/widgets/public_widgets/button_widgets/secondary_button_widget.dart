@@ -52,7 +52,7 @@ class SecondaryButtonWidget extends StatelessWidget {
                   child ??
                   Text(
                     name ?? '',
-                    style: TypographyStyles.snigletNormal14Inverse(),
+                    style: TypographyStyles.snigletNormal16Inverse(),
                   ),
             ),
           ),

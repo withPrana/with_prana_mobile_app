@@ -14,7 +14,7 @@ class ProfileApparWidget extends StatelessWidget {
   final ColorPalette theme;
   final UserController userController;
   final LoginController loginController;
-  
+
   const ProfileApparWidget({
     super.key,
     required this.theme,
@@ -90,7 +90,7 @@ class ProfileApparWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 loginController.nameController.text.trim(),
-                style: TypographyStyles.sniglet40022(),
+                style: TypographyStyles.sniglet40024(),
               ),
             ),
           ),

@@ -38,7 +38,7 @@ class NoContentsWidget extends StatelessWidget {
         Text(
           "You haven’t liked\nanything yet",
           textAlign: TextAlign.center,
-          style: TypographyStyles.snigletNormal22secondaryColored(),
+          style: TypographyStyles.snigletNormal24secondaryColored(),
         ),
         VerticalSpace10(),
         Text(

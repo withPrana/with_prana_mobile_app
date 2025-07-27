@@ -31,7 +31,7 @@ class DailyThoughtWidget extends StatelessWidget {
             children: [
               Text(
                 "✨ Daily Thought",
-                style: TypographyStyles.poppinsBold10PrimaryColored(),
+                style: TypographyStyles.poppinsBold12PrimaryColored(),
               ),
               VerticalSpace8(),
               AudioPalyerPreviewWidget(

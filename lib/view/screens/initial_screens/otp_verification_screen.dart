@@ -61,7 +61,7 @@ class OtpVerificationScreen extends HookWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: SafeArea(
                 child: Form(
                   key: formKey,
@@ -71,7 +71,7 @@ class OtpVerificationScreen extends HookWidget {
                       VerticalSpace80(),
                       Text(
                         "Confirm your email",
-                        style: TypographyStyles.poppins40018SecondaryColored(),
+                        style: TypographyStyles.poppins40020SecondaryColored(),
                       ),
                       VerticalSpace8(),
                       Text(

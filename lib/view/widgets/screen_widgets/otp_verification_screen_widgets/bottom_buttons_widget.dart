@@ -37,7 +37,7 @@ class BottomButtonsWidget extends StatelessWidget {
                 children: [
                   Text(
                     "Start Free Trial",
-                    style: TypographyStyles.poppinsBold14Inverse(),
+                    style: TypographyStyles.poppinsBold16Inverse(),
                   ),
                   ImageIcon(
                     AssetImage(IconConstants.icArrowRight),

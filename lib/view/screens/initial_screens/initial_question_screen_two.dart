@@ -63,7 +63,7 @@ class InitialQuestionScreenTwo extends StatelessWidget {
             ),
             SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -92,13 +92,13 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                           VerticalSpace56(),
                           Text(
                             "Time preference",
-                            style: TypographyStyles.snigletNormal14(),
+                            style: TypographyStyles.snigletNormal16(),
                           ),
                           VerticalSpace8(),
                           Text(
                             "When do you prefer to take\na moment for yourself?",
                             style:
-                                TypographyStyles.poppins40018SecondaryColored(),
+                                TypographyStyles.poppins40020SecondaryColored(),
                           ),
                           VerticalSpace104(),
                           /////options
@@ -135,7 +135,7 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                           children: [
                             Text(
                               "Next",
-                              style: TypographyStyles.poppinsBold14Inverse(),
+                              style: TypographyStyles.poppinsBold16Inverse(),
                             ),
                             ImageIcon(
                               AssetImage(IconConstants.icArrowRight),

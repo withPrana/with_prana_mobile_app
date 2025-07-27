@@ -30,12 +30,12 @@ class MadeForYouSectionWidget extends HookWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Made Just for You", style: TypographyStyles.sniglet40014()),
+        Text("Made Just for You", style: TypographyStyles.sniglet40016()),
         VerticalSpace8(),
         SizedBox(
-          height: 240.r,
+          height: 260.r,
           child: OverflowBox(
-            maxHeight: 240.r,
+            maxHeight: 260.r,
             maxWidth: ScreenSize.width(context),
             minHeight: 0,
             minWidth: 0,

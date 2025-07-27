@@ -48,7 +48,7 @@ class DownloadsScreen extends HookWidget {
                       () => GridViewBuilderWidget(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          mainAxisExtent: 240.r,
+                          mainAxisExtent: 220.r,
                           mainAxisSpacing: 10.r,
                         ),
                         itemCount:
@@ -56,17 +56,20 @@ class DownloadsScreen extends HookWidget {
                         itemBuilder: (context, index) {
                           final content =
                               homeController.madeForYouContents.value[index];
-                          return Obx(
-                            () => ContentWithImageWidget(
-                              theme: theme,
-                              content: content,
-                              isLiked: likedContentsController
-                                  .likedContents
-                                  .value
-                                  .contains(content),
-                              onLiked: () {
-                                likedContentsController.likeContent(content);
-                              },
+                          return Transform.scale(
+                            scale: 1,
+                            child: Obx(
+                              () => ContentWithImageWidget(
+                                theme: theme,
+                                content: content,
+                                isLiked: likedContentsController
+                                    .likedContents
+                                    .value
+                                    .contains(content),
+                                onLiked: () {
+                                  likedContentsController.likeContent(content);
+                                },
+                              ),
                             ),
                           );
                         },
@@ -80,7 +83,7 @@ class DownloadsScreen extends HookWidget {
                     Text(
                       "Offline listening is part of\nour Premium plan.",
                       textAlign: TextAlign.center,
-                      style: TypographyStyles.snigletNormal22secondaryColored(),
+                      style: TypographyStyles.snigletNormal24secondaryColored(),
                     ),
                     VerticalSpace4(),
                     Text(
@@ -104,13 +107,14 @@ class DownloadsScreen extends HookWidget {
                     RichText(
                       text: TextSpan(
                         text: "*14-day free trial ends on ",
-                        style: TypographyStyles.poppins4008PrimaryColored(),
+                        style: TypographyStyles.poppins40012PrimaryColored(),
                         children: [
                           TextSpan(
                             text: DateFormatter.formatDate(
                               "${DateTime.now().add(Duration(days: 14))}",
                             ),
-                            style: TypographyStyles.poppins6008PrimaryColored(),
+                            style:
+                                TypographyStyles.poppins60010PrimaryColored(),
                           ),
                         ],
                       ),
@@ -130,6 +134,7 @@ class DownloadsScreen extends HookWidget {
                         ),
                       ),
                     ),
+                    VerticalSpace120(),
                   ],
                 ),
       ),

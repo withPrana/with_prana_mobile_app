@@ -63,7 +63,7 @@ class MailEntryScreen extends HookWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: SafeArea(
                 child: Form(
                   key: formKey,
@@ -73,7 +73,7 @@ class MailEntryScreen extends HookWidget {
                       VerticalSpace80(),
                       Text(
                         "Let us know where to send\nyour calm.",
-                        style: TypographyStyles.poppins40018SecondaryColored(),
+                        style: TypographyStyles.poppins40020SecondaryColored(),
                       ),
                       VerticalSpace8(),
                       Text(
@@ -95,7 +95,7 @@ class MailEntryScreen extends HookWidget {
                         child: Text(
                           "We’ll only use this to help you continue your practice and\nshare mindful updates — no noise, ever.",
                           textAlign: TextAlign.center,
-                          style: TypographyStyles.poppinsNormal8(),
+                          style: TypographyStyles.poppinsNormal10(),
                         ),
                       ),
                       Spacer(),
@@ -124,7 +124,7 @@ class MailEntryScreen extends HookWidget {
                                   Text(
                                     "Next",
                                     style:
-                                        TypographyStyles.poppinsBold14Inverse(),
+                                        TypographyStyles.poppinsBold16Inverse(),
                                   ),
                                   ImageIcon(
                                     AssetImage(IconConstants.icArrowRight),
@@ -134,20 +134,6 @@ class MailEntryScreen extends HookWidget {
                                 ],
                               ),
                             ),
-                            // VerticalSpace16(),
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     RouteController.pushAndRemoveUntil(
-                            //       context,
-                            //       BottomNavigationScreen.routePath,
-                            //     );
-                            //   },
-                            //   child: Text(
-                            //     "Skip for now",
-                            //     style:
-                            //         TypographyStyles.poppinsBold12PrimaryColored(),
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),

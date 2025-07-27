@@ -151,7 +151,7 @@ class SplashScreen extends HookWidget {
                 child: Text(
                   'Reconnect. Heal. Awaken.',
                   style:
-                      TypographyStyles.poppinsNormal10secondaryColoredItalic(),
+                      TypographyStyles.poppinsNormal12secondaryColoredItalic(),
                 ),
               ),
             ),
@@ -171,7 +171,7 @@ class SplashScreen extends HookWidget {
                     duration: Duration(milliseconds: 500),
                     child: Text(
                       "— Rumi",
-                      style: TypographyStyles.poppins50014Brown(),
+                      style: TypographyStyles.poppins50016Brown(),
                     ),
                   ),
                 ],
@@ -228,7 +228,7 @@ class SplashScreen extends HookWidget {
                         children: [
                           Text(
                             "Begin",
-                            style: TypographyStyles.poppinsBold14Inverse(),
+                            style: TypographyStyles.poppinsBold16Inverse(),
                           ),
                           ImageIcon(
                             AssetImage(IconConstants.icArrowRight),

@@ -24,7 +24,7 @@ class PlayTodaySuggestionButtonWidget extends StatelessWidget {
         spacing: 5.r,
         children: [
           Icon(Icons.play_arrow_rounded, color: theme.textColor, size: 14.r),
-          Text("9 minutes", style: TypographyStyles.poppins40010Dark()),
+          Text("9 minutes", style: TypographyStyles.poppins40012Dark()),
         ],
       ),
     );

@@ -40,7 +40,7 @@ class OtpFieldWidget extends StatelessWidget {
       width: 48.r,
       height: 48.r,
       padding: EdgeInsets.all(8.r),
-      textStyle: TypographyStyles.poppinsNormal14(),
+      textStyle: TypographyStyles.poppinsNormal16(),
       decoration: BoxDecoration(
         color: theme.inverseColor,
         border: Border.all(color: borderColor ?? theme.disabledLightColor),

@@ -7,7 +7,13 @@ import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 class MainScreenLayoutWidget extends StatelessWidget {
   final Widget? appBar;
   final Widget body;
-  MainScreenLayoutWidget({super.key, this.appBar, required this.body});
+  final bool enableAnimation;
+  MainScreenLayoutWidget({
+    super.key,
+    this.appBar,
+    required this.body,
+    this.enableAnimation = false,
+  });
 
   final themeController = Get.find<ThemeController>();
 
@@ -18,7 +24,7 @@ class MainScreenLayoutWidget extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
-        duration: Duration(milliseconds: 500),
+        duration: enableAnimation ? Duration(milliseconds: 500) : Duration.zero,
         builder:
             (context, opacity, child) => Opacity(
               opacity: opacity,
@@ -32,14 +38,9 @@ class MainScreenLayoutWidget extends StatelessWidget {
                     colors: theme.primaryScreenGradient,
                   ),
                 ),
-                child: Column(
-                  children: [
-                    if (appBar != null) appBar!,
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: body,
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(children: [if (appBar != null) appBar!, body]),
                 ),
               ),
             ),
