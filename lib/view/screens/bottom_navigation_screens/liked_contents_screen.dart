@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
-import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_screen_layout_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/liked_contents_screen_widgets/liked_content_categories_widget.dart';
@@ -21,7 +21,7 @@ class LikedContentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationScreenLayoutWidget(
+    return MainScreenLayoutWidget(
       appBar: MainAppbarWidget(name: "💖 Favorites"),
       body: SingleChildScrollView(
         child: Column(

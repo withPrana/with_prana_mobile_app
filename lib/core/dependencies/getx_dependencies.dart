@@ -6,6 +6,7 @@ import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/my_library_controller.dart';
 import 'package:with_prana_mobile_app/controller/otp_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/user_controller.dart';
 
 void setupGetxDependencies() {
   if (!Get.isRegistered<ThemeController>()) {
@@ -28,5 +29,8 @@ void setupGetxDependencies() {
   }
   if (!Get.isRegistered<MyLibraryController>()) {
     Get.put(MyLibraryController(), permanent: true);
+  }
+  if (!Get.isRegistered<UserController>()) {
+    Get.put(UserController(), permanent: true);
   }
 }

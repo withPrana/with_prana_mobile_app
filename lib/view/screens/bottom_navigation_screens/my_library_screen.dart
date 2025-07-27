@@ -6,7 +6,7 @@ import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/my_library_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
-import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_screen_layout_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/my_library_screens_widgets/library_categories_widget.dart';
@@ -22,7 +22,7 @@ class MyLibraryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationScreenLayoutWidget(
+    return MainScreenLayoutWidget(
       appBar: MainAppbarWidget(name: "My Library"),
       body: SingleChildScrollView(
         child: Column(

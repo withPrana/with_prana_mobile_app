@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/loader_widgets/popup_loading_widget.dart';
 
 class AppDialogs {
+  ////Popup loading
+  static void showPopupLoading({String? message}) {
+    final themeController = Get.find<ThemeController>();
+    final theme = themeController.appTheme.value!;
+    SmartDialog.showLoading(
+      maskColor: theme.textDarkColor.withValues(alpha: 0.8),
+      builder: (context) {
+        return InkWell(
+          child: PopupLoadingWidget(message: message, theme: theme));
+      },
+      useAnimation: true,
+      animationTime: Duration(milliseconds: 200),
+      backType: SmartBackType.ignore,
+    );
+  }
+
+  /////Stop loading
+  static void stopPopupLoading() {
+    SmartDialog.dismiss();
+  }
+
   ////toast messages
   static void showToast({
     required String message,
@@ -49,16 +73,8 @@ class AppDialogs {
             margin: EdgeInsets.symmetric(horizontal: 32.w, vertical: 56.h),
             padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
             decoration: BoxDecoration(
-              // color: theme.inverseColor,
               color: bgColor,
               borderRadius: BorderRadius.circular(500.r),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: theme.shadowColor.withValues(alpha: 0.5),
-              //     blurRadius: 10.r,
-              //     offset: Offset(0, 10.r),
-              //   ),
-              // ],
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,

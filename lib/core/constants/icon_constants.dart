@@ -39,4 +39,13 @@ class IconConstants {
       "assets/icons/ic_subscription_download.png";
 
   static const icFavourite = "assets/icons/ic_favourite.png";
+
+  ////profile menu
+  static const icProfileMenuSubscriptionStatus = "assets/icons/ic_profile_menu_subscription_status.png";
+  static const icProfileMenuAccoutInfo = "assets/icons/ic_profile_menu_account_info.png";
+  static const icProfileMenuDownloads = "assets/icons/ic_profile_menu_downloads.png";
+  static const icProfileMenuFavorites = "assets/icons/ic_profile_menu_favorites.png";
+  static const icProfileMenuNotifications = "assets/icons/ic_profile_menu_notifications.png";
+  static const icProfileMenuContactSupport = "assets/icons/ic_profile_menu_contact_support.png";
+  static const icProfileMenuTermsAndPrivacy = "assets/icons/ic_profile_menu_terms_and_privacy.png";
 }

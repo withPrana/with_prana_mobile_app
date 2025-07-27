@@ -4,14 +4,10 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
-class BottomNavigationScreenLayoutWidget extends StatelessWidget {
+class MainScreenLayoutWidget extends StatelessWidget {
   final Widget? appBar;
   final Widget body;
-  BottomNavigationScreenLayoutWidget({
-    super.key,
-    this.appBar,
-    required this.body,
-  });
+  MainScreenLayoutWidget({super.key, this.appBar, required this.body});
 
   final themeController = Get.find<ThemeController>();
 

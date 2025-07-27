@@ -7,7 +7,8 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
 class MainAppbarWidget extends StatelessWidget {
   final String name;
-  MainAppbarWidget({super.key, required this.name});
+  final bool isInverse;
+  MainAppbarWidget({super.key, this.isInverse = false, required this.name});
 
   final themeController = Get.find<ThemeController>();
 
@@ -22,6 +23,7 @@ class MainAppbarWidget extends StatelessWidget {
       forceMaterialTransparency: true,
       elevation: 0,
       scrolledUnderElevation: 0,
+      titleSpacing: 0,
       automaticallyImplyLeading: false,
       centerTitle: false,
       title: Row(
@@ -44,7 +46,13 @@ class MainAppbarWidget extends StatelessWidget {
               ),
             ),
           ),
-          Text(name, style: TypographyStyles.poppinsBold14DarkColored()),
+          Text(
+            name,
+            style:
+                isInverse
+                    ? TypographyStyles.poppinsBold14Inverse()
+                    : TypographyStyles.poppinsBold14DarkColored(),
+          ),
         ],
       ),
     );

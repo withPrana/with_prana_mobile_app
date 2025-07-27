@@ -11,7 +11,7 @@ import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/date_formatter.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_screen_layout_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/grid_view_builder_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
@@ -31,7 +31,7 @@ class DownloadsScreen extends HookWidget {
 
     final isSubscribed = useState(false);
 
-    return BottomNavigationScreenLayoutWidget(
+    return MainScreenLayoutWidget(
       appBar: MainAppbarWidget(name: "📥 Downloads"),
       body: SingleChildScrollView(
         child:

@@ -30,6 +30,7 @@ class LikedContentsWidget extends StatelessWidget {
               key: ObjectKey(content.index),
               trailingActions: [
                 SwipeAction(
+                  widthSpace: 80.w,
                   title: "Remove",
                   style: TypographyStyles.poppinsBold10Inverse(),
                   content: Container(
