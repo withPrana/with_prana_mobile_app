@@ -14,7 +14,7 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/listen_again_section_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/made_for_you_section_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/meditation_categories_widget.dart';
-import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/subscription_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/today_suggestion_widget.dart';
 
 class HomeScreen extends StatelessWidget {

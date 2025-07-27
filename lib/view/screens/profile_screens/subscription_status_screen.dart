@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
-import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/subscription_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_widget.dart';
 
 class SubscriptionStatusScreen extends StatelessWidget {
   static const routePath = "subscription-status";
@@ -12,7 +14,6 @@ class SubscriptionStatusScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreenLayoutWidget(
-      enableAnimation: false,
       appBar: MainAppbarWidget(name: "Subscription Status"),
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +34,11 @@ class SubscriptionStatusScreen extends StatelessWidget {
               style: TypographyStyles.sniglet40016PrimaryColored(),
             ),
             VerticalSpace8(),
-            SubscriptionWidget(),
+            SubscriptionWidget(
+              onSubscribeClicked: () {
+                RouteController.push(context, SubscriptionScreen.routePath);
+              },
+            ),
           ],
         ),
       ),

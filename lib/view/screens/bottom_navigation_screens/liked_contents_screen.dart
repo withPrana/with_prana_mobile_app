@@ -22,7 +22,16 @@ class LikedContentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreenLayoutWidget(
-      appBar: MainAppbarWidget(name: "💖 Favorites"),
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        homeController.changeBottomNavScreenIndex(0);
+      },
+      appBar: MainAppbarWidget(
+        name: "💖 Favorites",
+        onPop: () {
+          homeController.changeBottomNavScreenIndex(0);
+        },
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

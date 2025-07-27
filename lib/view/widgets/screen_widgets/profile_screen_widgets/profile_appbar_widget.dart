@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/user_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
@@ -14,12 +15,14 @@ class ProfileApparWidget extends StatelessWidget {
   final ColorPalette theme;
   final UserController userController;
   final LoginController loginController;
+  final HomeController homeController;
 
   const ProfileApparWidget({
     super.key,
     required this.theme,
     required this.userController,
     required this.loginController,
+    required this.homeController,
   });
 
   @override
@@ -66,7 +69,13 @@ class ProfileApparWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: MainAppbarWidget(name: "👤 Profile", isInverse: true),
+                  child: MainAppbarWidget(
+                    name: "👤 Profile",
+                    isInverse: true,
+                    onPop: () {
+                      homeController.changeBottomNavScreenIndex(0);
+                    },
+                  ),
                 ),
               ],
             ),

@@ -11,9 +11,12 @@ class ImageConstants {
   static const imgMeditation = "assets/images/img_meditation.png";
   static const imEnlightment = "assets/images/img_enlightenment.png";
 
+  static const imgLoop = "assets/images/img_loop.png";
+
   static const imgFlower = "assets/images/img_flower.png";
 
-  static const imgCategoriesCenterFlower = "assets/images/img_categories_center_flower.png";
+  static const imgCategoriesCenterFlower =
+      "assets/images/img_categories_center_flower.png";
 
   ////Audio preview
   static const imgAudioPreviewOne = "assets/images/img_audio_preview_one.png";

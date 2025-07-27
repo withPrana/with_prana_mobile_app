@@ -23,7 +23,16 @@ class MyLibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreenLayoutWidget(
-      appBar: MainAppbarWidget(name: "My Library"),
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        homeController.changeBottomNavScreenIndex(0);
+      },
+      appBar: MainAppbarWidget(
+        name: "My Library",
+        onPop: () {
+          homeController.changeBottomNavScreenIndex(0);
+        },
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

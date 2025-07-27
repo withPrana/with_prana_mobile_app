@@ -32,7 +32,16 @@ class DownloadsScreen extends HookWidget {
     final isSubscribed = useState(false);
 
     return MainScreenLayoutWidget(
-      appBar: MainAppbarWidget(name: "📥 Downloads"),
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        homeController.changeBottomNavScreenIndex(0);
+      },
+      appBar: MainAppbarWidget(
+        name: "📥 Downloads",
+        onPop: () {
+          homeController.changeBottomNavScreenIndex(0);
+        },
+      ),
       body: SingleChildScrollView(
         child:
             isSubscribed.value

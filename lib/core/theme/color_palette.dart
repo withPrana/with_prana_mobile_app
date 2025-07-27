@@ -17,6 +17,10 @@ class ColorPalette {
   final Color disabledLightestColor;
   final Color disabledColor;
   final Color selectedBottomNavigationItemColor;
+  final Color monthlyPlanBgColor;
+  final Color monthlyPlanMainColor;
+  final Color yearlyPlanBgColor;
+  final Color yearlyPlanMainColor;
 
   ColorPalette({
     required this.splashGradient,
@@ -34,6 +38,10 @@ class ColorPalette {
     required this.disabledLightestColor,
     required this.disabledColor,
     required this.selectedBottomNavigationItemColor,
+    required this.monthlyPlanBgColor,
+    required this.monthlyPlanMainColor,
+    required this.yearlyPlanBgColor,
+    required this.yearlyPlanMainColor,
   });
 }
 
@@ -55,5 +63,9 @@ class LightTheme extends ColorPalette {
         disabledLightestColor: Color(0xffF5F5F5),
         disabledColor: Color(0xff808080),
         selectedBottomNavigationItemColor: Color(0xffC6ECE9),
+        monthlyPlanBgColor: Color(0xffFEF9C4),
+        monthlyPlanMainColor: Color(0xffFF780B),
+        yearlyPlanBgColor: Color(0xffD8F6E0),
+        yearlyPlanMainColor: Color(0xff04C03A),
       );
 }

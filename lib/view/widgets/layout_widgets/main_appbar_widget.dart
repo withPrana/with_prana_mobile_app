@@ -8,7 +8,13 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 class MainAppbarWidget extends StatelessWidget {
   final String name;
   final bool isInverse;
-  MainAppbarWidget({super.key, this.isInverse = false, required this.name});
+  final VoidCallback? onPop;
+  MainAppbarWidget({
+    super.key,
+    this.isInverse = false,
+    required this.name,
+    this.onPop,
+  });
 
   final themeController = Get.find<ThemeController>();
 
@@ -31,9 +37,11 @@ class MainAppbarWidget extends StatelessWidget {
         children: [
           ////back button
           InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap:
+                onPop ??
+                () {
+                  Navigator.pop(context);
+                },
             child: Container(
               width: 24.r,
               height: 24.r,

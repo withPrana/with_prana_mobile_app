@@ -10,6 +10,7 @@ import 'package:with_prana_mobile_app/view/screens/initial_screens/mail_entry_sc
 import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/splash_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
 
 Route getRoute(RouteSettings settings, BuildContext context) {
@@ -50,6 +51,9 @@ Route getRoute(RouteSettings settings, BuildContext context) {
     ////
     case SubscriptionStatusScreen.routePath:
       return _buildRouteWithDefaultAnimation(SubscriptionStatusScreen(), settings);
+    ////
+    case SubscriptionScreen.routePath:
+      return _buildRouteWithDefaultAnimation(SubscriptionScreen(), settings);
     ////
     default:
       return _buildRouteWithDefaultAnimation(const SplashScreen(), settings);
