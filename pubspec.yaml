@@ -50,6 +50,8 @@ dependencies:
   path_provider: ^2.1.5
   crop_image: ^1.0.16
   package_info_plus: ^8.3.0
+  flutter_native_splash: ^2.4.6
+  just_audio: ^0.10.4
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/logos/
+    - assets/audios/
 
   fonts:
     - family: Sniglet

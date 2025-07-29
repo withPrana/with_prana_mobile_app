@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
-class MainScreenLayoutWidget extends StatelessWidget {
+class NormalScreenLayoutWidget extends StatelessWidget {
   final Widget? appBar;
   final Widget body;
   final bool enableAnimation;
   final bool canPop;
   final void Function(bool didPop, Object? result)? onPopInvokedWithResult;
-  MainScreenLayoutWidget({
+  NormalScreenLayoutWidget({
     super.key,
     this.appBar,
     required this.body,
@@ -39,13 +39,7 @@ class MainScreenLayoutWidget extends StatelessWidget {
                 child: Container(
                   width: ScreenSize.width(context),
                   height: ScreenSize.height(context),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: theme.primaryScreenGradient,
-                    ),
-                  ),
+                  decoration: BoxDecoration(color: theme.inverseColor),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Column(

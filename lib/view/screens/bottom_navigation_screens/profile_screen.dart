@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/app_version_details_controller.dart';
+import 'package:with_prana_mobile_app/controller/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/login_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/controller/user_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/account_info_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_group_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_item_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends HookWidget {
   ProfileScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
   final userController = Get.find<UserController>();
   final loginController = Get.find<LoginController>();
   final homeController = Get.find<HomeController>();
+  final appVersionDetailsController = Get.find<AppVersionDetailsController>();
+  final commonController = Get.find<CommonController>();
 
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      appVersionDetailsController.getCurrentAppVersion();
+      return null;
+    }, []);
+
     final theme = themeController.appTheme.value!;
     return PopScope(
       canPop: false,
@@ -84,7 +96,12 @@ class ProfileScreen extends StatelessWidget {
                       iconPath: IconConstants.icProfileMenuAccoutInfo,
                       menuName: "Account Info",
                       theme: theme,
-                      onTap: () {},
+                      onTap: () {
+                        RouteController.push(
+                          context,
+                          AccountInfoScreen.routePath,
+                        );
+                      },
                     ),
                   ],
                   theme: theme,
@@ -97,13 +114,17 @@ class ProfileScreen extends StatelessWidget {
                       iconPath: IconConstants.icProfileMenuDownloads,
                       menuName: "Downloads",
                       theme: theme,
-                      onTap: () {},
+                      onTap: () {
+                        homeController.changeBottomNavScreenIndex(1);
+                      },
                     ),
                     ProfileMenuItemWidget(
                       iconPath: IconConstants.icProfileMenuFavorites,
                       menuName: "Favorites",
                       theme: theme,
-                      onTap: () {},
+                      onTap: () {
+                        homeController.changeBottomNavScreenIndex(3);
+                      },
                     ),
                     ProfileMenuItemWidget(
                       iconPath: IconConstants.icProfileMenuNotifications,
@@ -133,6 +154,14 @@ class ProfileScreen extends StatelessWidget {
                   ],
                   theme: theme,
                 ),
+                VerticalSpace24(),
+                Obx(
+                  () => Text(
+                    "With Prana App  v${appVersionDetailsController.currentAppVersion.value}",
+                    style: TypographyStyles.poppins40010PrimaryColored(),
+                  ),
+                ),
+                VerticalSpace120(),
               ],
             ),
           ),

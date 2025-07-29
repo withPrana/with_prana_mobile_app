@@ -10,7 +10,7 @@ import 'package:with_prana_mobile_app/view/screens/initial_screens/mail_entry_sc
 import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/splash_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/account_info_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
 
 Route getRoute(RouteSettings settings, BuildContext context) {
@@ -50,13 +50,15 @@ Route getRoute(RouteSettings settings, BuildContext context) {
       return _buildRouteWithDefaultAnimation(HomeScreen(), settings);
     ////
     case SubscriptionStatusScreen.routePath:
-      return _buildRouteWithDefaultAnimation(SubscriptionStatusScreen(), settings);
-    ////
-    case SubscriptionScreen.routePath:
-      return _buildRouteWithDefaultAnimation(SubscriptionScreen(), settings);
+      return _buildRouteWithDefaultAnimation(
+        SubscriptionStatusScreen(),
+        settings,
+      );
+    case AccountInfoScreen.routePath:
+      return _buildRouteWithDefaultAnimation(AccountInfoScreen(), settings);
     ////
     default:
-      return _buildRouteWithDefaultAnimation(const SplashScreen(), settings);
+      return _buildRouteWithDefaultAnimation(SplashScreen(), settings);
   }
 }
 

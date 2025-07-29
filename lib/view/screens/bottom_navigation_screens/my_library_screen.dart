@@ -23,6 +23,7 @@ class MyLibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreenLayoutWidget(
+      enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
         homeController.changeBottomNavScreenIndex(0);

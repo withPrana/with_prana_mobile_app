@@ -15,6 +15,7 @@ class PrimaryButtonWidget extends StatelessWidget {
   final Color? borderColor;
   final bool borderOnly;
   final bool primaryColorText;
+  final TextStyle? textStyle;
   PrimaryButtonWidget({
     super.key,
     required this.onTap,
@@ -23,6 +24,7 @@ class PrimaryButtonWidget extends StatelessWidget {
     this.height,
     this.name,
     this.child,
+    this.textStyle,
     this.borderColor,
     this.borderOnly = false,
     this.primaryColorText = false,
@@ -63,9 +65,10 @@ class PrimaryButtonWidget extends StatelessWidget {
                           Text(
                             name ?? '',
                             style:
-                                primaryColorText
+                                textStyle ??
+                                (primaryColorText
                                     ? TypographyStyles.poppinsBold16PrimaryColored()
-                                    : TypographyStyles.poppinsBold16Inverse(),
+                                    : TypographyStyles.poppinsBold16Inverse()),
                           ),
             ),
           ),

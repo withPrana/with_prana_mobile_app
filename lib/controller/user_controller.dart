@@ -51,7 +51,8 @@ class UserController extends GetxController {
         recursive: true,
       ); //// Create the directory if it doesn't exist
     }
-    final path = "${dir.path}/cropped_image.png";
+    final path =
+        "${dir.path}/cropped_image.png${DateTime.now().millisecondsSinceEpoch.toString()}";
     final croppedImageFile = File(path);
     final tempSavedCroppedImage = await croppedImageFile.writeAsBytes(
       imageBytes,

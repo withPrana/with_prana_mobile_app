@@ -45,9 +45,11 @@ class ProfileImageAndNameWidget extends StatelessWidget {
               } else {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(18.r),
-                  child: Image.file(
-                    userController.userProfilePicture.value!,
-                    fit: BoxFit.cover,
+                  child: Obx(
+                    () => Image.file(
+                      userController.userProfilePicture.value!,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 );
               }

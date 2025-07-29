@@ -32,6 +32,7 @@ class DownloadsScreen extends HookWidget {
     final isSubscribed = useState(false);
 
     return MainScreenLayoutWidget(
+      enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
         homeController.changeBottomNavScreenIndex(0);

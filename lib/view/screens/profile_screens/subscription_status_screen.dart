@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
-import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/screen_widgets/subscription_screen_widget.dart/subscription_plans_widget.dart';
 
 class SubscriptionStatusScreen extends StatelessWidget {
   static const routePath = "subscription-status";
-  const SubscriptionStatusScreen({super.key});
+  SubscriptionStatusScreen({super.key});
+
+  final themeController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
+    final theme = themeController.appTheme.value!;
     return MainScreenLayoutWidget(
       appBar: MainAppbarWidget(name: "Subscription Status"),
       body: SingleChildScrollView(
@@ -35,10 +39,12 @@ class SubscriptionStatusScreen extends StatelessWidget {
             ),
             VerticalSpace8(),
             SubscriptionWidget(
-              onSubscribeClicked: () {
-                RouteController.push(context, SubscriptionScreen.routePath);
-              },
+              showButton: false,
+         
             ),
+            VerticalSpace24(),
+            SubscriptionPlansWidget(theme: theme),
+            VerticalSpace24(),
           ],
         ),
       ),

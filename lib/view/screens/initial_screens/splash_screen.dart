@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
@@ -15,7 +16,9 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/splash_screen_
 
 class SplashScreen extends HookWidget {
   static const routePath = "/splash";
-  const SplashScreen({super.key});
+  SplashScreen({super.key});
+
+  final commonController = Get.find<CommonController>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,8 @@ class SplashScreen extends HookWidget {
         Future.delayed(const Duration(milliseconds: 1800), () {
           showInitial.value = false;
           iconMoveController.forward();
-          Future.delayed(const Duration(milliseconds: 1000), () {
+          Future.delayed(const Duration(milliseconds: 1000), () async {
+            commonController.setupBgAudio();
             showBackground.value = true;
             showFinalText.value = true;
             Future.delayed(const Duration(seconds: 4), () {
@@ -224,7 +228,7 @@ class SplashScreen extends HookWidget {
                       borderColor: Color(0xffF5F5F5),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        spacing: 8,
+                        spacing: 8.r,
                         children: [
                           Text(
                             "Begin",

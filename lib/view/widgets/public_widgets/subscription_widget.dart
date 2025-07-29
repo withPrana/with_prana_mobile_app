@@ -12,7 +12,12 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_f
 
 class SubscriptionWidget extends StatelessWidget {
   final VoidCallback? onSubscribeClicked;
-  SubscriptionWidget({super.key, this.onSubscribeClicked});
+  final bool showButton;
+  SubscriptionWidget({
+    super.key,
+    this.onSubscribeClicked,
+    this.showButton = true,
+  });
 
   final themeController = Get.find<ThemeController>();
 
@@ -44,25 +49,29 @@ class SubscriptionWidget extends StatelessWidget {
         ],
       ),
       actions: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          PrimaryButtonWidget(
-            name: "Subscribe Now",
-            onTap: onSubscribeClicked,
-            isLoading: false,
-          ),
+          if (showButton)
+            PrimaryButtonWidget(
+              name: "Subscribe Now",
+              onTap: onSubscribeClicked,
+              isLoading: false,
+            ),
           VerticalSpace10(),
-          RichText(
-            text: TextSpan(
-              text: "*14-day free trial ends on ",
-              style: TypographyStyles.poppins40010PrimaryColored(),
-              children: [
-                TextSpan(
-                  text: DateFormatter.formatDate(
-                    "${DateTime.now().add(Duration(days: 14))}",
+          Center(
+            child: RichText(
+              text: TextSpan(
+                text: "*14-day free trial ends on ",
+                style: TypographyStyles.poppins40010PrimaryColored(),
+                children: [
+                  TextSpan(
+                    text: DateFormatter.formatDate(
+                      "${DateTime.now().add(Duration(days: 14))}",
+                    ),
+                    style: TypographyStyles.poppins60010PrimaryColored(),
                   ),
-                  style: TypographyStyles.poppins60010PrimaryColored(),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

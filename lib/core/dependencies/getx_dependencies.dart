@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/app_version_details_controller.dart';
+import 'package:with_prana_mobile_app/controller/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/initial_question_option_controller.dart';
 import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
@@ -32,5 +34,11 @@ void setupGetxDependencies() {
   }
   if (!Get.isRegistered<UserController>()) {
     Get.put(UserController(), permanent: true);
+  }
+  if (!Get.isRegistered<AppVersionDetailsController>()) {
+    Get.put(AppVersionDetailsController(), permanent: true);
+  }
+  if (!Get.isRegistered<CommonController>()) {
+    Get.put(CommonController(), permanent: true);
   }
 }
