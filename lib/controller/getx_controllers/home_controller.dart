@@ -1,9 +1,11 @@
 // ignore_for_file: invalid_use_of_protected_member
 
-import 'package:flutter/rendering.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
 
 ////
 class MeditationCategoryModel {
@@ -195,7 +197,19 @@ class HomeController extends GetxController {
     }
   }
 
-  void changeBottomNavScreenIndex(int index) {
-    currentIndex(index);
+  void changeBottomNavScreenIndex({
+    required BuildContext context,
+    required int index,
+    required bool navigate,
+  }) {
+    if (currentIndex.value != index) {
+      if (navigate) {
+        RouteController.pushAndRemoveUntil(
+          context,
+          BottomNavigationScreen.routePath,
+        );
+      }
+      currentIndex(index);
+    }
   }
 }

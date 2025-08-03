@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
@@ -38,16 +39,14 @@ class SubscriptionStatusScreen extends StatelessWidget {
               style: TypographyStyles.sniglet40016PrimaryColored(),
             ),
             VerticalSpace8(),
-            SubscriptionWidget(
-              showButton: false,
-         
-            ),
+            SubscriptionWidget(showButton: false),
             VerticalSpace24(),
             SubscriptionPlansWidget(theme: theme),
-            VerticalSpace24(),
+            VerticalSpace120(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBarWidget(navigate: true),
     );
   }
 }

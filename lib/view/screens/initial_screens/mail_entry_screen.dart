@@ -82,7 +82,7 @@ class MailEntryScreen extends HookWidget {
                       TextFieldWidget(
                         controller: authController.emailController,
                         hintText: "Enter your email Id",
-                        enabled: true,
+                        enabled: !authController.isLoadingSendOtp.value,
                         textInputType: TextInputTypeEnum.email,
                         keyboardType: TextInputType.emailAddress,
                         emptyValidationErrorText: "Please enter your email id",

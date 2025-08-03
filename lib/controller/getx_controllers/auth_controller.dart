@@ -59,6 +59,7 @@ class AuthController extends GetxController {
         await Future.wait([
           SharedPrefs.setIsLoggedIn(true),
           SharedPrefs.setUserMailId(emailController.text.trim()),
+          SharedPrefs.setUserName(nameController.text.trim()),
         ]);
         reset();
       }

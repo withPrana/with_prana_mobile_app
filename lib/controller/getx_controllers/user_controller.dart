@@ -8,12 +8,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/core/utils/image_utils.dart';
+import 'package:with_prana_mobile_app/models/user_models/user_details_model.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/crop_profile_image_popup_widget.dart';
 
 class UserController extends GetxController {
+  final userDetails = UserDetailsResponseModel().obs;
   final userProfilePicture = Rx<File?>(null);
+
+  ////Get user details
+  Future<void> getUserDetails() async {
+    final userName = await SharedPrefs.getUserName();
+    final userMailId = await SharedPrefs.getUserMailId();
+    userDetails(UserDetailsResponseModel(name: userName, email: userMailId));
+  }
 
   ////Select and crop image
   Future<void> selectProfileImage(

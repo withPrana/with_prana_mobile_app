@@ -27,4 +27,7 @@ class ImageConstants {
 
   ////
   static const imgOfflineDownloadBg = "assets/images/img_offline_download.png";
+
+  ////
+  static const imgMeditationCategoryBg = "assets/images/img_meditation_category_bg.png";
 }

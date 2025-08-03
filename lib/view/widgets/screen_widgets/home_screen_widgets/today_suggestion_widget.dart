@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -11,11 +10,9 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 
 class TodaySuggestionWidget extends StatelessWidget {
   final ColorPalette theme;
-  final AuthController authController;
   const TodaySuggestionWidget({
     super.key,
     required this.theme,
-    required this.authController,
   });
 
   @override

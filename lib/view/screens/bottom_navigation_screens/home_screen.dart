@@ -1,11 +1,12 @@
 import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
@@ -20,17 +21,22 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/today_suggestion_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends HookWidget {
   static const routePath = "/home";
   HomeScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final authController = Get.find<AuthController>();
   final homeController = Get.find<HomeController>();
+  final userController = Get.find<UserController>();
   final likedContentsController = Get.find<LikedContentsController>();
 
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      userController.getUserDetails();
+      return null;
+    }, []);
+
     final theme = themeController.appTheme.value!;
     return DoubleTapToExit(
       child: Scaffold(
@@ -41,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: [0.1, 0.3],
+              stops: [0.1, 0.6],
               colors: theme.primaryScreenGradient,
             ),
           ),
@@ -60,10 +66,7 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               ////
-                              TodaySuggestionWidget(
-                                theme: theme,
-                                authController: authController,
-                              ),
+                              TodaySuggestionWidget(theme: theme),
                               VerticalSpace32(),
                               ////
                               MeditationCategoriesWidget(),
@@ -107,7 +110,7 @@ class HomeScreen extends StatelessWidget {
               HomeTopBarWidget(
                 homeController: homeController,
                 theme: theme,
-                authController: authController,
+                userController: userController,
               ),
             ],
           ),

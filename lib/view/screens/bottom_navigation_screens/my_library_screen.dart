@@ -26,12 +26,20 @@ class MyLibraryScreen extends StatelessWidget {
       enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        homeController.changeBottomNavScreenIndex(0);
+         homeController.changeBottomNavScreenIndex(
+              context: context,
+              index: 0,
+              navigate: false,
+            );
       },
       appBar: MainAppbarWidget(
         name: "My Library",
         onPop: () {
-          homeController.changeBottomNavScreenIndex(0);
+           homeController.changeBottomNavScreenIndex(
+              context: context,
+              index: 0,
+              navigate: false,
+            );
         },
       ),
       body: SingleChildScrollView(

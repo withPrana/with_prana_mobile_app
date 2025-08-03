@@ -9,13 +9,19 @@ class MainScreenLayoutWidget extends StatelessWidget {
   final Widget body;
   final bool enableAnimation;
   final bool canPop;
+  final Widget? bottomNavigationBar;
+
+  ///Horizontal padding of the screen. Do not use screen util. Its already used inside
+  final double horizontalPadding;
   final void Function(bool didPop, Object? result)? onPopInvokedWithResult;
   MainScreenLayoutWidget({
     super.key,
     this.appBar,
-    required this.body,
+    this.bottomNavigationBar,
+    this.horizontalPadding = 16,
     this.enableAnimation = false,
     this.canPop = true,
+    required this.body,
     this.onPopInvokedWithResult,
   });
 
@@ -28,6 +34,7 @@ class MainScreenLayoutWidget extends StatelessWidget {
       canPop: canPop,
       onPopInvokedWithResult: onPopInvokedWithResult,
       child: Scaffold(
+        extendBody: true,
         backgroundColor: Colors.transparent,
         body: TweenAnimationBuilder<double>(
           tween: Tween(begin: 0, end: 1),
@@ -47,7 +54,9 @@ class MainScreenLayoutWidget extends StatelessWidget {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: horizontalPadding.w,
+                    ),
                     child: Column(
                       children: [
                         if (appBar != null) appBar!,
@@ -58,6 +67,7 @@ class MainScreenLayoutWidget extends StatelessWidget {
                 ),
               ),
         ),
+        bottomNavigationBar: bottomNavigationBar,
       ),
     );
   }

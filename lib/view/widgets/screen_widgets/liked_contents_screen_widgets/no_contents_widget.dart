@@ -54,7 +54,11 @@ class NoContentsWidget extends StatelessWidget {
           primaryColorText: true,
           name: "Browse Meditations",
           onTap: () {
-            homeController.changeBottomNavScreenIndex(0);
+            homeController.changeBottomNavScreenIndex(
+              context: context,
+              index: 0,
+              navigate: false,
+            );
           },
           isLoading: false,
         ),

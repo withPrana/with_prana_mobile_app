@@ -10,6 +10,7 @@ import 'package:with_prana_mobile_app/view/screens/initial_screens/mail_entry_sc
 import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/splash_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/meditation_category_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/account_info_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
 
@@ -54,8 +55,16 @@ Route getRoute(RouteSettings settings, BuildContext context) {
         SubscriptionStatusScreen(),
         settings,
       );
+    ////
     case AccountInfoScreen.routePath:
       return _buildRouteWithDefaultAnimation(AccountInfoScreen(), settings);
+    ////
+    case MeditationCategoryScreen.routePath:
+      final args = settings.arguments as Map<String, dynamic>;
+      return _buildRouteWithDefaultAnimation(
+        MeditationCategoryScreen(category: args["category"]),
+        settings,
+      );
     ////
     default:
       return _buildRouteWithDefaultAnimation(SplashScreen(), settings);

@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/app_version_details_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
@@ -23,7 +22,6 @@ class ProfileScreen extends HookWidget {
 
   final themeController = Get.find<ThemeController>();
   final userController = Get.find<UserController>();
-  final authController = Get.find<AuthController>();
   final homeController = Get.find<HomeController>();
   final appVersionDetailsController = Get.find<AppVersionDetailsController>();
   final commonController = Get.find<CommonController>();
@@ -39,7 +37,11 @@ class ProfileScreen extends HookWidget {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        homeController.changeBottomNavScreenIndex(0);
+        homeController.changeBottomNavScreenIndex(
+          context: context,
+          index: 0,
+          navigate: false,
+        );
       },
       child: Scaffold(
         backgroundColor: theme.inverseColor,
@@ -48,7 +50,6 @@ class ProfileScreen extends HookWidget {
           child: ProfileApparWidget(
             theme: theme,
             userController: userController,
-            authController: authController,
             homeController: homeController,
           ),
         ),
@@ -115,7 +116,11 @@ class ProfileScreen extends HookWidget {
                       menuName: "Downloads",
                       theme: theme,
                       onTap: () {
-                        homeController.changeBottomNavScreenIndex(1);
+                        homeController.changeBottomNavScreenIndex(
+                          context: context,
+                          index: 1,
+                          navigate: false,
+                        );
                       },
                     ),
                     ProfileMenuItemWidget(
@@ -123,7 +128,11 @@ class ProfileScreen extends HookWidget {
                       menuName: "Favorites",
                       theme: theme,
                       onTap: () {
-                        homeController.changeBottomNavScreenIndex(3);
+                        homeController.changeBottomNavScreenIndex(
+                          context: context,
+                          index: 3,
+                          navigate: false,
+                        );
                       },
                     ),
                     ProfileMenuItemWidget(

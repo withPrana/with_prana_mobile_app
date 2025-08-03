@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
@@ -14,14 +14,12 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen
 class ProfileApparWidget extends StatelessWidget {
   final ColorPalette theme;
   final UserController userController;
-  final AuthController authController;
   final HomeController homeController;
 
   const ProfileApparWidget({
     super.key,
     required this.theme,
     required this.userController,
-    required this.authController,
     required this.homeController,
   });
 
@@ -73,7 +71,11 @@ class ProfileApparWidget extends StatelessWidget {
                     name: "👤 Profile",
                     isInverse: true,
                     onPop: () {
-                      homeController.changeBottomNavScreenIndex(0);
+                      homeController.changeBottomNavScreenIndex(
+                        context: context,
+                        index: 0,
+                        navigate: false,
+                      );
                     },
                   ),
                 ),
@@ -87,7 +89,6 @@ class ProfileApparWidget extends StatelessWidget {
             child: Center(
               child: ProfileImageAndNameWidget(
                 userController: userController,
-                authController: authController,
                 theme: theme,
               ),
             ),
@@ -97,9 +98,11 @@ class ProfileApparWidget extends StatelessWidget {
             left: 0,
             right: 0,
             child: Center(
-              child: Text(
-                authController.nameController.text.trim(),
-                style: TypographyStyles.sniglet40024(),
+              child: Obx(
+                () => Text(
+                  (userController.userDetails.value.name ?? '-').trim(),
+                  style: TypographyStyles.sniglet40024(),
+                ),
               ),
             ),
           ),

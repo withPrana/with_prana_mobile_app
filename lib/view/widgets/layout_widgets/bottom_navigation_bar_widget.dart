@@ -25,7 +25,8 @@ class BottomNavigationItemModel {
 }
 
 class BottomNavigationBarWidget extends StatelessWidget {
-  BottomNavigationBarWidget({super.key});
+  final bool navigate;
+  BottomNavigationBarWidget({super.key, required this.navigate});
 
   final themeController = Get.find<ThemeController>();
   final homeController = Get.find<HomeController>();
@@ -68,8 +69,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
     final theme = themeController.appTheme.value!;
     return Container(
       width: ScreenSize.width(context),
-      height: 88.h,
-      padding: EdgeInsets.only(top: 12.h, bottom: 24.h),
+      padding: EdgeInsets.only(top: 8.h, bottom: 16.h),
       decoration: BoxDecoration(
         color: theme.inverseColor,
         borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
@@ -80,13 +80,18 @@ class BottomNavigationBarWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: List.generate(
           5,
-          (index) => bottomNavigationItem(bottomNavigationItems[index], theme),
+          (index) => bottomNavigationItem(
+            context,
+            bottomNavigationItems[index],
+            theme,
+          ),
         ),
       ),
     );
   }
 
   Widget bottomNavigationItem(
+    BuildContext context,
     BottomNavigationItemModel item,
     ColorPalette theme,
   ) {
@@ -94,7 +99,11 @@ class BottomNavigationBarWidget extends StatelessWidget {
       final isSelected = homeController.currentIndex.value == item.index;
       return InkWell(
         onTap: () {
-          homeController.changeBottomNavScreenIndex(item.index);
+          homeController.changeBottomNavScreenIndex(
+            context: context,
+            index: item.index,
+            navigate: navigate,
+          );
         },
         child: SizedBox(
           width: 60.r,

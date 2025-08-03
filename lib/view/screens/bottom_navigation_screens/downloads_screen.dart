@@ -32,21 +32,34 @@ class DownloadsScreen extends HookWidget {
     final isSubscribed = useState(false);
 
     return MainScreenLayoutWidget(
+      horizontalPadding: 0,
       enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        homeController.changeBottomNavScreenIndex(0);
+         homeController.changeBottomNavScreenIndex(
+              context: context,
+              index: 0,
+              navigate: false,
+            );
       },
-      appBar: MainAppbarWidget(
-        name: "📥 Downloads",
-        onPop: () {
-          homeController.changeBottomNavScreenIndex(0);
-        },
+      appBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: MainAppbarWidget(
+          name: "📥 Downloads",
+          onPop: () {
+             homeController.changeBottomNavScreenIndex(
+              context: context,
+              index: 0,
+              navigate: false,
+            );
+          },
+        ),
       ),
-      body: SingleChildScrollView(
-        child:
-            isSubscribed.value
-                ? Column(
+      body:
+          isSubscribed.value
+              ? Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -86,68 +99,60 @@ class DownloadsScreen extends HookWidget {
                       ),
                     ),
                   ],
-                )
-                : Column(
-                  children: [
-                    VerticalSpace8(),
-                    Text(
-                      "Offline listening is part of\nour Premium plan.",
-                      textAlign: TextAlign.center,
-                      style: TypographyStyles.snigletNormal24secondaryColored(),
-                    ),
-                    VerticalSpace4(),
-                    Text(
-                      "Subscribe to access calming voices\nanytime, anywhere.",
-                      textAlign: TextAlign.center,
-                      style: TypographyStyles.poppins40014(),
-                    ),
-                    VerticalSpace24(),
-                    PrimaryButtonWidget(
-                      height: 44.r,
-                      borderOnly: true,
-                      borderColor: theme.primaryColor,
-                      primaryColorText: true,
-                      name: "Upgrade to Premium",
-                      onTap: () {
-                        isSubscribed.value = !isSubscribed.value;
-                      },
-                      isLoading: false,
-                    ),
-                    VerticalSpace8(),
-                    RichText(
-                      text: TextSpan(
-                        text: "*14-day free trial ends on ",
-                        style: TypographyStyles.poppins40012PrimaryColored(),
-                        children: [
-                          TextSpan(
-                            text: DateFormatter.formatDate(
-                              "${DateTime.now().add(Duration(days: 14))}",
-                            ),
-                            style:
-                                TypographyStyles.poppins60010PrimaryColored(),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: SizedBox(
-                        height: 440.w,
-                        child: OverflowBox(
-                          maxWidth: ScreenSize.width(context),
-                          maxHeight: 440.w,
-                          child: Image.asset(
-                            ImageConstants.imgOfflineDownloadBg,
-                            width: ScreenSize.width(context),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    VerticalSpace120(),
-                  ],
                 ),
-      ),
+              )
+              : Column(
+                children: [
+                  // VerticalSpace8(),
+                  Text(
+                    "Offline listening is part of\nour Premium plan.",
+                    textAlign: TextAlign.center,
+                    style: TypographyStyles.snigletNormal24secondaryColored(),
+                  ),
+                  VerticalSpace4(),
+                  Text(
+                    "Subscribe to access calming voices\nanytime, anywhere.",
+                    textAlign: TextAlign.center,
+                    style: TypographyStyles.poppins40014(),
+                  ),
+                  VerticalSpace24(),
+                  PrimaryButtonWidget(
+                    height: 44.r,
+                    width: 280.r,
+                    borderOnly: true,
+                    borderColor: theme.primaryColor,
+                    primaryColorText: true,
+                    name: "Upgrade to Premium",
+                    onTap: () {
+                      isSubscribed.value = !isSubscribed.value;
+                    },
+                    isLoading: false,
+                  ),
+                  VerticalSpace8(),
+                  RichText(
+                    text: TextSpan(
+                      text: "*14-day free trial ends on ",
+                      style: TypographyStyles.poppins40012PrimaryColored(),
+                      children: [
+                        TextSpan(
+                          text: DateFormatter.formatDate(
+                            "${DateTime.now().add(Duration(days: 14))}",
+                          ),
+                          style: TypographyStyles.poppins60010PrimaryColored(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Image.asset(
+                      ImageConstants.imgOfflineDownloadBg,
+                      width: ScreenSize.width(context),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
     );
   }
 }
