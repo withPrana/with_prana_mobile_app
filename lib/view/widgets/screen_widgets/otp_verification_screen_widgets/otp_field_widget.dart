@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
@@ -20,6 +20,7 @@ class OtpFieldWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Pinput(
+        length: 6,
         controller: controller,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         showCursor: false,
@@ -37,8 +38,8 @@ class OtpFieldWidget extends StatelessWidget {
 
   PinTheme _pinTheme({required ColorPalette theme, Color? borderColor}) {
     return PinTheme(
-      width: 48.r,
-      height: 48.r,
+      width: 40.r,
+      height: 40.r,
       padding: EdgeInsets.all(8.r),
       textStyle: TypographyStyles.poppinsNormal16(),
       decoration: BoxDecoration(

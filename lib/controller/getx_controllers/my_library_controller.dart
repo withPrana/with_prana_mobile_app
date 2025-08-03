@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 
 class MyLibraryController extends GetxController {

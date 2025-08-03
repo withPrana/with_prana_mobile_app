@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:with_prana_mobile_app/controller/my_library_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/my_library_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 

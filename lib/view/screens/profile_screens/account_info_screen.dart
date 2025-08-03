@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/normal_screen_layout_widget.dart';
@@ -17,7 +17,7 @@ class AccountInfoScreen extends StatelessWidget {
 
   final themeController = Get.find<ThemeController>();
   final userController = Get.find<UserController>();
-  final loginController = Get.find<LoginController>();
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class AccountInfoScreen extends StatelessWidget {
                   ProfileImageAndNameWidget(
                     theme: theme,
                     userController: userController,
-                    loginController: loginController,
+                    authController: authController,
                   ),
                   VerticalSpace16(),
                   AccountInfoWidget(),

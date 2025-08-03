@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
 class HomeTopBarWidget extends StatelessWidget {
   final HomeController homeController;
-  final LoginController loginController;
+  final AuthController authController;
   final ColorPalette theme;
   const HomeTopBarWidget({
     super.key,
     required this.homeController,
     required this.theme,
-    required this.loginController,
+    required this.authController,
   });
 
   @override
@@ -58,7 +58,7 @@ class HomeTopBarWidget extends StatelessWidget {
                   color: theme.textColor,
                 ),
                 Text(
-                  "${homeController.getGreeting()}, ${loginController.nameController.text.trim()}",
+                  "${homeController.getGreeting()}, ${authController.nameController.text.trim()}",
                   style: TypographyStyles.poppins40012Dark(),
                 ),
               ],

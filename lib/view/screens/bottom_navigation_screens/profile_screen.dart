@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/app_version_details_controller.dart';
-import 'package:with_prana_mobile_app/controller/common_controller.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/app_version_details_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -23,7 +23,7 @@ class ProfileScreen extends HookWidget {
 
   final themeController = Get.find<ThemeController>();
   final userController = Get.find<UserController>();
-  final loginController = Get.find<LoginController>();
+  final authController = Get.find<AuthController>();
   final homeController = Get.find<HomeController>();
   final appVersionDetailsController = Get.find<AppVersionDetailsController>();
   final commonController = Get.find<CommonController>();
@@ -48,7 +48,7 @@ class ProfileScreen extends HookWidget {
           child: ProfileApparWidget(
             theme: theme,
             userController: userController,
-            loginController: loginController,
+            authController: authController,
             homeController: homeController,
           ),
         ),

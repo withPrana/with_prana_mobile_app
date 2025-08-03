@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';

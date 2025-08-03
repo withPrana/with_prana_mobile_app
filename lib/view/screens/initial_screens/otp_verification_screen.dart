@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/controller/otp_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -19,8 +18,7 @@ class OtpVerificationScreen extends HookWidget {
   OtpVerificationScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final loginController = Get.find<LoginController>();
-  final otpController = Get.find<OtpController>();
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -75,11 +73,11 @@ class OtpVerificationScreen extends HookWidget {
                       ),
                       VerticalSpace8(),
                       Text(
-                        "Please enter the code sent to your inbox at ${loginController.emailController.text.trim()} to proceed.",
+                        "Please enter the code sent to your inbox at ${authController.emailController.text.trim()} to proceed.",
                         style: TypographyStyles.poppins40012(),
                       ),
                       VerticalSpace96(),
-                      OtpEntryWidget(otpController: otpController),
+                      OtpEntryWidget(authController: authController),
                       Spacer(),
                       /////bottom
                       ContentAndActionWidget(
@@ -88,7 +86,7 @@ class OtpVerificationScreen extends HookWidget {
                         contentString:
                             "Our audio is crafted with therapeutic voices and tones designed to emotionally ease your mind.",
                         actions: BottomButtonsWidget(
-                          otpController: otpController,
+                          authController: authController,
                           theme: theme,
                         ),
                       ),

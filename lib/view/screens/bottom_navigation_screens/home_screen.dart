@@ -2,10 +2,10 @@ import 'package:double_tap_to_exit/double_tap_to_exit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/home_controller.dart';
-import 'package:with_prana_mobile_app/controller/liked_contents_controller.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final loginController = Get.find<LoginController>();
+  final authController = Get.find<AuthController>();
   final homeController = Get.find<HomeController>();
   final likedContentsController = Get.find<LikedContentsController>();
 
@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                               ////
                               TodaySuggestionWidget(
                                 theme: theme,
-                                loginController: loginController,
+                                authController: authController,
                               ),
                               VerticalSpace32(),
                               ////
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
               HomeTopBarWidget(
                 homeController: homeController,
                 theme: theme,
-                loginController: loginController,
+                authController: authController,
               ),
             ],
           ),

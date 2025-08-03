@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:with_prana_mobile_app/controller/otp_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/otp_verification_screen_widgets/otp_field_widget.dart';
 
 class OtpEntryWidget extends StatelessWidget {
-  final OtpController otpController;
-  const OtpEntryWidget({super.key, required this.otpController});
+  final AuthController authController;
+  const OtpEntryWidget({super.key, required this.authController});
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (otpController.isOtpVerified.value) {
+      if (authController.isOtpVerified.value) {
         return Text(
           "Your email has been verified! You're all set to continue your practice.",
           textAlign: TextAlign.center,
@@ -22,8 +22,8 @@ class OtpEntryWidget extends StatelessWidget {
         return Column(
           children: [
             OtpFieldWidget(
-              controller: otpController.otpTextController,
-              onCompleted: (value) => otpController.verifyOtp(),
+              controller: authController.otpTextController,
+              onCompleted: (value) => authController.verifyOtp(),
             ),
             VerticalSpace6(),
             Align(

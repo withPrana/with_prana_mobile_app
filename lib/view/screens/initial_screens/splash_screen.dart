@@ -1,15 +1,19 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/common_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/logo_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/secondary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/splash_screen_widgets/animated_text_widget.dart';
@@ -22,6 +26,8 @@ class SplashScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = useState(false);
+
     final themeController = Get.find<ThemeController>();
     final theme = themeController.appTheme.value!;
 
@@ -48,6 +54,9 @@ class SplashScreen extends HookWidget {
     );
 
     useEffect(() {
+      Future.delayed(Duration.zero, () async {
+        isLoggedIn.value = await SharedPrefs.isLoggedIn();
+      });
       Future.delayed(const Duration(seconds: 1), () async {
         showLogo.value = true;
         showInitial.value = true;
@@ -61,6 +70,14 @@ class SplashScreen extends HookWidget {
             Future.delayed(const Duration(seconds: 4), () {
               showAuthor.value = true;
               showButton.value = true;
+              Future.delayed(Duration(milliseconds: 1000), () {
+                if (isLoggedIn.value) {
+                  RouteController.pushAndRemoveUntil(
+                    context,
+                    HomeScreen.routePath,
+                  );
+                }
+              });
             });
           });
         });
@@ -183,70 +200,71 @@ class SplashScreen extends HookWidget {
             ),
 
           ////begin button
-          AnimatedOpacity(
-            duration: const Duration(milliseconds: 800),
-            opacity: showButton.value ? 1.0 : 0.0,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                padding: EdgeInsets.all(12.r),
-                margin: EdgeInsets.only(bottom: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.r),
-                  border: Border.all(
-                    color: Color(0xffF5F5F5).withValues(alpha: 0.4),
-                    width: 2.r,
-                  ),
-                ),
+          if (!isLoggedIn.value)
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 800),
+              opacity: showButton.value ? 1.0 : 0.0,
+              child: Align(
+                alignment: Alignment.bottomCenter,
                 child: Container(
                   padding: EdgeInsets.all(12.r),
+                  margin: EdgeInsets.only(bottom: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30.r),
                     border: Border.all(
-                      color: Color(0xffF5F5F5).withValues(alpha: 0.6),
-                      width: 2,
+                      color: Color(0xffF5F5F5).withValues(alpha: 0.4),
+                      width: 2.r,
                     ),
                   ),
                   child: Container(
                     padding: EdgeInsets.all(12.r),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.r),
+                      borderRadius: BorderRadius.circular(30.r),
                       border: Border.all(
-                        color: Color(0xffF5F5F5).withValues(alpha: 0.8),
-                        width: 2.r,
+                        color: Color(0xffF5F5F5).withValues(alpha: 0.6),
+                        width: 2,
                       ),
                     ),
-                    child: SecondaryButtonWidget(
-                      width: 128.r,
-                      onTap: () {
-                        RouteController.pushAndRemoveUntil(
-                          context,
-                          NameEntryScreen.routePath,
-                        );
-                      },
-                      isLoading: false,
-                      borderColor: Color(0xffF5F5F5),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        spacing: 8.r,
-                        children: [
-                          Text(
-                            "Begin",
-                            style: TypographyStyles.poppinsBold16Inverse(),
-                          ),
-                          ImageIcon(
-                            AssetImage(IconConstants.icArrowRight),
-                            color: theme.inverseColor,
-                            size: 18.r,
-                          ),
-                        ],
+                    child: Container(
+                      padding: EdgeInsets.all(12.r),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.r),
+                        border: Border.all(
+                          color: Color(0xffF5F5F5).withValues(alpha: 0.8),
+                          width: 2.r,
+                        ),
+                      ),
+                      child: SecondaryButtonWidget(
+                        width: 128.r,
+                        onTap: () {
+                          RouteController.pushAndRemoveUntil(
+                            context,
+                            NameEntryScreen.routePath,
+                          );
+                        },
+                        isLoading: false,
+                        borderColor: Color(0xffF5F5F5),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 8.r,
+                          children: [
+                            Text(
+                              "Begin",
+                              style: TypographyStyles.poppinsBold16Inverse(),
+                            ),
+                            ImageIcon(
+                              AssetImage(IconConstants.icArrowRight),
+                              color: theme.inverseColor,
+                              size: 18.r,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
         ],
       ),
     );

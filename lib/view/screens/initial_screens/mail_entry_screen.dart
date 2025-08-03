@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/login_controller.dart';
-import 'package:with_prana_mobile_app/controller/theme_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
-import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
@@ -22,7 +20,7 @@ class MailEntryScreen extends HookWidget {
   MailEntryScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final loginController = Get.find<LoginController>();
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +80,7 @@ class MailEntryScreen extends HookWidget {
                       ),
                       VerticalSpace96(),
                       TextFieldWidget(
-                        controller: loginController.emailController,
+                        controller: authController.emailController,
                         hintText: "Enter your email Id",
                         enabled: true,
                         textInputType: TextInputTypeEnum.email,
@@ -107,31 +105,33 @@ class MailEntryScreen extends HookWidget {
                             "Our audio is crafted with therapeutic voices and tones designed to emotionally ease your mind.",
                         actions: Column(
                           children: [
-                            PrimaryButtonWidget(
-                              onTap: () {
-                                if (formKey.currentState!.validate()) {
-                                  RouteController.push(
-                                    context,
-                                    OtpVerificationScreen.routePath,
-                                  );
-                                }
-                              },
-                              isLoading: false,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                spacing: 8,
-                                children: [
-                                  Text(
-                                    "Next",
-                                    style:
-                                        TypographyStyles.poppinsBold16Inverse(),
-                                  ),
-                                  ImageIcon(
-                                    AssetImage(IconConstants.icArrowRight),
-                                    color: theme.inverseColor,
-                                    size: 18,
-                                  ),
-                                ],
+                            Obx(
+                              () => PrimaryButtonWidget(
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    authController.registerAccountAndSendOtp(
+                                      context,
+                                    );
+                                  }
+                                },
+                                isLoading:
+                                    authController.isLoadingSendOtp.value,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  spacing: 8,
+                                  children: [
+                                    Text(
+                                      "Next",
+                                      style:
+                                          TypographyStyles.poppinsBold16Inverse(),
+                                    ),
+                                    ImageIcon(
+                                      AssetImage(IconConstants.icArrowRight),
+                                      color: theme.inverseColor,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
