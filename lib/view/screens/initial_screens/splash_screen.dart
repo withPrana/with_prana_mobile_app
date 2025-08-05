@@ -14,7 +14,7 @@ import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/secondary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/splash_screen_widgets/animated_text_widget.dart';
 
@@ -239,7 +239,7 @@ class SplashScreen extends HookWidget {
                         onTap: () {
                           RouteController.pushAndRemoveUntil(
                             context,
-                            NameEntryScreen.routePath,
+                            LoginScreen.routePath,
                           );
                         },
                         isLoading: false,

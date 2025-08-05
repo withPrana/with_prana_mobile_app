@@ -14,10 +14,12 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_two.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_image_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/text_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/initial_question_screen_widgets/intial_question_options_widget.dart';
 
 class InitialQuestionScreenOne extends StatelessWidget {
@@ -147,7 +149,21 @@ class InitialQuestionScreenOne extends StatelessWidget {
                         ),
                       ),
                     ),
-                    VerticalSpace24(),
+                    VerticalSpace8(),
+                    Transform.scale(
+                      scale: 0.8,
+                      child: TextAndActionWidget(
+                        primaryText: "Already have an account?",
+                        actionText: "Log in",
+                        onActionClicked: () {
+                          RouteController.pushAndRemoveUntil(
+                            context,
+                            LoginScreen.routePath,
+                          );
+                        },
+                      ),
+                    ),
+                    VerticalSpace16(),
                   ],
                 ),
               ),

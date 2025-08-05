@@ -8,7 +8,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/meditation_category_screen_widgets/meditation_category_bg_widget.dart';
 
 class MeditationCategoryScreen extends HookWidget {
-  static const routePath = "meditation-category";
+  static const routePath = "/meditation-category";
 
   final MeditationCategoryModel category;
   const MeditationCategoryScreen({super.key, required this.category});

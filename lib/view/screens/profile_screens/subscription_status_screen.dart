@@ -10,7 +10,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/subscription_w
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/subscription_screen_widget.dart/subscription_plans_widget.dart';
 
 class SubscriptionStatusScreen extends StatelessWidget {
-  static const routePath = "subscription-status";
+  static const routePath = "/subscription-status";
   SubscriptionStatusScreen({super.key});
 
   final themeController = Get.find<ThemeController>();

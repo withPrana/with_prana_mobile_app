@@ -11,7 +11,7 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/account_info_s
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_image_and_name_widget.dart';
 
 class AccountInfoScreen extends StatelessWidget {
-  static const routePath = "account-info";
+  static const routePath = "/account-info";
   AccountInfoScreen({super.key});
 
   final themeController = Get.find<ThemeController>();

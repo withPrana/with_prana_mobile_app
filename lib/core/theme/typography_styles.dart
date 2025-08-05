@@ -45,6 +45,16 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle sniglet40024PrimaryColor() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 24.r,
+      color: themeController.appTheme.value?.primaryColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
   static TextStyle snigletNormal24Inverse() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -226,6 +236,26 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle poppins40014PrimaryColored() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 14.r,
+      color: themeController.appTheme.value?.primaryColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins40014DisabledColor() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 14.r,
+      color: themeController.appTheme.value?.disabledColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
+
   static TextStyle poppins50014() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -317,7 +347,7 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppinsBold14Primary() {
+  static TextStyle poppinsBold14DarkColored() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 14.r,

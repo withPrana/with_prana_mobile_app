@@ -7,13 +7,16 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controll
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_image_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/text_and_action_widget.dart';
 
 class MailEntryScreen extends HookWidget {
   static const routePath = "/mail-entry";
@@ -137,7 +140,21 @@ class MailEntryScreen extends HookWidget {
                           ],
                         ),
                       ),
-                      VerticalSpace24(),
+                      VerticalSpace8(),
+                      Transform.scale(
+                        scale: 0.8,
+                        child: TextAndActionWidget(
+                          primaryText: "Already have an account?",
+                          actionText: "Log in",
+                          onActionClicked: () {
+                            RouteController.pushAndRemoveUntil(
+                              context,
+                              LoginScreen.routePath,
+                            );
+                          },
+                        ),
+                      ),
+                      VerticalSpace16(),
                     ],
                   ),
                 ),

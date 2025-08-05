@@ -6,6 +6,7 @@ import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bot
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_one.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_two.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/mail_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/name_entry_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
@@ -19,6 +20,9 @@ Route getRoute(RouteSettings settings, BuildContext context) {
     ////
     case SplashScreen.routePath:
       return _buildRouteWithDefaultAnimation(SplashScreen(), settings);
+    ////
+    case LoginScreen.routePath:
+      return _buildRouteWithDefaultAnimation(LoginScreen(), settings);
     ////
     case NameEntryScreen.routePath:
       return _buildRouteWithDefaultAnimation(NameEntryScreen(), settings);

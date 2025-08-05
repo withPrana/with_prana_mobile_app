@@ -2,6 +2,10 @@ class IconConstants {
   static const icArrowRight = "assets/icons/ic_arrow_right.png";
   static const icArrowBack = "assets/icons/ic_arrow_back.png";
 
+  /////Auth
+  static const icGoogleSignIn = "assets/icons/ic_google_sign_in.png";
+  static const icAppleSignIn = "assets/icons/ic_apple_sign_in.png";
+
   ////Bottom navigation
   static const icBottomNavHome = "assets/icons/ic_bottom_nav_home.png";
   static const icBottomNavDownloads =
@@ -41,11 +45,18 @@ class IconConstants {
   static const icFavourite = "assets/icons/ic_favourite.png";
 
   ////profile menu
-  static const icProfileMenuSubscriptionStatus = "assets/icons/ic_profile_menu_subscription_status.png";
-  static const icProfileMenuAccoutInfo = "assets/icons/ic_profile_menu_account_info.png";
-  static const icProfileMenuDownloads = "assets/icons/ic_profile_menu_downloads.png";
-  static const icProfileMenuFavorites = "assets/icons/ic_profile_menu_favorites.png";
-  static const icProfileMenuNotifications = "assets/icons/ic_profile_menu_notifications.png";
-  static const icProfileMenuContactSupport = "assets/icons/ic_profile_menu_contact_support.png";
-  static const icProfileMenuTermsAndPrivacy = "assets/icons/ic_profile_menu_terms_and_privacy.png";
+  static const icProfileMenuSubscriptionStatus =
+      "assets/icons/ic_profile_menu_subscription_status.png";
+  static const icProfileMenuAccoutInfo =
+      "assets/icons/ic_profile_menu_account_info.png";
+  static const icProfileMenuDownloads =
+      "assets/icons/ic_profile_menu_downloads.png";
+  static const icProfileMenuFavorites =
+      "assets/icons/ic_profile_menu_favorites.png";
+  static const icProfileMenuNotifications =
+      "assets/icons/ic_profile_menu_notifications.png";
+  static const icProfileMenuContactSupport =
+      "assets/icons/ic_profile_menu_contact_support.png";
+  static const icProfileMenuTermsAndPrivacy =
+      "assets/icons/ic_profile_menu_terms_and_privacy.png";
 }
