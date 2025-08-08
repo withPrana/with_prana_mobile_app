@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/services.dart/auth_services.dart';
@@ -80,7 +81,20 @@ class AuthController extends GetxController {
 
   ////Sign in with google
   Future<void> signInWithGoogle() async {
-    
+    try {
+      final auth = FirebaseAuth.instance;
+      final userCredential = await auth.signInWithProvider(
+        GoogleAuthProvider(),
+      );
+      final user = userCredential.user;
+      if (user != null) {
+        await Future.wait([
+          SharedPrefs.setUserMailId(user.email ?? ''),
+          SharedPrefs.setUserName(user.displayName ?? ''),
+          SharedPrefs.setIsLoggedIn(true),
+        ]);
+      }
+    } catch (e) {}
   }
 
   void reset() {
