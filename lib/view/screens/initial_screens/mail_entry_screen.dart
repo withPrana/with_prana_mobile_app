@@ -10,7 +10,7 @@ import 'package:with_prana_mobile_app/core/enums/text_input_type_enum.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
@@ -149,7 +149,7 @@ class MailEntryScreen extends HookWidget {
                           onActionClicked: () {
                             RouteController.pushAndRemoveUntil(
                               context,
-                              LoginScreen.routePath,
+                              SignInScreen.routePath,
                             );
                           },
                         ),

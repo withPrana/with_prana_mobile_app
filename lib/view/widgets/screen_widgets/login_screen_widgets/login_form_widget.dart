@@ -41,7 +41,9 @@ class LoginFormWidget extends HookWidget {
             signInMethodWidget(
               iconPath: IconConstants.icGoogleSignIn,
               signInMethod: "Google",
-              onTap: () {},
+              onTap: () {
+                authController.signInWithGoogle();
+              },
             ),
             VerticalSpace16(),
             signInMethodWidget(
@@ -56,7 +58,7 @@ class LoginFormWidget extends HookWidget {
               () => AuthTextFieldWidget(
                 title: "Email address",
                 controller: authController.emailController,
-                hintText: "example@gmail.com",
+                hintText: "abc@example.com",
                 enabled: !authController.isLoadingSendOtp.value,
                 textInputType: TextInputTypeEnum.email,
               ),

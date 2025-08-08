@@ -14,7 +14,7 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_two.dart';
-import 'package:with_prana_mobile_app/view/screens/initial_screens/login_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_image_widget.dart';
@@ -158,7 +158,7 @@ class InitialQuestionScreenOne extends StatelessWidget {
                         onActionClicked: () {
                           RouteController.pushAndRemoveUntil(
                             context,
-                            LoginScreen.routePath,
+                            SignInScreen.routePath,
                           );
                         },
                       ),

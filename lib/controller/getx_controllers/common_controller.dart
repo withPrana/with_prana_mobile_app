@@ -1,6 +1,8 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:with_prana_mobile_app/core/constants/audio_contants.dart';
+import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
+import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 
 class CommonController extends GetxController {
   final backGroundAudioPlayer = AudioPlayer();
@@ -8,21 +10,37 @@ class CommonController extends GetxController {
 
   ////
   Future<void> setupBgAudio() async {
-    await backGroundAudioPlayer.setAsset(AudioContants.audioBg);
-    await backGroundAudioPlayer.setLoopMode(LoopMode.all);
-    await backGroundAudioPlayer.play();
+    try {
+      await backGroundAudioPlayer.setSource(AssetSource(AudioContants.audioBg));
+      await backGroundAudioPlayer.setReleaseMode(ReleaseMode.loop);
+      await backGroundAudioPlayer.resume();
+    } catch (e) {
+      AppDialogs.showToast(
+        message: e.toString(),
+        toastType: ToastTypeEnum.error,
+      );
+    }
   }
 
   ////
   Future<void> playSampleMeditationAudio() async {
-    await backGroundAudioPlayer.pause();
-    await sampleAudioPlayer.setAsset(AudioContants.audioSampleMeditation);
-    await sampleAudioPlayer.play();
+    try {
+      await backGroundAudioPlayer.pause();
+      await sampleAudioPlayer.setSource(
+        AssetSource(AudioContants.audioSampleMeditation),
+      );
+      await sampleAudioPlayer.resume();
+    } catch (e) {
+      AppDialogs.showToast(
+        message: "unable to play audio $e",
+        toastType: ToastTypeEnum.error,
+      );
+    }
   }
 
   Future<void> pauseSampleMeditationAudio() async {
     await sampleAudioPlayer.pause();
-    await backGroundAudioPlayer.play();
+    await backGroundAudioPlayer.resume();
   }
 
   ////

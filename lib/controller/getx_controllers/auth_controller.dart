@@ -21,6 +21,8 @@ class AuthController extends GetxController {
   final isLoadingOtpVerification = false.obs;
   final isOtpVerified = false.obs;
 
+  final isLoadingGoogleSignIn = false.obs;
+
   ////register and receive otp
   Future<void> registerAccountAndSendOtp(BuildContext context) async {
     isLoadingSendOtp(true);
@@ -76,10 +78,16 @@ class AuthController extends GetxController {
     isLoadingResendOtp(false);
   }
 
+  ////Sign in with google
+  Future<void> signInWithGoogle() async {
+    
+  }
+
   void reset() {
     isLoadingSendOtp(false);
     isLoadingOtpVerification(false);
     isLoadingResendOtp(false);
+    isLoadingGoogleSignIn(false);
     nameController.clear();
     emailController.clear();
     otpTextController.clear();

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184414208616",
+    "project_id": "withprana-c35c5",
+    "storage_bucket": "withprana-c35c5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184414208616:android:91f49c701ea751690df1dd",
+        "android_client_info": {
+          "package_name": "com.withprana.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzqcSjjZ-ykeD7fRqS2uXsdvSb3CCddZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
