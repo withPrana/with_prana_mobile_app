@@ -1,8 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:with_prana_mobile_app/controller/services.dart/auth_services.dart';
 import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
@@ -82,9 +85,20 @@ class AuthController extends GetxController {
   ////Sign in with google
   Future<void> signInWithGoogle() async {
     try {
-      final auth = FirebaseAuth.instance;
-      final userCredential = await auth.signInWithProvider(
-        GoogleAuthProvider(),
+      final firebaseAuth = FirebaseAuth.instance;
+      final googleSignIn = GoogleSignIn.instance;
+      final GoogleSignInAccount googleAccount = await googleSignIn.authenticate(
+        scopeHint: ['email'],
+      );
+      final googleAuth = await googleAccount.authorizationClient
+          .authorizationForScopes(['email']);
+      if (googleAuth == null) return;
+      final credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.accessToken,
+        accessToken: googleAuth.accessToken,
+      );
+      final userCredential = await firebaseAuth.signInWithCredential(
+        credential,
       );
       final user = userCredential.user;
       if (user != null) {
@@ -94,7 +108,9 @@ class AuthController extends GetxController {
           SharedPrefs.setIsLoggedIn(true),
         ]);
       }
-    } catch (e) {}
+    } catch (e) {
+      log("google sign in error : $e");
+    }
   }
 
   void reset() {
