@@ -10,6 +10,7 @@ class ContentWithImageWidget extends StatelessWidget {
   final ColorPalette theme;
   final MadeForYouContentModel content;
   final bool isLiked;
+  final double? contentScale;
   final void Function()? onLiked;
   const ContentWithImageWidget({
     super.key,
@@ -17,6 +18,7 @@ class ContentWithImageWidget extends StatelessWidget {
     required this.content,
     required this.onLiked,
     required this.isLiked,
+    this.contentScale,
   });
 
   @override
@@ -64,7 +66,7 @@ class ContentWithImageWidget extends StatelessWidget {
           ),
           ////
           Padding(
-            padding: EdgeInsets.all(6.r),
+            padding: EdgeInsets.all(8.r),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,

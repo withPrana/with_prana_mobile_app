@@ -44,6 +44,7 @@ class VerticalSpace10 extends StatelessWidget {
     return SizedBox(height: 10);
   }
 }
+
 class VerticalSpace12 extends StatelessWidget {
   const VerticalSpace12({super.key});
 
@@ -194,5 +195,14 @@ class VerticalSpace152 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(height: 152);
+  }
+}
+
+class VerticalSpace224 extends StatelessWidget {
+  const VerticalSpace224({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 224);
   }
 }

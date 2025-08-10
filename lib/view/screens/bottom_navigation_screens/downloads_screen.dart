@@ -110,34 +110,33 @@ class DownloadsScreen extends HookWidget {
                       style: TypographyStyles.sniglet40016PrimaryColored(),
                     ),
                     VerticalSpace16(),
-                    Obx(
-                      () => GridViewBuilderWidget(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisExtent: 220.r,
-                          mainAxisSpacing: 10.r,
-                        ),
-                        itemCount: madeForYouContents.length,
-                        itemBuilder: (context, index) {
-                          final content = madeForYouContents[index];
-                          return Transform.scale(
-                            scale: 1,
-                            child: Obx(
-                              () => ContentWithImageWidget(
-                                theme: theme,
-                                content: content,
-                                isLiked: likedContentsController
-                                    .likedContents
-                                    .value
-                                    .contains(content),
-                                onLiked: () {
-                                  likedContentsController.likeContent(content);
-                                },
-                              ),
-                            ),
-                          );
-                        },
+                    GridViewBuilderWidget(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisExtent: 220.r,
+                        mainAxisSpacing: 10.r,
                       ),
+                      itemCount: madeForYouContents.length,
+                      itemBuilder: (context, index) {
+                        final content = madeForYouContents[index];
+                        return Transform.scale(
+                          scale: 1,
+                          child: Obx(
+                            () => ContentWithImageWidget(
+                              contentScale: 0.9,
+                              theme: theme,
+                              content: content,
+                              isLiked: likedContentsController
+                                  .likedContents
+                                  .value
+                                  .contains(content),
+                              onLiked: () {
+                                likedContentsController.likeContent(content);
+                              },
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

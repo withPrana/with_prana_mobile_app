@@ -5,6 +5,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/common_control
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/initial_question_option_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/my_library_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
@@ -36,5 +37,13 @@ void setupGetxDependencies() {
   }
   if (!Get.isRegistered<CommonController>()) {
     Get.put(CommonController(), permanent: true);
+  }
+  if (!Get.isRegistered<MeditationPlayerController>()) {
+    Get.put(
+      MeditationPlayerController(
+        commonController: Get.find<CommonController>(),
+      ),
+      permanent: true,
+    );
   }
 }

@@ -6,7 +6,6 @@ import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 
 class CommonController extends GetxController {
   final backGroundAudioPlayer = AudioPlayer();
-  final sampleAudioPlayer = AudioPlayer();
 
   ////
   Future<void> setupBgAudio() async {
@@ -20,27 +19,6 @@ class CommonController extends GetxController {
         toastType: ToastTypeEnum.error,
       );
     }
-  }
-
-  ////
-  Future<void> playSampleMeditationAudio() async {
-    try {
-      await backGroundAudioPlayer.pause();
-      await sampleAudioPlayer.setSource(
-        AssetSource(AudioContants.audioSampleMeditation),
-      );
-      await sampleAudioPlayer.resume();
-    } catch (e) {
-      AppDialogs.showToast(
-        message: "unable to play audio $e",
-        toastType: ToastTypeEnum.error,
-      );
-    }
-  }
-
-  Future<void> pauseSampleMeditationAudio() async {
-    await sampleAudioPlayer.pause();
-    await backGroundAudioPlayer.resume();
   }
 
   ////

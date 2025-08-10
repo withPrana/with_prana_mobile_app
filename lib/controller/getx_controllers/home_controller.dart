@@ -25,6 +25,7 @@ class AudioPreviewModel {
   final String iconPath;
   final String title;
   final String category;
+  final String? description;
   final Color iconColor;
   final int minutes;
 
@@ -32,6 +33,7 @@ class AudioPreviewModel {
     required this.iconPath,
     required this.title,
     required this.category,
+    this.description,
     required this.iconColor,
     required this.minutes,
   });

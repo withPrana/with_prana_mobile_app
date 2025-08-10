@@ -45,11 +45,11 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle sniglet40024PrimaryColor() {
+  static TextStyle sniglet40024PrimaryColored({Color? color}) {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 24.r,
-      color: themeController.appTheme.value?.primaryColor,
+      color: color?? themeController.appTheme.value?.primaryColor,
       fontWeight: FontWeight.w400,
       fontFamily: "Sniglet",
     );

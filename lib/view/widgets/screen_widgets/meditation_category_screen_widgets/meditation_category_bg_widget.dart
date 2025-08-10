@@ -4,8 +4,8 @@ import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
 class MeditationCategoryBgWidget extends StatelessWidget {
-  final MeditationCategoryModel category;
-  const MeditationCategoryBgWidget({super.key, required this.category});
+  final MeditationCategoryModel meditationCategory;
+  const MeditationCategoryBgWidget({super.key, required this.meditationCategory});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class MeditationCategoryBgWidget extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     stops: [0.2, 0.34],
                     colors: [
-                      category.contentColor.withValues(alpha: 0),
+                      meditationCategory.contentColor.withValues(alpha: 0),
                       Colors.white,
                     ],
                   ),

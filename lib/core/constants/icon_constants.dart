@@ -59,4 +59,8 @@ class IconConstants {
       "assets/icons/ic_profile_menu_contact_support.png";
   static const icProfileMenuTermsAndPrivacy =
       "assets/icons/ic_profile_menu_terms_and_privacy.png";
+
+  ////
+  static const icRestartAudio = "assets/icons/ic_restart_audio.png";
+  static const icAddToLibrary = "assets/icons/ic_add_to_library.png";
 }

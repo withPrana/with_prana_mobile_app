@@ -26,19 +26,19 @@ class LikedContentsScreen extends StatelessWidget {
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
         homeController.changeBottomNavScreenIndex(
-              context: context,
-              index: 0,
-              navigate: false,
-            );
+          context: context,
+          index: 0,
+          navigate: false,
+        );
       },
       appBar: MainAppbarWidget(
         name: "💖 Favorites",
         onPop: () {
           homeController.changeBottomNavScreenIndex(
-              context: context,
-              index: 0,
-              navigate: false,
-            );
+            context: context,
+            index: 0,
+            navigate: false,
+          );
         },
       ),
       body: SingleChildScrollView(
@@ -57,6 +57,7 @@ class LikedContentsScreen extends StatelessWidget {
                     LikedContentsWidget(
                       likedContentsController: likedContentsController,
                     ),
+                    VerticalSpace120(),
                   ],
                 );
               } else {
