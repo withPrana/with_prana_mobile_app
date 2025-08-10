@@ -46,13 +46,13 @@ class MyLibraryController extends GetxController {
         "🫂 Healing & Connection",
         "🌙 Sleep & Rest",
         "🎯 Focus & Mind Support",
-      ].obs;    
+      ].obs;
 
-    final selectedCategory = "".obs;
+  final selectedCategory = "".obs;
 
   void selectCategory(String category) {
     if (selectedCategory.value != category) {
       selectedCategory(category);
     }
-  }    
+  }
 }

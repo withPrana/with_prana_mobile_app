@@ -13,6 +13,7 @@ import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/models/auth_models/otp_models.dart';
 import 'package:with_prana_mobile_app/models/auth_models/register_account_models.dart';
+import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verification_screen.dart';
 
 class AuthController extends GetxController {
@@ -83,33 +84,51 @@ class AuthController extends GetxController {
   }
 
   ////Sign in with google
-  Future<void> signInWithGoogle() async {
+  Future<void> signInWithGoogle(BuildContext context) async {
     try {
       final firebaseAuth = FirebaseAuth.instance;
       final googleSignIn = GoogleSignIn.instance;
-      final GoogleSignInAccount googleAccount = await googleSignIn.authenticate(
-        scopeHint: ['email'],
+      googleSignIn.initialize(
+        serverClientId:
+            "184414208616-6otgfa132suehhmfv5pv04ssi6eierbq.apps.googleusercontent.com",
       );
+      final googleAccount = await googleSignIn.authenticate();
+
       final googleAuth = await googleAccount.authorizationClient
-          .authorizationForScopes(['email']);
+          .authorizationForScopes(['email', 'profile']);
+
       if (googleAuth == null) return;
+
+      final idToken = googleAccount.authentication.idToken ?? '';
+      final accessToken = googleAuth.accessToken;
+
       final credential = GoogleAuthProvider.credential(
-        idToken: googleAuth.accessToken,
-        accessToken: googleAuth.accessToken,
+        idToken: idToken,
+        accessToken: accessToken,
       );
       final userCredential = await firebaseAuth.signInWithCredential(
         credential,
       );
       final user = userCredential.user;
       if (user != null) {
+        AppDialogs.showPopupLoading(message: "Signing you in");
         await Future.wait([
           SharedPrefs.setUserMailId(user.email ?? ''),
           SharedPrefs.setUserName(user.displayName ?? ''),
           SharedPrefs.setIsLoggedIn(true),
         ]);
+        RouteController.pushAndRemoveUntil(
+          context,
+          BottomNavigationScreen.routePath,
+        );
+        AppDialogs.stopPopupLoading();
       }
     } catch (e) {
       log("google sign in error : $e");
+      AppDialogs.showToast(
+        message: "Failed to sign in",
+        toastType: ToastTypeEnum.error,
+      );
     }
   }
 

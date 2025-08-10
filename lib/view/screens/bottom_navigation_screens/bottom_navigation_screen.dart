@@ -42,7 +42,7 @@ class BottomNavigationScreen extends StatelessWidget {
         ),
         child: Obx(() => screens[homeController.currentIndex.value]),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(navigate: false,),
+      bottomNavigationBar: BottomNavigationBarWidget(navigate: false),
     );
   }
 }

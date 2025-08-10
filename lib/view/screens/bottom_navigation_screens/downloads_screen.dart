@@ -31,23 +31,66 @@ class DownloadsScreen extends HookWidget {
 
     final isSubscribed = useState(false);
 
+    final madeForYouContents = [
+      MadeForYouContentModel(
+        index: 0,
+        iconPath: ImageConstants.imgAudioPreviewOne,
+        iconColor: Color(0xffFCCCFF),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 5,
+      ),
+      MadeForYouContentModel(
+        index: 1,
+        iconPath: ImageConstants.imgAudioPreviewTwo,
+        iconColor: Color(0xffBAE2BA),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 7,
+      ),
+      MadeForYouContentModel(
+        index: 2,
+        iconPath: ImageConstants.imgAudioPreviewThree,
+        iconColor: Color(0xffFFCDC9),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 4,
+      ),
+      MadeForYouContentModel(
+        index: 3,
+        iconPath: ImageConstants.imgAudioPreviewFour,
+        iconColor: Color(0xffCCD3FF),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 9,
+      ),
+    ];
+
     return MainScreenLayoutWidget(
       horizontalPadding: 0,
       enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-         homeController.changeBottomNavScreenIndex(
-              context: context,
-              index: 0,
-              navigate: false,
-            );
+        homeController.changeBottomNavScreenIndex(
+          context: context,
+          index: 0,
+          navigate: false,
+        );
       },
       appBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: MainAppbarWidget(
           name: "📥 Downloads",
           onPop: () {
-             homeController.changeBottomNavScreenIndex(
+            homeController.changeBottomNavScreenIndex(
               context: context,
               index: 0,
               navigate: false,
@@ -74,11 +117,9 @@ class DownloadsScreen extends HookWidget {
                           mainAxisExtent: 220.r,
                           mainAxisSpacing: 10.r,
                         ),
-                        itemCount:
-                            homeController.madeForYouContents.value.length,
+                        itemCount: madeForYouContents.length,
                         itemBuilder: (context, index) {
-                          final content =
-                              homeController.madeForYouContents.value[index];
+                          final content = madeForYouContents[index];
                           return Transform.scale(
                             scale: 1,
                             child: Obx(

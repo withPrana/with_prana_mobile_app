@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
 class HorizontalCategoriesWidget extends HookWidget {
+  final ColorPalette theme;
   final List<String> names;
   final List<String> ids;
   final Color selectedBgColor;
   final Color unSelectedBgColor;
   final Color selectedContentColor;
   final Color unSelectedContentColor;
+  final Color? unSelectedBorderColor;
+  final Color? selectedBorderColor;
   final Function(String selectedId) onCategoryClicked;
   final bool enableBorder;
   final List<Widget>? badges;
   const HorizontalCategoriesWidget({
     super.key,
+    required this.theme,
     required this.names,
     required this.selectedBgColor,
     required this.unSelectedBgColor,
@@ -25,6 +30,8 @@ class HorizontalCategoriesWidget extends HookWidget {
     required this.onCategoryClicked,
     this.enableBorder = false,
     this.badges,
+    this.selectedBorderColor,
+    this.unSelectedBorderColor,
   });
 
   @override
@@ -59,8 +66,16 @@ class HorizontalCategoriesWidget extends HookWidget {
                   border:
                       enableBorder
                           ? isSelected
-                              ? Border.all(color: selectedContentColor)
-                              : null
+                              ? Border.all(
+                                color:
+                                    selectedBorderColor ??
+                                    theme.disabledLightColor,
+                              )
+                              : Border.all(
+                                color:
+                                    unSelectedBorderColor ??
+                                    theme.disabledLightColor,
+                              )
                           : null,
                   borderRadius: BorderRadius.circular(200.w),
                 ),
@@ -88,7 +103,7 @@ class HorizontalCategoriesWidget extends HookWidget {
             );
           },
           separatorBuilder: (context, index) => SizedBox(width: 8.r),
-          itemCount: 5,
+          itemCount: names.length,
         ),
       ),
     );

@@ -2,10 +2,10 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/grid_view_builder_widget.dart';
@@ -13,14 +13,37 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/each_meditation_category_widget.dart';
 
 class MeditationCategoriesWidget extends StatelessWidget {
-  MeditationCategoriesWidget({super.key});
-
-  final themeController = Get.find<ThemeController>();
-  final homeController = Get.find<HomeController>();
+  final ColorPalette theme;
+  const MeditationCategoriesWidget({super.key, required this.theme});
 
   @override
   Widget build(BuildContext context) {
-    final theme = themeController.appTheme.value!;
+    final meditationCategories = [
+      MeditationCategoryModel(
+        iconPath: IconConstants.icMeditationCategoryOne,
+        name: 'Breathe &\nBegin',
+        color: const Color(0xFFFFF9FF),
+        contentColor: const Color(0xFF8E4692),
+      ),
+      MeditationCategoryModel(
+        iconPath: IconConstants.icMeditationCategoryTwo,
+        name: 'Sleep\n& Rest',
+        color: const Color(0xFFF8F9FF),
+        contentColor: const Color(0xFF545C90),
+      ),
+      MeditationCategoryModel(
+        iconPath: IconConstants.icMeditationCategoryThree,
+        name: 'Focus & Mind\nSupport',
+        color: const Color(0xFFF1F9F4),
+        contentColor: const Color(0xFF2B7272),
+      ),
+      MeditationCategoryModel(
+        iconPath: IconConstants.icMeditationCategoryFour,
+        name: 'Healing &\nConnection',
+        color: const Color(0xFFFFF7F6),
+        contentColor: const Color(0xFFA2605B),
+      ),
+    ];
     return Column(
       children: [
         Container(
@@ -54,14 +77,11 @@ class MeditationCategoriesWidget extends StatelessWidget {
                         ),
                         itemCount: 4,
                         itemBuilder:
-                            (context, index) => Obx(
-                              () => EachMeditationCategoryWidget(
-                                meditationCategory:
-                                    homeController
-                                        .meditationCategories
-                                        .value[index],
+                            (context, index) =>
+                              EachMeditationCategoryWidget(
+                                meditationCategory: meditationCategories[index],
                               ),
-                            ),
+                            
                       ),
                       Positioned.fill(
                         child: Center(

@@ -42,7 +42,7 @@ class LoginFormWidget extends HookWidget {
               iconPath: IconConstants.icGoogleSignIn,
               signInMethod: "Google",
               onTap: () {
-                authController.signInWithGoogle();
+                authController.signInWithGoogle(context);
               },
             ),
             VerticalSpace16(),

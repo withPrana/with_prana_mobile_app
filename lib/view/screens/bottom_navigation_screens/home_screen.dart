@@ -69,7 +69,7 @@ class HomeScreen extends HookWidget {
                               TodaySuggestionWidget(theme: theme),
                               VerticalSpace32(),
                               ////
-                              MeditationCategoriesWidget(),
+                              MeditationCategoriesWidget(theme: theme),
                               ////
                               MadeForYouSectionWidget(
                                 homeController: homeController,
@@ -84,7 +84,7 @@ class HomeScreen extends HookWidget {
                               ////
                               GradientDashedLineWidget(),
                               ////
-                              ExploreTopicsWidget(),
+                              ExploreTopicsWidget(theme: theme),
                               ////
                               GradientDashedLineWidget(),
                               ////

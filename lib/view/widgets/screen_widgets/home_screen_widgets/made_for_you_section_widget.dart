@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_with_image_widget.dart';
@@ -27,6 +28,50 @@ class MadeForYouSectionWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
+
+    final madeForYouContents = [
+      MadeForYouContentModel(
+        index: 0,
+        iconPath: ImageConstants.imgAudioPreviewOne,
+        iconColor: Color(0xffFCCCFF),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 5,
+      ),
+      MadeForYouContentModel(
+        index: 1,
+        iconPath: ImageConstants.imgAudioPreviewTwo,
+        iconColor: Color(0xffBAE2BA),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 7,
+      ),
+      MadeForYouContentModel(
+        index: 2,
+        iconPath: ImageConstants.imgAudioPreviewThree,
+        iconColor: Color(0xffFFCDC9),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_one.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 4,
+      ),
+      MadeForYouContentModel(
+        index: 3,
+        iconPath: ImageConstants.imgAudioPreviewFour,
+        iconColor: Color(0xffCCD3FF),
+        isLiked: false,
+        imagePath: "assets/images/made_for_you_bg_image_two.jpg",
+        title: "Soft Heart, Strong Boundaries",
+        category: "Healing & Connection",
+        minutes: 9,
+      ),
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,9 +88,8 @@ class MadeForYouSectionWidget extends HookWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Obx(() {
-                  final content =
-                      homeController.madeForYouContents.value[index];
+                
+                  final content = madeForYouContents[index];
                   return Obx(
                     () => ContentWithImageWidget(
                       theme: theme,
@@ -57,10 +101,10 @@ class MadeForYouSectionWidget extends HookWidget {
                       },
                     ),
                   );
-                });
+              
               },
               separatorBuilder: (context, index) => SizedBox(width: 10.r),
-              itemCount: homeController.madeForYouContents.value.length,
+              itemCount: madeForYouContents.length,
             ),
           ),
         ),

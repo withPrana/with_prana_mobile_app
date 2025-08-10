@@ -18,6 +18,7 @@ class LikedContentCategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
     return HorizontalCategoriesWidget(
+      theme: theme,
       names: likedContentsController.categories.value,
       selectedBgColor: theme.primaryLightColor,
       unSelectedBgColor: theme.inverseColor,
@@ -28,6 +29,7 @@ class LikedContentCategoriesWidget extends StatelessWidget {
         likedContentsController.selectCategory(selectedId);
       },
       enableBorder: true,
+      selectedBorderColor: theme.primaryColor,
     );
   }
 }

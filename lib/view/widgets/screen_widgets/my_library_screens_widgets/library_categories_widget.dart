@@ -18,6 +18,7 @@ class LibraryCategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
     return HorizontalCategoriesWidget(
+      theme: theme,
       names: myLibraryController.categories.value,
       selectedBgColor: theme.primaryColor,
       unSelectedBgColor: theme.inverseColor,
