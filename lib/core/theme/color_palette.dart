@@ -12,6 +12,7 @@ class ColorPalette {
   final Color textDarkColor;
   final Color inverseColor;
   final Color textFieldBorder;
+  final Color textDisabledColor;
   final Color shadowColor;
   final Color disabledLightColor;
   final Color disabledLightestColor;
@@ -33,6 +34,7 @@ class ColorPalette {
     required this.textDarkColor,
     required this.inverseColor,
     required this.textFieldBorder,
+    required this.textDisabledColor,
     required this.shadowColor,
     required this.disabledLightColor,
     required this.disabledLightestColor,
@@ -58,6 +60,7 @@ class LightTheme extends ColorPalette {
         textDarkColor: Colors.black,
         inverseColor: Color(0xffFFFFFF),
         textFieldBorder: Color(0xffF5F5F5),
+        textDisabledColor: Color(0xffCCCCCC),
         shadowColor: Colors.black26,
         disabledLightColor: Color(0xffEDEDED),
         disabledLightestColor: Color(0xffF5F5F5),

@@ -49,7 +49,7 @@ class TypographyStyles {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 24.r,
-      color: color?? themeController.appTheme.value?.primaryColor,
+      color: color ?? themeController.appTheme.value?.primaryColor,
       fontWeight: FontWeight.w400,
       fontFamily: "Sniglet",
     );
@@ -428,9 +428,10 @@ class TypographyStyles {
   }
 
   static TextStyle poppins50014Disabled() {
+    final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 14.r,
-      color: Color(0xffCCCCCC),
+      color: themeController.appTheme.value!.textDisabledColor,
       fontWeight: FontWeight.w500,
       fontFamily: "Poppins",
     );
@@ -526,18 +527,20 @@ class TypographyStyles {
   }
 
   static TextStyle poppinsNormal16Disabled() {
+    final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 16.r,
-      color: Color(0xffCCCCCC),
+      color: themeController.appTheme.value!.textDisabledColor,
       fontWeight: FontWeight.normal,
       fontFamily: "Poppins",
     );
   }
 
   static TextStyle poppins50016Disabled() {
+    final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 16.r,
-      color: Color(0xffCCCCCC),
+      color: themeController.appTheme.value!.textDisabledColor,
       fontWeight: FontWeight.w500,
       fontFamily: "Poppins",
     );

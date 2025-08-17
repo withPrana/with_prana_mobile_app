@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/app_version_details_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/contact_support_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/initial_question_option_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
@@ -45,5 +46,8 @@ void setupGetxDependencies() {
       ),
       permanent: true,
     );
+  }
+   if (!Get.isRegistered<ContactSupportController>()) {
+    Get.put(ContactSupportController(), permanent: true);
   }
 }

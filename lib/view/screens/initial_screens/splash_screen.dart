@@ -266,6 +266,10 @@ class SplashScreen extends HookWidget {
                             context,
                             SignInScreen.routePath,
                           );
+
+                          SharedPrefs.setIsLoggedIn(true);
+                          SharedPrefs.setUserName("Shamjad");
+                          SharedPrefs.setUserMailId("Shamjad@gmail.com");
                         },
                         isLoading: false,
                         borderColor: Color(0xffF5F5F5),

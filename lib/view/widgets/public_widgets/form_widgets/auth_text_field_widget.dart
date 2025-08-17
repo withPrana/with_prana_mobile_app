@@ -83,7 +83,7 @@ class AuthTextFieldWidget extends StatelessWidget {
           height: height,
           width: width,
           child: TextFormField(
-            focusNode:focusNode ,
+            focusNode: focusNode,
             cursorHeight: 16.r,
             controller: controller,
             enabled: enabled,
@@ -95,10 +95,11 @@ class AuthTextFieldWidget extends StatelessWidget {
               FocusScope.of(context).unfocus();
             },
             style: TextStyle(
-              fontSize: 14.r,
-              color: themeController.appTheme.value?.textColor,
+              fontSize: 12.r,
+              color: themeController.appTheme.value?.textDarkColor,
               fontWeight: FontWeight.w400,
               fontFamily: "Poppins",
+              fontStyle: FontStyle.italic,
             ),
             validator:
                 validator ??
@@ -129,13 +130,16 @@ class AuthTextFieldWidget extends StatelessWidget {
                 },
             inputFormatters: formatters,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(left: 16.r, right: 16.r),
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 10.r,
+                vertical: 10.r,
+              ),
               fillColor: theme.inverseColor,
               filled: true,
               hintText: hintText,
               errorStyle: TypographyStyles.poppinsNormal10Error(),
               hintStyle: TextStyle(
-                fontSize: 14.r,
+                fontSize: 12.r,
                 color: themeController.appTheme.value?.disabledColor,
                 fontWeight: FontWeight.w400,
                 fontFamily: "Poppins",
@@ -157,7 +161,7 @@ class AuthTextFieldWidget extends StatelessWidget {
 
   OutlineInputBorder _border(ColorPalette theme) {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: theme.textFieldBorder, width: 2.r),
+      borderSide: BorderSide(color: theme.textFieldBorder),
       borderRadius: BorderRadius.circular(10.r),
     );
   }

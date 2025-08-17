@@ -23,6 +23,13 @@ class UserAccountController extends GetxController {
 
   final isLoadingUserUpdate = false.obs;
 
+  @override
+  void onClose() {
+    userNameController.dispose();
+    emailController.dispose();
+    super.onClose();
+  }
+
   ////Get user details
   Future<void> getUserDetails() async {
     final userName = await SharedPrefs.getUserName();
@@ -91,5 +98,11 @@ class UserAccountController extends GetxController {
     }
     AppDialogs.stopPopupLoading();
     Navigator.pop(context);
+  }
+
+  ////
+  void initReset() {
+    userNameController.clear();
+    emailController.clear();
   }
 }
