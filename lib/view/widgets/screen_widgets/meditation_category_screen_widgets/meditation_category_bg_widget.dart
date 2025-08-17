@@ -5,7 +5,10 @@ import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
 class MeditationCategoryBgWidget extends StatelessWidget {
   final MeditationCategoryModel meditationCategory;
-  const MeditationCategoryBgWidget({super.key, required this.meditationCategory});
+  const MeditationCategoryBgWidget({
+    super.key,
+    required this.meditationCategory,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class MeditationCategoryBgWidget extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    stops: [0.2, 0.34],
+                    stops: [0.2, 0.32],
                     colors: [
                       meditationCategory.contentColor.withValues(alpha: 0),
                       Colors.white,

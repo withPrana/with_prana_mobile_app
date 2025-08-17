@@ -12,7 +12,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:crop_image/crop_image.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -22,7 +22,7 @@ class CropProfileImagePopupWidget extends HookWidget {
   final File image;
   final String userId;
 
-  final userController = Get.find<UserController>();
+  final userAccountController = Get.find<UserAccountController>();
   final themeController = Get.find<ThemeController>();
   final _cropController = CropController(
     aspectRatio: 1,
@@ -97,7 +97,7 @@ class CropProfileImagePopupWidget extends HookWidget {
                           format: ui.ImageByteFormat.png,
                         );
                         final pngBytes = imageBytes!.buffer.asUint8List();
-                        userController.updateProfileImage(context, pngBytes);
+                        userAccountController.updateProfileImage(context, pngBytes);
                       },
                       child: Text(
                         "Save",

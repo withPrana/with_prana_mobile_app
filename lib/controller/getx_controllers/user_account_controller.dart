@@ -14,9 +14,14 @@ import 'package:with_prana_mobile_app/core/utils/image_utils.dart';
 import 'package:with_prana_mobile_app/models/user_models/user_details_model.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/crop_profile_image_popup_widget.dart';
 
-class UserController extends GetxController {
+class UserAccountController extends GetxController {
+  final userNameController = TextEditingController();
+  final emailController = TextEditingController();
+
   final userDetails = UserDetailsResponseModel().obs;
   final userProfilePicture = Rx<File?>(null);
+
+  final isLoadingUserUpdate = false.obs;
 
   ////Get user details
   Future<void> getUserDetails() async {

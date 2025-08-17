@@ -50,16 +50,10 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         meditationPlayerController.playMeditationAudio();
-      });
-      return null;
-    }, []);
-
-    useEffect(() {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
         meditationPlayerController.setupAndListenForAudioState();
       });
       return null;
-    });
+    }, []);
 
     return MeditationScreenLayoutWidget(
       body: SingleChildScrollView(
@@ -116,4 +110,3 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
     );
   }
 }
-

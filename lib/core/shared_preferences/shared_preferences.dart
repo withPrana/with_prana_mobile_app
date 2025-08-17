@@ -27,7 +27,7 @@ class SharedPrefs {
     return prefs.getString(_userMailId) ?? '';
   }
 
-    ////User email
+  ////User email
   static Future<void> setUserName(String value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_userName, value);

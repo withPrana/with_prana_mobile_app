@@ -63,4 +63,7 @@ class IconConstants {
   ////
   static const icRestartAudio = "assets/icons/ic_restart_audio.png";
   static const icAddToLibrary = "assets/icons/ic_add_to_library.png";
+
+  ////
+  static const icEditAuthField = "assets/icons/ic_edit_auth_field.png";
 }

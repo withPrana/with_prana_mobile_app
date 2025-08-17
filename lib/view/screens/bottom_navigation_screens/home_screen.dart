@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
@@ -27,13 +27,13 @@ class HomeScreen extends HookWidget {
 
   final themeController = Get.find<ThemeController>();
   final homeController = Get.find<HomeController>();
-  final userController = Get.find<UserController>();
+  final userAccountController = Get.find<UserAccountController>();
   final likedContentsController = Get.find<LikedContentsController>();
 
   @override
   Widget build(BuildContext context) {
     useEffect(() {
-      userController.getUserDetails();
+      userAccountController.getUserDetails();
       return null;
     }, []);
 
@@ -110,7 +110,7 @@ class HomeScreen extends HookWidget {
               HomeTopBarWidget(
                 homeController: homeController,
                 theme: theme,
-                userController: userController,
+                userAccountController: userAccountController,
               ),
             ],
           ),

@@ -125,6 +125,8 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
       ),
     ];
     return ListViewBuilderWidget(
+      primary: false,
+      padding: EdgeInsets.symmetric(vertical: 24),
       itemBuilder: (context, index) {
         final audioDetails = audios[index];
         return AudioPalyerPreviewWidget(

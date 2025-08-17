@@ -28,7 +28,7 @@ class MeditationScreenLayoutWidget extends HookWidget {
             child: Column(
               children: [
                 MainAppbarWidget(name: "🌙 Sleep & Rest", isInverse: true),
-                Expanded(child: SingleChildScrollView(child: body)),
+                Expanded(child: body),
               ],
             ),
           ),

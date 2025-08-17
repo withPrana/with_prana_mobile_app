@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/state_manager.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 
 class ProfileImageAndNameWidget extends StatelessWidget {
   final ColorPalette theme;
-  final UserController userController;
+  final UserAccountController userAccountController;
   const ProfileImageAndNameWidget({
     super.key,
     required this.theme,
-    required this.userController,
+    required this.userAccountController,
   });
 
   @override
@@ -33,7 +33,7 @@ class ProfileImageAndNameWidget extends StatelessWidget {
               ),
             ),
             child: Obx(() {
-              if (userController.userProfilePicture.value == null) {
+              if (userAccountController.userProfilePicture.value == null) {
                 return Icon(
                   Icons.person,
                   color: theme.inverseColor,
@@ -44,7 +44,7 @@ class ProfileImageAndNameWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18.r),
                   child: Obx(
                     () => Image.file(
-                      userController.userProfilePicture.value!,
+                      userAccountController.userProfilePicture.value!,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -79,7 +79,7 @@ class ProfileImageAndNameWidget extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () {
-        userController.selectProfileImage(context, source);
+        userAccountController.selectProfileImage(context, source);
       },
       child: Container(
         width: 28.r,

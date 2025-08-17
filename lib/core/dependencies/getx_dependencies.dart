@@ -8,7 +8,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents
 import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/my_library_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 
 void setupGetxDependencies() {
   if (!Get.isRegistered<ThemeController>()) {
@@ -29,8 +29,8 @@ void setupGetxDependencies() {
   if (!Get.isRegistered<MyLibraryController>()) {
     Get.put(MyLibraryController(), permanent: true);
   }
-  if (!Get.isRegistered<UserController>()) {
-    Get.put(UserController(), permanent: true);
+  if (!Get.isRegistered<UserAccountController>()) {
+    Get.put(UserAccountController(), permanent: true);
   }
   if (!Get.isRegistered<AppVersionDetailsController>()) {
     Get.put(AppVersionDetailsController(), permanent: true);

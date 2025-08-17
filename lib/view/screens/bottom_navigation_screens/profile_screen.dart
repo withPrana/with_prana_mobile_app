@@ -6,7 +6,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/app_version_de
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/user_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -21,7 +21,7 @@ class ProfileScreen extends HookWidget {
   ProfileScreen({super.key});
 
   final themeController = Get.find<ThemeController>();
-  final userController = Get.find<UserController>();
+  final userAccountController = Get.find<UserAccountController>();
   final homeController = Get.find<HomeController>();
   final appVersionDetailsController = Get.find<AppVersionDetailsController>();
   final commonController = Get.find<CommonController>();
@@ -49,7 +49,7 @@ class ProfileScreen extends HookWidget {
           preferredSize: Size.fromHeight(300.h),
           child: ProfileApparWidget(
             theme: theme,
-            userController: userController,
+            userAccountController: userAccountController,
             homeController: homeController,
           ),
         ),

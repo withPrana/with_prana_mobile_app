@@ -21,8 +21,4 @@ class CommonController extends GetxController {
     }
   }
 
-  ////
-  Future<void> pauseBgAudio() async {
-    backGroundAudioPlayer.pause();
-  }
 }

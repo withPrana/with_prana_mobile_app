@@ -9,6 +9,7 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class AuthTextFieldWidget extends StatelessWidget {
+  final FocusNode? focusNode;
   final String? title;
   final double? height;
   final double? width;
@@ -18,15 +19,18 @@ class AuthTextFieldWidget extends StatelessWidget {
   final bool enableValidation;
   final String hintText;
   final bool enabled;
+  final bool readOnly;
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String? value)? validator;
   final void Function(String value)? onChanged;
   final GlobalKey<FormState>? formKey;
   final String? emptyValidationErrorText;
+  final Widget? suffixIcon;
 
   AuthTextFieldWidget({
     super.key,
+    this.focusNode,
     this.title,
     this.height,
     this.width,
@@ -36,8 +40,10 @@ class AuthTextFieldWidget extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.formKey,
+    this.suffixIcon,
     this.emptyValidationErrorText,
     this.enableValidation = true,
+    this.readOnly = false,
     required this.controller,
     required this.hintText,
     required this.enabled,
@@ -77,9 +83,11 @@ class AuthTextFieldWidget extends StatelessWidget {
           height: height,
           width: width,
           child: TextFormField(
+            focusNode:focusNode ,
             cursorHeight: 16.r,
             controller: controller,
             enabled: enabled,
+            readOnly: readOnly,
             maxLength: maxLength,
             keyboardType: keyboardType,
             cursorColor: theme.secondaryColor,
@@ -139,6 +147,7 @@ class AuthTextFieldWidget extends StatelessWidget {
               errorBorder: _border(theme),
               disabledBorder: _border(theme),
               focusedErrorBorder: _border(theme),
+              suffixIcon: suffixIcon,
             ),
           ),
         ),

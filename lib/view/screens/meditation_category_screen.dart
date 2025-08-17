@@ -21,31 +21,29 @@ class MeditationCategoryScreen extends HookWidget {
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
     return MeditationScreenLayoutWidget(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            VerticalSpace120(),
-            Text(
-              "Drift into rest with gentle sounds and soothing breath.",
-              style: TypographyStyles.sniglet40020(
-                color: meditationCategory.contentColor,
-              ),
+      body: Column(
+        children: [
+          VerticalSpace120(),
+          Text(
+            "Drift into rest with gentle sounds and soothing breath.",
+            style: TypographyStyles.sniglet40020(
+              color: meditationCategory.contentColor,
             ),
-            VerticalSpace8(),
-            MeditationCategorySubCategoryWidget(
-              category: meditationCategory,
-              theme: theme,
-            ),
-            VerticalSpace24(),
-            MeditationCategoryAudiosWidget(
+          ),
+          VerticalSpace8(),
+          MeditationCategorySubCategoryWidget(
+            category: meditationCategory,
+            theme: theme,
+          ),
+
+          Expanded(
+            child: MeditationCategoryAudiosWidget(
               meditationCategory: meditationCategory,
             ),
-            VerticalSpace32(),
-          ],
-        ),
+          ),
+        ],
       ),
       meditationCategory: meditationCategory,
-      
     );
   }
 }

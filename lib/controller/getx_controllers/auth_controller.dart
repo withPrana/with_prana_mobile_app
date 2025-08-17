@@ -106,12 +106,12 @@ class AuthController extends GetxController {
         idToken: idToken,
         accessToken: accessToken,
       );
+      AppDialogs.showPopupLoading(message: "Signing you in");
       final userCredential = await firebaseAuth.signInWithCredential(
         credential,
       );
       final user = userCredential.user;
       if (user != null) {
-        AppDialogs.showPopupLoading(message: "Signing you in");
         await Future.wait([
           SharedPrefs.setUserMailId(user.email ?? ''),
           SharedPrefs.setUserName(user.displayName ?? ''),
@@ -121,7 +121,6 @@ class AuthController extends GetxController {
           context,
           BottomNavigationScreen.routePath,
         );
-        AppDialogs.stopPopupLoading();
       }
     } catch (e) {
       log("google sign in error : $e");
@@ -129,6 +128,8 @@ class AuthController extends GetxController {
         message: "Failed to sign in",
         toastType: ToastTypeEnum.error,
       );
+    } finally {
+      AppDialogs.stopPopupLoading();
     }
   }
 
