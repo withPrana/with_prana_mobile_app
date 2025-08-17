@@ -12,6 +12,7 @@ import 'package:with_prana_mobile_app/view/screens/initial_screens/otp_verificat
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/splash_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/meditation_category_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/notification_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/play_meditation_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/account_info_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/contact_support_screen.dart';
@@ -87,6 +88,9 @@ Route getRoute(RouteSettings settings, BuildContext context) {
         ),
         settings,
       );
+    ////
+    case NotificationScreen.routePath:
+      return _buildRouteWithDefaultAnimation(NotificationScreen(), settings);
     ////
     default:
       return _buildRouteWithDefaultAnimation(SplashScreen(), settings);

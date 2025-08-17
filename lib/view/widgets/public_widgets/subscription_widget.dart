@@ -37,12 +37,12 @@ class SubscriptionWidget extends StatelessWidget {
           VerticalSpace10(),
           Text(
             "Unlock With Prana Premium",
-            style: TypographyStyles.poppins60016PrimaryColored(),
+            style: TypographyStyles.poppins60016Colored(theme.primaryColor),
           ),
           VerticalSpace10(),
           Text(
             "Experience deeper rest, healing, and clarity — anytime you need.",
-            style: TypographyStyles.poppins40012PrimaryColored(),
+            style: TypographyStyles.poppins40012Colored(theme.primaryColor),
           ),
           VerticalSpace24(),
           SubscriptionFeaturesWidget(theme: theme),
@@ -62,13 +62,15 @@ class SubscriptionWidget extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 text: "*14-day free trial ends on ",
-                style: TypographyStyles.poppins40010PrimaryColored(),
+                style: TypographyStyles.poppins40010Colored(theme.primaryColor),
                 children: [
                   TextSpan(
                     text: DateFormatter.formatDate(
                       "${DateTime.now().add(Duration(days: 14))}",
                     ),
-                    style: TypographyStyles.poppins60010PrimaryColored(),
+                    style: TypographyStyles.poppins60010Colored(
+                      theme.primaryColor,
+                    ),
                   ),
                 ],
               ),

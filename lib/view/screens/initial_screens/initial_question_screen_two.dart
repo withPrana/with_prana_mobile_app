@@ -86,8 +86,9 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                               },
                               child: Text(
                                 "Skip",
-                                style:
-                                    TypographyStyles.poppinsBold12PrimaryColored(),
+                                style: TypographyStyles.poppinsBold12Colored(
+                                  theme.primaryColor,
+                                ),
                               ),
                             ),
                           ),
@@ -99,8 +100,9 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                           VerticalSpace8(),
                           Text(
                             "When do you prefer to take\na moment for yourself?",
-                            style:
-                                TypographyStyles.poppins40020SecondaryColored(),
+                            style: TypographyStyles.poppins40020Colored(
+                              theme.secondaryColor,
+                            ),
                           ),
                           VerticalSpace104(),
                           /////options
@@ -151,7 +153,7 @@ class InitialQuestionScreenTwo extends StatelessWidget {
                     VerticalSpace8(),
                     Transform.scale(
                       scale: 0.8,
-                      child: TextAndActionWidget(
+                      child: TextAndActionWidget(theme: theme,
                         primaryText: "Already have an account?",
                         actionText: "Log in",
                         onActionClicked: () {

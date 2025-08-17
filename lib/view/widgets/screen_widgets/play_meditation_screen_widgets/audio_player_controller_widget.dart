@@ -111,10 +111,9 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                             ),
                             Text(
                               "Restart",
-                              style:
-                                  TypographyStyles.poppins40012PrimaryColored(
-                                    color: meditationCategory.contentColor,
-                                  ),
+                              style: TypographyStyles.poppins40012Colored(
+                                meditationCategory.contentColor,
+                              ),
                             ),
                           ],
                         ),

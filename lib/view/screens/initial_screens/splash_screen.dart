@@ -76,7 +76,7 @@ class SplashScreen extends HookWidget {
     }
 
     useEffect(() {
-      final observer = observeAppLifeCycle();
+      observeAppLifeCycle();
       Future.delayed(Duration.zero, () async {
         isLoggedIn.value = await SharedPrefs.isLoggedIn();
       });
@@ -105,10 +105,7 @@ class SplashScreen extends HookWidget {
           });
         });
       });
-
-      return () {
-        WidgetsBinding.instance.removeObserver(observer);
-      };
+      return null;
     }, [commonController.backGroundAudioPlayer]);
 
     return Scaffold(
@@ -196,8 +193,9 @@ class SplashScreen extends HookWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'Reconnect. Heal. Awaken.',
-                  style:
-                      TypographyStyles.poppinsNormal12secondaryColoredItalic(),
+                  style: TypographyStyles.poppinsNormal12ColoredItalic(
+                    theme.secondaryColor,
+                  ),
                 ),
               ),
             ),
@@ -210,14 +208,14 @@ class SplashScreen extends HookWidget {
                 mainAxisSize: MainAxisSize.min,
                 spacing: 24,
                 children: [
-                  TypewriterText(),
+                  TypewriterText(theme: theme),
 
                   AnimatedOpacity(
                     opacity: showAuthor.value ? 1 : 0,
                     duration: Duration(milliseconds: 500),
                     child: Text(
                       "— Rumi",
-                      style: TypographyStyles.poppins50016Brown(),
+                      style: TypographyStyles.poppins50016(),
                     ),
                   ),
                 ],
@@ -266,10 +264,6 @@ class SplashScreen extends HookWidget {
                             context,
                             SignInScreen.routePath,
                           );
-
-                          SharedPrefs.setIsLoggedIn(true);
-                          SharedPrefs.setUserName("Shamjad");
-                          SharedPrefs.setUserMailId("Shamjad@gmail.com");
                         },
                         isLoading: false,
                         borderColor: Color(0xffF5F5F5),

@@ -86,8 +86,9 @@ class InitialQuestionScreenOne extends StatelessWidget {
                               },
                               child: Text(
                                 "Skip",
-                                style:
-                                    TypographyStyles.poppinsBold12PrimaryColored(),
+                                style: TypographyStyles.poppinsBold12Colored(
+                                  theme.primaryColor,
+                                ),
                               ),
                             ),
                           ),
@@ -99,8 +100,9 @@ class InitialQuestionScreenOne extends StatelessWidget {
                           VerticalSpace8(),
                           Text(
                             "What do you feel your heart\nneeds right now?",
-                            style:
-                                TypographyStyles.poppins40020SecondaryColored(),
+                            style: TypographyStyles.poppins40020Colored(
+                              theme.secondaryColor,
+                            ),
                           ),
                           VerticalSpace104(),
                           /////options
@@ -153,6 +155,7 @@ class InitialQuestionScreenOne extends StatelessWidget {
                     Transform.scale(
                       scale: 0.8,
                       child: TextAndActionWidget(
+                        theme: theme,
                         primaryText: "Already have an account?",
                         actionText: "Log in",
                         onActionClicked: () {

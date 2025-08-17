@@ -136,7 +136,7 @@ class NameEntryScreen extends HookWidget {
                       VerticalSpace40(),
                       Transform.scale(
                         scale: 0.8,
-                        child: TextAndActionWidget(
+                        child: TextAndActionWidget(theme: theme,
                           primaryText: "Already have an account?",
                           actionText: "Log in",
                           onActionClicked: () {

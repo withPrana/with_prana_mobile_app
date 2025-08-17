@@ -55,11 +55,15 @@ class EachTermsWidget extends StatelessWidget {
                   ? AnimatedCrossFade(
                     firstChild: Text(
                       "${termsContent.substring(0, readMoreLengthLimit)}...",
-                      style: TypographyStyles.poppins40012Dark(),
+                      style: TypographyStyles.poppins40012Colored(
+                        theme.textDarkColor,
+                      ),
                     ),
                     secondChild: Text(
                       termsContent,
-                      style: TypographyStyles.poppins40012Dark(),
+                      style: TypographyStyles.poppins40012Colored(
+                        theme.textDarkColor,
+                      ),
                     ),
                     crossFadeState:
                         readContent.value
@@ -69,7 +73,9 @@ class EachTermsWidget extends StatelessWidget {
                   )
                   : Text(
                     termsContent,
-                    style: TypographyStyles.poppins40012Dark(),
+                    style: TypographyStyles.poppins40012Colored(
+                      theme.textDarkColor,
+                    ),
                   ),
         ),
         VerticalSpace4(),
@@ -89,7 +95,9 @@ class EachTermsWidget extends StatelessWidget {
                 ),
                 child: Text(
                   readContent.value ? "Read less" : actionButtonName,
-                  style: TypographyStyles.poppins40012PrimaryColored(),
+                  style: TypographyStyles.poppins40012Colored(
+                    theme.primaryColor,
+                  ),
                 ),
               ),
             ),

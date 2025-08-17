@@ -58,7 +58,10 @@ class SubscriptionPlansWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(planName, style: TypographyStyles.poppinsBold12DarkColored()),
+          Text(
+            planName,
+            style: TypographyStyles.poppinsBold12Colored(theme.textDarkColor),
+          ),
           VerticalSpace10(),
           RichText(
             textAlign: TextAlign.center,

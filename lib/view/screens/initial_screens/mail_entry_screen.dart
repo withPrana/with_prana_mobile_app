@@ -74,7 +74,9 @@ class MailEntryScreen extends HookWidget {
                       VerticalSpace80(),
                       Text(
                         "Let us know where to send\nyour calm.",
-                        style: TypographyStyles.poppins40020SecondaryColored(),
+                        style: TypographyStyles.poppins40020Colored(
+                          theme.secondaryColor,
+                        ),
                       ),
                       VerticalSpace8(),
                       Text(
@@ -143,7 +145,7 @@ class MailEntryScreen extends HookWidget {
                       VerticalSpace8(),
                       Transform.scale(
                         scale: 0.8,
-                        child: TextAndActionWidget(
+                        child: TextAndActionWidget(theme: theme,
                           primaryText: "Already have an account?",
                           actionText: "Log in",
                           onActionClicked: () {

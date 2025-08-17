@@ -77,7 +77,7 @@ class AuthTextFieldWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null)
-          Text(title ?? '', style: TypographyStyles.poppins40014Dark()),
+          Text(title ?? '', style: TypographyStyles.poppins40014Colored(theme.textDarkColor)),
         if (title != null) VerticalSpace4(),
         SizedBox(
           height: height,

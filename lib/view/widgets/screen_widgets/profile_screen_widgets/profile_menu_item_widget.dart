@@ -30,7 +30,10 @@ class ProfileMenuItemWidget extends StatelessWidget {
             size: 20.r,
           ),
           SizedBox(width: 10.r),
-          Text(menuName, style: TypographyStyles.poppins40012Dark()),
+          Text(
+            menuName,
+            style: TypographyStyles.poppins40012Colored(theme.textDarkColor),
+          ),
           Spacer(),
           if (badge != null) badge!,
           SizedBox(width: 10.r),

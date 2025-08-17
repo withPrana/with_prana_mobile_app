@@ -1,11 +1,15 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
+import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/screens/notification_screen.dart';
 
 class HomeTopBarWidget extends StatelessWidget {
   final HomeController homeController;
@@ -20,6 +24,39 @@ class HomeTopBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ////
+    void showDropdownMenu(BuildContext context) {
+      showMenu(
+        context: context,
+        position: RelativeRect.fromLTRB(100.0, 100.0, 0.0, 0.0),
+        menuPadding: EdgeInsets.only(left: 10.r, right: 10.r),
+        constraints: BoxConstraints(maxWidth: 205.r),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          side: BorderSide(color: theme.disabledLightColor),
+        ),
+        color: theme.inverseColor,
+        items: [
+          homeMenuItem(
+            menuIconPath: IconConstants.icHomeMenuNotifications,
+            menuName: "Notifications",
+            menuScreenPath: NotificationScreen.routePath,
+          ),
+          _customPopupMenuDivider(),
+          homeMenuItem(
+            menuIconPath: IconConstants.icHomeMenuUseOnYourComputer,
+            menuName: "Use on your computer",
+            menuScreenPath: "j",
+          ),
+        ],
+        elevation: 8.0,
+      ).then((value) {
+        if (value != null) {
+          RouteController.push(context, value);
+        }
+      });
+    }
+
     return Container(
       padding: EdgeInsets.only(
         left: 16.w,
@@ -61,19 +98,50 @@ class HomeTopBarWidget extends StatelessWidget {
                 Obx(
                   () => Text(
                     "${homeController.getGreeting()}, ${userAccountController.userDetails.value.name ?? ''}",
-                    style: TypographyStyles.poppins40012Dark(),
+                    style: TypographyStyles.poppins40012Colored(theme.textDarkColor),
                   ),
                 ),
               ],
             ),
           ),
-          ImageIcon(
-            AssetImage(IconConstants.icFlower),
-            color: theme.textDarkColor,
-            size: 24.r,
+
+          InkWell(
+            onTap: () {
+              showDropdownMenu(context);
+            },
+            child: ImageIcon(
+              AssetImage(IconConstants.icFlower),
+              color: theme.textDarkColor,
+              size: 24.r,
+            ),
           ),
         ],
       ),
     );
+  }
+
+  PopupMenuItem<String> homeMenuItem({
+    required String menuIconPath,
+    required String menuName,
+    required String menuScreenPath,
+  }) {
+    return PopupMenuItem<String>(
+      value: menuScreenPath,
+      child: Row(
+        spacing: 8.r,
+        children: [
+          ImageIcon(
+            AssetImage(menuIconPath),
+            size: 20.r,
+            color: theme.textDarkColor,
+          ),
+          Text(menuName, style: TypographyStyles.poppins40012Colored(theme.textDarkColor)),
+        ],
+      ),
+    );
+  }
+
+  PopupMenuEntry<String> _customPopupMenuDivider() {
+    return PopupMenuDivider(height: 1.0);
   }
 }

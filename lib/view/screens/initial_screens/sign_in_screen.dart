@@ -26,7 +26,7 @@ class SignInScreen extends StatelessWidget {
               VerticalSpace120(),
               Text(
                 "Let’s get you set up",
-                style: TypographyStyles.sniglet40024PrimaryColored(),
+                style: TypographyStyles.sniglet40024Colored(theme.primaryColor),
               ),
               VerticalSpace8(),
               Text(

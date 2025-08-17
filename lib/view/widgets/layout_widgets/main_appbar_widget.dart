@@ -64,7 +64,9 @@ class MainAppbarWidget extends StatelessWidget {
             style:
                 isInverse
                     ? TypographyStyles.poppinsBold16Inverse()
-                    : TypographyStyles.poppinsBold16DarkColored(),
+                    : TypographyStyles.poppinsBold16Colored(
+                      theme.textDarkColor,
+                    ),
           ),
         ],
       ),

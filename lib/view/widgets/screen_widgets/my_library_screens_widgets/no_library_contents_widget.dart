@@ -38,7 +38,7 @@ class NoLibraryContentsWidget extends StatelessWidget {
         Text(
           "You haven’t added anything\nto library yet",
           textAlign: TextAlign.center,
-          style: TypographyStyles.snigletNormal24secondaryColored(),
+          style: TypographyStyles.snigletNormal24Colored(theme.secondaryColor),
         ),
         VerticalSpace10(),
         Text(

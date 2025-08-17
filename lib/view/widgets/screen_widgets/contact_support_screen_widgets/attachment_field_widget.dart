@@ -50,7 +50,7 @@ class AttachmentFieldWidget extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Attach JPG, PNG, or PDF — max 5MB",
-                  style: TypographyStyles.poppins40010Disabled(),
+                  style: TypographyStyles.poppins40010Colored(theme.disabledColor),
                 ),
               ),
               errorStyle: TypographyStyles.poppinsNormal10Error(),

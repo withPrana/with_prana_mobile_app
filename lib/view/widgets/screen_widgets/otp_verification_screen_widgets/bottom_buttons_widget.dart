@@ -60,7 +60,9 @@ class BottomButtonsWidget extends StatelessWidget {
               },
               child: Text(
                 "Skip for now",
-                style: TypographyStyles.poppinsBold12PrimaryColored(),
+                style: TypographyStyles.poppinsBold12Colored(
+                  theme.primaryColor,
+                ),
               ),
             ),
           ],
@@ -91,7 +93,9 @@ class BottomButtonsWidget extends StatelessWidget {
                   },
                   child: Text(
                     "Resend code",
-                    style: TypographyStyles.poppinsBold12PrimaryColored(),
+                    style: TypographyStyles.poppinsBold12Colored(
+                      theme.primaryColor,
+                    ),
                   ),
                 );
               }

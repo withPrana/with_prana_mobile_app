@@ -149,8 +149,10 @@ class BottomNavigationBarWidget extends StatelessWidget {
                 item.name,
                 style:
                     isSelected
-                        ? TypographyStyles.poppins40010PrimaryColored()
-                        : TypographyStyles.poppins40010Disabled(),
+                        ? TypographyStyles.poppins40010Colored(
+                          theme.primaryColor,
+                        )
+                        : TypographyStyles.poppins40010Colored(theme.disabledColor),
               ),
             ],
           ),

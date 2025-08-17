@@ -26,8 +26,8 @@ class MeditationCategoryScreen extends HookWidget {
           VerticalSpace120(),
           Text(
             "Drift into rest with gentle sounds and soothing breath.",
-            style: TypographyStyles.sniglet40020(
-              color: meditationCategory.contentColor,
+            style: TypographyStyles.sniglet40020Colored(
+               meditationCategory.contentColor,
             ),
           ),
           VerticalSpace8(),

@@ -179,7 +179,9 @@ class ProfileScreen extends HookWidget {
                 Obx(
                   () => Text(
                     "With Prana App  v${appVersionDetailsController.currentAppVersion.value}",
-                    style: TypographyStyles.poppins40010PrimaryColored(),
+                    style: TypographyStyles.poppins40010Colored(
+                      theme.primaryColor,
+                    ),
                   ),
                 ),
                 VerticalSpace120(),

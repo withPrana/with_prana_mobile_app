@@ -22,24 +22,25 @@ class MyLibraryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = themeController.appTheme.value!;
     return MainScreenLayoutWidget(
       enableAnimation: true,
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-         homeController.changeBottomNavScreenIndex(
-              context: context,
-              index: 0,
-              navigate: false,
-            );
+        homeController.changeBottomNavScreenIndex(
+          context: context,
+          index: 0,
+          navigate: false,
+        );
       },
       appBar: MainAppbarWidget(
         name: "My Library",
         onPop: () {
-           homeController.changeBottomNavScreenIndex(
-              context: context,
-              index: 0,
-              navigate: false,
-            );
+          homeController.changeBottomNavScreenIndex(
+            context: context,
+            index: 0,
+            navigate: false,
+          );
         },
       ),
       body: SingleChildScrollView(
@@ -53,7 +54,7 @@ class MyLibraryScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Organize your meditations.",
-                      style: TypographyStyles.sniglet40016PrimaryColored(),
+                      style: TypographyStyles.sniglet40016Colored(theme.primaryColor),
                     ),
                     VerticalSpace16(),
                     LibraryCategoriesWidget(

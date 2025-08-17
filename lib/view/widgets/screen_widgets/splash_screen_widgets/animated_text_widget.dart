@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 
 class TypewriterText extends StatefulWidget {
-  const TypewriterText({super.key});
+  final ColorPalette theme;
+  const TypewriterText({super.key, required this.theme});
 
   @override
   State<TypewriterText> createState() => _TypewriterTextState();
@@ -27,9 +31,13 @@ class _TypewriterTextState extends State<TypewriterText> {
   Future<void> _startTypewriterEffect() async {
     //// Typing the first line
     for (int i = 0; i <= _firstLine.length; i++) {
-      setState(() {
-        _visibleFirstLineChars = List.generate(i, (index) => index);
-      });
+      try {
+        setState(() {
+          _visibleFirstLineChars = List.generate(i, (index) => index);
+        });
+      } catch (e) {
+        log(e.toString());
+      }
       await Future.delayed(Duration(milliseconds: _typingSpeed));
     }
 
@@ -38,9 +46,13 @@ class _TypewriterTextState extends State<TypewriterText> {
 
     //// Typing the second line
     for (int i = 0; i <= _secondLine.length; i++) {
-      setState(() {
-        _visibleSecondLineChars = List.generate(i, (index) => index);
-      });
+      try {
+        setState(() {
+          _visibleSecondLineChars = List.generate(i, (index) => index);
+        });
+      } catch (e) {
+        log(e.toString());
+      }
       await Future.delayed(Duration(milliseconds: _typingSpeed));
     }
   }
@@ -60,7 +72,9 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24secondaryColored(),
+                style: TypographyStyles.snigletNormal24Colored(
+                  widget.theme.secondaryColor,
+                ),
               ),
             );
           }),
@@ -74,7 +88,9 @@ class _TypewriterTextState extends State<TypewriterText> {
               child: Text(
                 char,
                 textAlign: TextAlign.center,
-                style: TypographyStyles.snigletNormal24secondaryColored(),
+                style: TypographyStyles.snigletNormal24Colored(
+                  widget.theme.secondaryColor,
+                ),
               ),
             );
           }),

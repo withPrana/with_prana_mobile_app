@@ -26,7 +26,9 @@ class SubscriptionStatusScreen extends StatelessWidget {
           children: [
             Text(
               "You’re on the Free Plan",
-              style: TypographyStyles.snigletNormal24secondaryColored(),
+              style: TypographyStyles.snigletNormal24Colored(
+                theme.secondaryColor,
+              ),
             ),
             VerticalSpace8(),
             Text(
@@ -36,7 +38,7 @@ class SubscriptionStatusScreen extends StatelessWidget {
             VerticalSpace24(),
             Text(
               "What you are missing",
-              style: TypographyStyles.sniglet40016PrimaryColored(),
+              style: TypographyStyles.sniglet40016Colored(theme.primaryColor),
             ),
             VerticalSpace8(),
             SubscriptionWidget(showButton: false),

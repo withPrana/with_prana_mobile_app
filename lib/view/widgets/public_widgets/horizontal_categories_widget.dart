@@ -88,11 +88,11 @@ class HorizontalCategoriesWidget extends HookWidget {
                         categoryName,
                         style:
                             isSelected
-                                ? TypographyStyles.poppins40012PrimaryColored(
-                                  color: selectedContentColor,
+                                ? TypographyStyles.poppins40012Colored(
+                                  selectedContentColor,
                                 )
-                                : TypographyStyles.poppins40012(
-                                  color: unSelectedContentColor,
+                                : TypographyStyles.poppins40012Colored(
+                                  unSelectedContentColor,
                                 ),
                       ),
                       if (categoryBadge != null) categoryBadge,

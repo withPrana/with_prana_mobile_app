@@ -118,7 +118,7 @@ class TextFieldWidget extends StatelessWidget {
               filled: true,
               hintText: hintText,
               errorStyle: TypographyStyles.poppinsNormal10Error(),
-              hintStyle: TypographyStyles.poppins50014Disabled(),
+              hintStyle: TypographyStyles.poppins50014Colored(theme.textDisabledColor),
               border: _border(theme),
               enabledBorder: _border(theme),
               focusedBorder: _border(theme),

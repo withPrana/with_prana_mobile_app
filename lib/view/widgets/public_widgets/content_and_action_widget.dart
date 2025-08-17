@@ -57,15 +57,17 @@ class ContentAndActionWidget extends StatelessWidget {
                         if (contentHeading != null)
                           Text(
                             contentHeading ?? '',
-                            style:
-                                TypographyStyles.poppins60014PrimaryColored(),
+                            style: TypographyStyles.poppins60014Colored(
+                              theme.primaryColor,
+                            ),
                           ),
                         if (contentHeading != null) VerticalSpace8(),
                         if (contentString != null)
                           Text(
                             contentString ?? '',
-                            style:
-                                TypographyStyles.poppins40012PrimaryColored(),
+                            style: TypographyStyles.poppins40012Colored(
+                              theme.primaryColor,
+                            ),
                           ),
                       ],
                     ),

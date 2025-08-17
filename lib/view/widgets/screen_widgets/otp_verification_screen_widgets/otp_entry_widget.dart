@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/otp_verification_screen_widgets/otp_field_widget.dart';
 
 class OtpEntryWidget extends StatelessWidget {
   final AuthController authController;
-  const OtpEntryWidget({super.key, required this.authController});
+  final ColorPalette theme;
+  const OtpEntryWidget({super.key, required this.authController, required this.theme});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class OtpEntryWidget extends StatelessWidget {
         return Text(
           "Your email has been verified! You're all set to continue your practice.",
           textAlign: TextAlign.center,
-          style: TypographyStyles.snigletNormal16secondaryColored(),
+          style: TypographyStyles.snigletNormal16Colored(theme.secondaryColor),
         );
       } else {
         return Column(

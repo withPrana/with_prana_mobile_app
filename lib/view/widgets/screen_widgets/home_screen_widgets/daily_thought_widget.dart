@@ -32,7 +32,9 @@ class DailyThoughtWidget extends StatelessWidget {
             children: [
               Text(
                 "✨ Daily Thought",
-                style: TypographyStyles.poppinsBold12PrimaryColored(),
+                style: TypographyStyles.poppinsBold12Colored(
+                  theme.primaryColor,
+                ),
               ),
               VerticalSpace8(),
               AudioPalyerPreviewWidget(
@@ -56,7 +58,10 @@ class DailyThoughtWidget extends StatelessWidget {
           ),
         ),
         VerticalSpace8(),
-        Text("View All", style: TypographyStyles.poppinsBold12PrimaryColored()),
+        Text(
+          "View All",
+          style: TypographyStyles.poppinsBold12Colored(theme.primaryColor),
+        ),
       ],
     );
   }

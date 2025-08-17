@@ -52,7 +52,7 @@ class LoginFormWidget extends HookWidget {
               onTap: () {},
             ),
             VerticalSpace32(),
-            Text("or", style: TypographyStyles.poppins40014DisabledColor()),
+            Text("or", style: TypographyStyles.poppins40014Colored(theme.disabledColor)),
             VerticalSpace32(),
             Obx(
               () => AuthTextFieldWidget(
@@ -77,6 +77,7 @@ class LoginFormWidget extends HookWidget {
             ),
             VerticalSpace16(),
             TextAndActionWidget(
+              theme: theme,
               primaryText: "Don’t have an account?",
               actionText: "Sign up",
               onActionClicked: () {
@@ -111,7 +112,9 @@ class LoginFormWidget extends HookWidget {
               Image.asset(iconPath, width: 20.r),
               Text(
                 "Continue with $signInMethod",
-                style: TypographyStyles.poppinsBold14DarkColored(),
+                style: TypographyStyles.poppinsBold14Colored(
+                  theme.textDarkColor,
+                ),
               ),
             ],
           ),

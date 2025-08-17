@@ -54,6 +54,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
+            ////icon
             Container(
               padding: EdgeInsets.all(10.r),
               decoration: BoxDecoration(
@@ -75,14 +76,18 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                /////title
                 SizedBox(
                   width: 160.w,
                   child: Text(
                     audioDetails.title,
-                    style: TypographyStyles.poppins60014PrimaryColored(),
+                    style: TypographyStyles.poppins60014Colored(
+                      theme.primaryColor,
+                    ),
                   ),
                 ),
                 VerticalSpace4(),
+                /////duration and category
                 Text(
                   audioDetails.category.isNotEmpty
                       ? "${audioDetails.minutes} min • ${audioDetails.category}"
@@ -92,6 +97,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               ],
             ),
             Spacer(),
+            /////play button
             CircleAvatar(
               radius: 19.r,
               backgroundColor: audioDetails.iconColor.withValues(alpha: 0.2),

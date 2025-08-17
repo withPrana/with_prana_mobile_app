@@ -107,7 +107,9 @@ class DownloadsScreen extends HookWidget {
                   children: [
                     Text(
                       "Access your saved meditations\nanytime, even offline.",
-                      style: TypographyStyles.sniglet40016PrimaryColored(),
+                      style: TypographyStyles.sniglet40016Colored(
+                        theme.primaryColor,
+                      ),
                     ),
                     VerticalSpace16(),
                     GridViewBuilderWidget(
@@ -147,7 +149,9 @@ class DownloadsScreen extends HookWidget {
                   Text(
                     "Offline listening is part of\nour Premium plan.",
                     textAlign: TextAlign.center,
-                    style: TypographyStyles.snigletNormal24secondaryColored(),
+                    style: TypographyStyles.snigletNormal24Colored(
+                      theme.secondaryColor,
+                    ),
                   ),
                   VerticalSpace4(),
                   Text(
@@ -172,13 +176,17 @@ class DownloadsScreen extends HookWidget {
                   RichText(
                     text: TextSpan(
                       text: "*14-day free trial ends on ",
-                      style: TypographyStyles.poppins40012PrimaryColored(),
+                      style: TypographyStyles.poppins40012Colored(
+                        theme.primaryColor,
+                      ),
                       children: [
                         TextSpan(
                           text: DateFormatter.formatDate(
                             "${DateTime.now().add(Duration(days: 14))}",
                           ),
-                          style: TypographyStyles.poppins60010PrimaryColored(),
+                          style: TypographyStyles.poppins60010Colored(
+                            theme.primaryColor,
+                          ),
                         ),
                       ],
                     ),

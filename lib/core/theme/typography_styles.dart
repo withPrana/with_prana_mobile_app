@@ -5,76 +5,18 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controll
 
 class TypographyStyles {
   ////sniglet
-  static TextStyle sniglet40036secondaryColored() {
+  ////12
+  static TextStyle snigletNormal12Inverse() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
-      fontSize: 36.r,
-      color: themeController.appTheme.value?.secondaryColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle snigletNormal16secondaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value?.secondaryColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle snigletNormal24secondaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 24.r,
-      color: themeController.appTheme.value?.secondaryColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle sniglet40024() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 24.r,
-      color: themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle sniglet40024PrimaryColored({Color? color}) {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 24.r,
-      color: color ?? themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle snigletNormal24Inverse() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 24.r,
+      fontSize: 12.r,
       color: themeController.appTheme.value?.inverseColor,
       fontWeight: FontWeight.normal,
       fontFamily: "Sniglet",
     );
   }
 
-  static TextStyle sniglet40020({Color? color}) {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 20.r,
-      color: color ?? themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
+  ////16
   static TextStyle sniglet40016() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -85,32 +27,11 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle sniglet40016PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle sniglet40016Colored(Color color) {
     return TextStyle(
       fontSize: 16.r,
-      color: themeController.appTheme.value?.primaryColor,
+      color: color,
       fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle sniglet40018PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 18.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Sniglet",
-    );
-  }
-
-  static TextStyle snigletNormal12Inverse() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: themeController.appTheme.value?.inverseColor,
-      fontWeight: FontWeight.normal,
       fontFamily: "Sniglet",
     );
   }
@@ -135,27 +56,96 @@ class TypographyStyles {
     );
   }
 
-  ////poppins
-  ///
-  static TextStyle poppinsNormal10Error() {
+  static TextStyle snigletNormal16Colored(Color color) {
     return TextStyle(
-      fontSize: 10.r,
-      color: Colors.red.shade700,
+      fontSize: 16.r,
+      color: color,
       fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
+      fontFamily: "Sniglet",
     );
   }
 
-  static TextStyle poppinsNormal10() {
+  ////18
+  static TextStyle sniglet40018Colored(Color color) {
+    return TextStyle(
+      fontSize: 18.r,
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  /////20
+  static TextStyle sniglet40020() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
-      fontSize: 10.r,
+      fontSize: 20.r,
       color: themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
     );
   }
 
+  static TextStyle sniglet40020Colored(Color color) {
+    return TextStyle(
+      fontSize: 20.r,
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  /////24
+  static TextStyle sniglet40024() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 24.r,
+      color: themeController.appTheme.value?.textColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  static TextStyle snigletNormal24Inverse() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 24.r,
+      color: themeController.appTheme.value?.inverseColor,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  static TextStyle sniglet40024Colored(Color? color) {
+    return TextStyle(
+      fontSize: 24.r,
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  static TextStyle snigletNormal24Colored(Color color) {
+    return TextStyle(
+      fontSize: 24.r,
+      color: color,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  ////36
+  static TextStyle sniglet40036Colored(Color color) {
+    return TextStyle(
+      fontSize: 36.r,
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Sniglet",
+    );
+  }
+
+  /////////////////////////////////////////////////////poppins
+  ////10
   static TextStyle poppins40010() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -176,32 +166,39 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppins40010Disabled() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppins40010Colored(Color color) {
     return TextStyle(
       fontSize: 10.r,
-      color: themeController.appTheme.value?.disabledColor,
+      color: color,
       fontWeight: FontWeight.w400,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppins40010PrimaryColored() {
+  static TextStyle poppinsNormal10() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 10.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w400,
+      color: themeController.appTheme.value?.textColor,
+      fontWeight: FontWeight.normal,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppins40010SecondaryColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppinsNormal10Error() {
     return TextStyle(
       fontSize: 10.r,
-      color: themeController.appTheme.value?.secondaryColor,
-      fontWeight: FontWeight.w400,
+      color: Colors.red.shade700,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins60010Colored(Color color) {
+    return TextStyle(
+      fontSize: 10.r,
+      color: color,
+      fontWeight: FontWeight.w600,
       fontFamily: "Poppins",
     );
   }
@@ -216,63 +213,22 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppins60010PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 10.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w600,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40014() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 14.r,
-      color: themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40014PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 14.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40014DisabledColor() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 14.r,
-      color: themeController.appTheme.value?.disabledColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins50014() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 14.r,
-      color: themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.w500,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsNormal12secondaryColoredItalic() {
+  /////12
+  static TextStyle poppins40012() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 12.r,
-      color: themeController.appTheme.value?.secondaryColor,
-      fontWeight: FontWeight.normal,
-      fontStyle: FontStyle.italic,
+      color: themeController.appTheme.value?.textColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins40012Colored(Color color) {
+    return TextStyle(
+      fontSize: 12.r,
+      color: color,
+      fontWeight: FontWeight.w400,
       fontFamily: "Poppins",
     );
   }
@@ -282,26 +238,6 @@ class TypographyStyles {
     return TextStyle(
       fontSize: 12.r,
       color: themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsNormal12PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsNormal12Disabled() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: themeController.appTheme.value?.disabledColor,
       fontWeight: FontWeight.normal,
       fontFamily: "Poppins",
     );
@@ -317,6 +253,25 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle poppinsNormal12Colored(Color color) {
+    return TextStyle(
+      fontSize: 12.r,
+      color: color,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppinsNormal12ColoredItalic(Color color) {
+    return TextStyle(
+      fontSize: 12.r,
+      color: color,
+      fontWeight: FontWeight.normal,
+      fontStyle: FontStyle.italic,
+      fontFamily: "Poppins",
+    );
+  }
+
   static TextStyle poppinsBold12Inverse() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -327,62 +282,50 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppinsBold12DarkColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppinsBold12Colored(Color color) {
     return TextStyle(
       fontSize: 12.r,
-      color: themeController.appTheme.value?.textDarkColor,
+      color: color,
       fontWeight: FontWeight.bold,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppinsBold12PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.bold,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsBold14DarkColored() {
+  /////14
+  static TextStyle poppins40014() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 14.r,
-      color: themeController.appTheme.value?.textDarkColor,
-      fontWeight: FontWeight.bold,
+      color: themeController.appTheme.value?.textColor,
+      fontWeight: FontWeight.w400,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppinsBold14PrimaryColored() {
+  static TextStyle poppins40014Colored(Color color) {
+    return TextStyle(
+      fontSize: 14.r,
+      color: color,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins50014() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 14.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.bold,
+      color: themeController.appTheme.value?.textColor,
+      fontWeight: FontWeight.w500,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppinsNormal16Inverse() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value?.inverseColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins60014PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppins50014Colored(Color color) {
     return TextStyle(
       fontSize: 14.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w600,
+      color: color,
+      fontWeight: FontWeight.w500,
       fontFamily: "Poppins",
     );
   }
@@ -397,66 +340,25 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppins40012({Color? color}) {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: color ?? themeController.appTheme.value?.textColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40012Dark() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: themeController.appTheme.value?.textDarkColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40012PrimaryColored({Color? color}) {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 12.r,
-      color: color ?? themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins50014Disabled() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppins60014Colored(Color color) {
     return TextStyle(
       fontSize: 14.r,
-      color: themeController.appTheme.value!.textDisabledColor,
-      fontWeight: FontWeight.w500,
+      color: color,
+      fontWeight: FontWeight.w600,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppins40014Dark() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppinsBold14Colored(Color color) {
     return TextStyle(
       fontSize: 14.r,
-      color: themeController.appTheme.value?.textDarkColor,
-      fontWeight: FontWeight.w400,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsBold16Inverse() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value?.inverseColor,
+      color: color,
       fontWeight: FontWeight.bold,
       fontFamily: "Poppins",
     );
   }
 
+  /////16
   static TextStyle poppins40016() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
@@ -477,12 +379,49 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle poppinsNormal16Inverse() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 16.r,
+      color: themeController.appTheme.value?.inverseColor,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppinsNormal16Colored(Color color) {
+    return TextStyle(
+      fontSize: 16.r,
+      color: color,
+      fontWeight: FontWeight.normal,
+      fontFamily: "Poppins",
+    );
+  }
+
   static TextStyle poppins50016() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 16.r,
       color: themeController.appTheme.value?.textColor,
       fontWeight: FontWeight.w500,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins50016Colored(Color color) {
+    return TextStyle(
+      fontSize: 16.r,
+      color: color,
+      fontWeight: FontWeight.w500,
+      fontFamily: "Poppins",
+    );
+  }
+
+  static TextStyle poppins60016Colored(Color color) {
+    return TextStyle(
+      fontSize: 16.r,
+      color: color,
+      fontWeight: FontWeight.w600,
       fontFamily: "Poppins",
     );
   }
@@ -497,70 +436,29 @@ class TypographyStyles {
     );
   }
 
-  static TextStyle poppinsBold16DarkColored() {
+  static TextStyle poppinsBold16Inverse() {
     final themeController = Get.find<ThemeController>();
     return TextStyle(
       fontSize: 16.r,
-      color: themeController.appTheme.value?.textDarkColor,
+      color: themeController.appTheme.value?.inverseColor,
       fontWeight: FontWeight.bold,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppinsBold16PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppinsBold16Colored(Color color) {
     return TextStyle(
       fontSize: 16.r,
-      color: themeController.appTheme.value?.primaryColor,
+      color: color,
       fontWeight: FontWeight.bold,
       fontFamily: "Poppins",
     );
   }
 
-  static TextStyle poppins50016Brown() {
-    return TextStyle(
-      fontSize: 16.r,
-      color: Color(0xff484848),
-      fontWeight: FontWeight.w500,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppinsNormal16Disabled() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value!.textDisabledColor,
-      fontWeight: FontWeight.normal,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins50016Disabled() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value!.textDisabledColor,
-      fontWeight: FontWeight.w500,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins60016PrimaryColored() {
-    final themeController = Get.find<ThemeController>();
-    return TextStyle(
-      fontSize: 16.r,
-      color: themeController.appTheme.value?.primaryColor,
-      fontWeight: FontWeight.w600,
-      fontFamily: "Poppins",
-    );
-  }
-
-  static TextStyle poppins40020SecondaryColored() {
-    final themeController = Get.find<ThemeController>();
+  static TextStyle poppins40020Colored(Color color) {
     return TextStyle(
       fontSize: 20.r,
-      color: themeController.appTheme.value?.secondaryColor,
+      color: color,
       fontWeight: FontWeight.w400,
       fontFamily: "Poppins",
     );

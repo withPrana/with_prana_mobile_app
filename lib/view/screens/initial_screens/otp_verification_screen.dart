@@ -74,7 +74,9 @@ class OtpVerificationScreen extends HookWidget {
                       // VerticalSpace80(),
                       Text(
                         "Confirm your email",
-                        style: TypographyStyles.poppins40020SecondaryColored(),
+                        style: TypographyStyles.poppins40020Colored(
+                          theme.secondaryColor,
+                        ),
                       ),
                       VerticalSpace8(),
                       Text(
@@ -82,7 +84,10 @@ class OtpVerificationScreen extends HookWidget {
                         style: TypographyStyles.poppins40012(),
                       ),
                       VerticalSpace96(),
-                      OtpEntryWidget(authController: authController),
+                      OtpEntryWidget(
+                        theme: theme,
+                        authController: authController,
+                      ),
                       Spacer(),
                       /////bottom
                       ContentAndActionWidget(
@@ -99,6 +104,7 @@ class OtpVerificationScreen extends HookWidget {
                       Transform.scale(
                         scale: 0.8,
                         child: TextAndActionWidget(
+                          theme: theme,
                           primaryText: "Already have an account?",
                           actionText: "Log in",
                           onActionClicked: () {

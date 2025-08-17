@@ -66,4 +66,8 @@ class IconConstants {
 
   ////
   static const icEditAuthField = "assets/icons/ic_edit_auth_field.png";
+
+  ////home menu
+  static const icHomeMenuNotifications = "assets/icons/ic_home_menu_notifications.png";
+  static const icHomeMenuUseOnYourComputer = "assets/icons/ic_home_menu_use_on_your_computer.png";
 }

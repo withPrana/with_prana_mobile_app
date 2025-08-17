@@ -79,8 +79,8 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
             Text(
               widget.audioDetails.title,
               textAlign: TextAlign.center,
-              style: TypographyStyles.sniglet40024PrimaryColored(
-                color: widget.meditationCategory.contentColor,
+              style: TypographyStyles.sniglet40024Colored(
+                widget.meditationCategory.contentColor,
               ),
             ),
             VerticalSpace8(),

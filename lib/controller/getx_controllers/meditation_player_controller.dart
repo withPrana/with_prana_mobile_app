@@ -45,7 +45,7 @@ class MeditationPlayerController extends GetxController {
       }
       await commonController.backGroundAudioPlayer.pause();
       await audioPlayer.setSource(
-        AssetSource(AudioContants.audioSampleMeditation),
+        AssetSource(AudioContants.audioSampleMeditationTwo),
       );
       await audioPlayer.resume();
       isPlaying.value = true;

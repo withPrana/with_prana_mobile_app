@@ -10,10 +10,7 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 
 class TodaySuggestionWidget extends StatelessWidget {
   final ColorPalette theme;
-  const TodaySuggestionWidget({
-    super.key,
-    required this.theme,
-  });
+  const TodaySuggestionWidget({super.key, required this.theme});
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +55,16 @@ class TodaySuggestionWidget extends StatelessWidget {
                 ////Today's suggestion
                 Text(
                   "Today’s Suggestion",
-                  style: TypographyStyles.poppins40012Dark(),
+                  style: TypographyStyles.poppins40012Colored(
+                    theme.textDarkColor,
+                  ),
                 ),
                 Text(
                   "Inhale peace,\nexhale tension.",
                   textAlign: TextAlign.center,
-                  style: TypographyStyles.sniglet40036secondaryColored(),
+                  style: TypographyStyles.sniglet40036Colored(
+                    theme.secondaryColor,
+                  ),
                 ),
                 VerticalSpace8(),
                 PlayTodaySuggestionButtonWidget(),
