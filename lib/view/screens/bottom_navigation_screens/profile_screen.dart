@@ -12,6 +12,7 @@ import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/account_info_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/profile_screens/subscription_status_screen.dart';
+import 'package:with_prana_mobile_app/view/screens/profile_screens/terms_and_privacy_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_group_widget.dart';
@@ -158,7 +159,12 @@ class ProfileScreen extends HookWidget {
                       iconPath: IconConstants.icProfileMenuTermsAndPrivacy,
                       menuName: "Terms & Privacy",
                       theme: theme,
-                      onTap: () {},
+                      onTap: () {
+                        RouteController.push(
+                          context,
+                          TermsAndPrivacyScreen.routePath,
+                        );
+                      },
                     ),
                   ],
                   theme: theme,
