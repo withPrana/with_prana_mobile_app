@@ -107,6 +107,7 @@ class HomeScreen extends HookWidget {
                   ),
                 ),
               ),
+              //////Top bar
               HomeTopBarWidget(
                 homeController: homeController,
                 theme: theme,

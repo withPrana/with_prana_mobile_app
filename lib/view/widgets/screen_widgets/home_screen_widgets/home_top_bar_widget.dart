@@ -9,6 +9,7 @@ import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/screens/link_web_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/notification_screen.dart';
 
 class HomeTopBarWidget extends StatelessWidget {
@@ -46,7 +47,7 @@ class HomeTopBarWidget extends StatelessWidget {
           homeMenuItem(
             menuIconPath: IconConstants.icHomeMenuUseOnYourComputer,
             menuName: "Use on your computer",
-            menuScreenPath: "j",
+            menuScreenPath: LinkWebScreen.routePath,
           ),
         ],
         elevation: 8.0,
@@ -98,7 +99,9 @@ class HomeTopBarWidget extends StatelessWidget {
                 Obx(
                   () => Text(
                     "${homeController.getGreeting()}, ${userAccountController.userDetails.value.name ?? ''}",
-                    style: TypographyStyles.poppins40012Colored(theme.textDarkColor),
+                    style: TypographyStyles.poppins40012Colored(
+                      theme.textDarkColor,
+                    ),
                   ),
                 ),
               ],
@@ -135,7 +138,10 @@ class HomeTopBarWidget extends StatelessWidget {
             size: 20.r,
             color: theme.textDarkColor,
           ),
-          Text(menuName, style: TypographyStyles.poppins40012Colored(theme.textDarkColor)),
+          Text(
+            menuName,
+            style: TypographyStyles.poppins40012Colored(theme.textDarkColor),
+          ),
         ],
       ),
     );

@@ -35,4 +35,7 @@ class ImageConstants {
   ////
   static const imgMeditationCategory =
       "assets/images/img_meditation_category.png";
+
+  ////
+  static const imgScanWeb = "assets/images/img_scan_web.png";
 }
