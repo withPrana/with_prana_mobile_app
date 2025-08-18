@@ -52,7 +52,10 @@ class LoginFormWidget extends HookWidget {
               onTap: () {},
             ),
             VerticalSpace32(),
-            Text("or", style: TypographyStyles.poppins40014Colored(theme.disabledColor)),
+            Text(
+              "or",
+              style: TypographyStyles.poppins40014Colored(theme.disabledColor),
+            ),
             VerticalSpace32(),
             Obx(
               () => AuthTextFieldWidget(

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/app_version_details_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
@@ -27,6 +28,7 @@ class ProfileScreen extends HookWidget {
   final homeController = Get.find<HomeController>();
   final appVersionDetailsController = Get.find<AppVersionDetailsController>();
   final commonController = Get.find<CommonController>();
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,7 @@ class ProfileScreen extends HookWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: SingleChildScrollView(
             child: Column(
+              spacing: 10,
               children: [
                 VerticalSpace24(),
                 ////menu group 1
@@ -109,7 +112,7 @@ class ProfileScreen extends HookWidget {
                   ],
                   theme: theme,
                 ),
-                VerticalSpace10(),
+
                 ////menu group 2
                 ProfileMenuGroupWidget(
                   menuList: [
@@ -146,7 +149,7 @@ class ProfileScreen extends HookWidget {
                   ],
                   theme: theme,
                 ),
-                VerticalSpace10(),
+
                 ////menu group 3
                 ProfileMenuGroupWidget(
                   menuList: [
@@ -170,6 +173,19 @@ class ProfileScreen extends HookWidget {
                           context,
                           TermsAndPrivacyScreen.routePath,
                         );
+                      },
+                    ),
+                  ],
+                  theme: theme,
+                ),
+                ProfileMenuGroupWidget(
+                  menuList: [
+                    ProfileMenuItemWidget(
+                      iconPath: IconConstants.icProfileMenuSignOut,
+                      menuName: "Sign Out",
+                      theme: theme,
+                      onTap: () {
+                        authController.signOut(context);
                       },
                     ),
                   ],

@@ -3,13 +3,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
-import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/gradient_image_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
@@ -23,6 +23,7 @@ class OtpVerificationScreen extends HookWidget {
 
   final themeController = Get.find<ThemeController>();
   final authController = Get.find<AuthController>();
+  final homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +71,7 @@ class OtpVerificationScreen extends HookWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MainAppbarWidget(name: "Go back"),
-                      // VerticalSpace80(),
+                      VerticalSpace80(),
                       Text(
                         "Confirm your email",
                         style: TypographyStyles.poppins40020Colored(
@@ -97,6 +97,7 @@ class OtpVerificationScreen extends HookWidget {
                             "Our audio is crafted with therapeutic voices and tones designed to emotionally ease your mind.",
                         actions: BottomButtonsWidget(
                           authController: authController,
+                          homeController: homeController,
                           theme: theme,
                         ),
                       ),
@@ -112,6 +113,7 @@ class OtpVerificationScreen extends HookWidget {
                               context,
                               SignInScreen.routePath,
                             );
+                            authController.resetAll();
                           },
                         ),
                       ),

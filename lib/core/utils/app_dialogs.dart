@@ -16,7 +16,8 @@ class AppDialogs {
       maskColor: theme.textDarkColor.withValues(alpha: 0.8),
       builder: (context) {
         return InkWell(
-          child: PopupLoadingWidget(message: message, theme: theme));
+          child: PopupLoadingWidget(message: message, theme: theme),
+        );
       },
       useAnimation: true,
       animationTime: Duration(milliseconds: 200),
@@ -36,7 +37,7 @@ class AppDialogs {
   }) {
     // Determine icon based on message type
     Icon icon;
-    Color bgColor;
+    Color color;
     switch (toastType) {
       case ToastTypeEnum.success:
         icon = Icon(
@@ -44,22 +45,26 @@ class AppDialogs {
           size: 16.r,
           color: Colors.green,
         );
-        bgColor = Colors.green.shade100;
+        color = Colors.green;
 
         break;
       case ToastTypeEnum.info:
         icon = Icon(Icons.info_outline, size: 16.r, color: Colors.blue);
-        bgColor = Colors.blue.shade100;
+        color = Colors.blue;
 
         break;
       case ToastTypeEnum.warning:
         icon = Icon(Icons.warning, size: 16.r, color: Colors.orange);
-        bgColor = Colors.orange.shade100;
+        color = Colors.orange;
 
         break;
       case ToastTypeEnum.error:
-        icon = Icon(Icons.error_outline, size: 16.r, color: Colors.red);
-        bgColor = Colors.red.shade100;
+        icon = Icon(
+          Icons.error_outline,
+          size: 16.r,
+          color: Colors.red.shade900,
+        );
+        color = Colors.red.shade900;
 
         break;
     }
@@ -73,7 +78,8 @@ class AppDialogs {
             margin: EdgeInsets.symmetric(horizontal: 32.w, vertical: 56.h),
             padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
             decoration: BoxDecoration(
-              color: bgColor,
+              color: Colors.white,
+              border: Border.all(color: color),
               borderRadius: BorderRadius.circular(500.r),
             ),
             child: Row(

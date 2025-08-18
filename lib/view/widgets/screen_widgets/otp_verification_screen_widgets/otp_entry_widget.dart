@@ -9,7 +9,11 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/otp_verificati
 class OtpEntryWidget extends StatelessWidget {
   final AuthController authController;
   final ColorPalette theme;
-  const OtpEntryWidget({super.key, required this.authController, required this.theme});
+  const OtpEntryWidget({
+    super.key,
+    required this.authController,
+    required this.theme,
+  });
 
   @override
   Widget build(BuildContext context) {

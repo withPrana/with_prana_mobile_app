@@ -6,7 +6,10 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/contact_suppor
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/utils/callbacks.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/normal_screen_layout_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/contact_support_screen_widgets/contact_support_form_widget.dart';
 
 class ContactSupportScreen extends HookWidget {
@@ -27,36 +30,28 @@ class ContactSupportScreen extends HookWidget {
       return null;
     }, []);
 
-    return Scaffold(
-      backgroundColor: theme.inverseColor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+    return NormalScreenLayoutWidget(
+      appBar: MainAppbarWidget(name: "Contact Support"),
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            MainAppbarWidget(name: "Contact Support"),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      width: ScreenSize.width(context),
-                      padding: EdgeInsets.all(10.r),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: theme.disabledLightColor),
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
-                      child: ContactSupportFormWidget(
-                        contactSupportController: contactSupportController,
-                        theme: theme,
-                      ),
-                    ),
-                  ],
-                ),
+            Container(
+              width: ScreenSize.width(context),
+              padding: EdgeInsets.all(10.r),
+              decoration: BoxDecoration(
+                border: Border.all(color: theme.disabledLightColor),
+                borderRadius: BorderRadius.circular(15.r),
+              ),
+              child: ContactSupportFormWidget(
+                contactSupportController: contactSupportController,
+                theme: theme,
               ),
             ),
+            VerticalSpace120(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBarWidget(navigate: true),
     );
   }
 }

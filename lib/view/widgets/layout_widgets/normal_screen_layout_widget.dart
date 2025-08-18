@@ -10,10 +10,12 @@ class NormalScreenLayoutWidget extends StatelessWidget {
   final bool enableAnimation;
   final bool canPop;
   final void Function(bool didPop, Object? result)? onPopInvokedWithResult;
+  final Widget? bottomNavigationBar;
   NormalScreenLayoutWidget({
     super.key,
-    this.appBar,
     required this.body,
+    this.appBar,
+    this.bottomNavigationBar,
     this.enableAnimation = false,
     this.canPop = true,
     this.onPopInvokedWithResult,
@@ -28,6 +30,7 @@ class NormalScreenLayoutWidget extends StatelessWidget {
       canPop: canPop,
       onPopInvokedWithResult: onPopInvokedWithResult,
       child: Scaffold(
+        extendBody: true,
         backgroundColor: Colors.transparent,
         body: TweenAnimationBuilder<double>(
           tween: Tween(begin: 0, end: 1),
@@ -52,6 +55,7 @@ class NormalScreenLayoutWidget extends StatelessWidget {
                 ),
               ),
         ),
+        bottomNavigationBar: bottomNavigationBar,
       ),
     );
   }

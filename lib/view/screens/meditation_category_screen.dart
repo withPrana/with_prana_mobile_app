@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/meditation_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/meditation_category_screen_widgets/meditation_category_audios_widget.dart';
@@ -27,7 +28,7 @@ class MeditationCategoryScreen extends HookWidget {
           Text(
             "Drift into rest with gentle sounds and soothing breath.",
             style: TypographyStyles.sniglet40020Colored(
-               meditationCategory.contentColor,
+              meditationCategory.contentColor,
             ),
           ),
           VerticalSpace8(),
@@ -44,6 +45,7 @@ class MeditationCategoryScreen extends HookWidget {
         ],
       ),
       meditationCategory: meditationCategory,
+      bottomNavigationBar: BottomNavigationBarWidget(navigate: true),
     );
   }
 }

@@ -59,6 +59,7 @@ class IconConstants {
       "assets/icons/ic_profile_menu_contact_support.png";
   static const icProfileMenuTermsAndPrivacy =
       "assets/icons/ic_profile_menu_terms_and_privacy.png";
+  static const icProfileMenuSignOut = "assets/icons/ic_sign_out.png";
 
   ////
   static const icRestartAudio = "assets/icons/ic_restart_audio.png";
@@ -68,6 +69,8 @@ class IconConstants {
   static const icEditAuthField = "assets/icons/ic_edit_auth_field.png";
 
   ////home menu
-  static const icHomeMenuNotifications = "assets/icons/ic_home_menu_notifications.png";
-  static const icHomeMenuUseOnYourComputer = "assets/icons/ic_home_menu_use_on_your_computer.png";
+  static const icHomeMenuNotifications =
+      "assets/icons/ic_home_menu_notifications.png";
+  static const icHomeMenuUseOnYourComputer =
+      "assets/icons/ic_home_menu_use_on_your_computer.png";
 }

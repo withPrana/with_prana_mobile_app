@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/auth_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
@@ -13,25 +14,37 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 
 class BottomButtonsWidget extends StatelessWidget {
   final AuthController authController;
+  final HomeController homeController;
   final ColorPalette theme;
   const BottomButtonsWidget({
     super.key,
     required this.authController,
     required this.theme,
+    required this.homeController,
   });
 
   @override
   Widget build(BuildContext context) {
+    void navigateToHome() {
+      homeController.changeBottomNavScreenIndex(
+        context: context,
+        index: 0,
+        navigate: false,
+      );
+      RouteController.pushAndRemoveUntil(
+        context,
+        BottomNavigationScreen.routePath,
+      );
+      authController.resetAll();
+    }
+
     return Obx(() {
       if (authController.isOtpVerified.value) {
         return Column(
           children: [
             PrimaryButtonWidget(
               onTap: () {
-                RouteController.pushAndRemoveUntil(
-                  context,
-                  BottomNavigationScreen.routePath,
-                );
+                navigateToHome();
               },
               isLoading: false,
               child: Row(
@@ -53,10 +66,7 @@ class BottomButtonsWidget extends StatelessWidget {
             VerticalSpace16(),
             GestureDetector(
               onTap: () {
-                RouteController.pushAndRemoveUntil(
-                  context,
-                  BottomNavigationScreen.routePath,
-                );
+                navigateToHome();
               },
               child: Text(
                 "Skip for now",

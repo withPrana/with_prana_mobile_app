@@ -32,7 +32,9 @@ class ApiCalls {
     log("$functionFor error : ${e.response.toString()}");
     if (e.response?.statusCode == 401) {
       handleInvalidUser();
-    } else if (e.response?.statusCode == 400 && (showMessageForError)) {
+    } else if ((e.response?.statusCode == 400 ||
+            e.response?.statusCode == 404) &&
+        (showMessageForError)) {
       AppDialogs.showToast(
         message:
             e.response == null ||

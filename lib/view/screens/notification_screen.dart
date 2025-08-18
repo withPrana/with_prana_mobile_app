@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/list_view_builder_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
@@ -33,6 +34,7 @@ class NotificationScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: theme.inverseColor,
                     borderRadius: BorderRadius.circular(10.r),
+                    border: Border.all(color: theme.disabledLightColor),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,16 +46,18 @@ class NotificationScreen extends StatelessWidget {
                         ),
                       ),
                       VerticalSpace16(),
-                      DailyNotificationsWidget(theme: theme,),
+                      DailyNotificationsWidget(theme: theme),
                     ],
                   ),
                 );
               },
               seperatorWidget: VerticalSpace16(),
             ),
+            VerticalSpace120(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBarWidget(navigate: true),
     );
   }
 }

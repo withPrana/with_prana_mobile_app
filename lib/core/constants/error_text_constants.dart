@@ -1,8 +1,8 @@
 class ErrorTextConstants {
   static final txtUnableToGetData = "Unable to get data";
 
-  static final txtUnableToLogin = "Unable to log in";
-  static final txtUnableToLogout = "Unable to log out";
+  static final txtUnableToSignin = "Unable to sign in";
+  static final txtUnableToSignout = "Unable to sign out";
 
   static final txtUnableToGetNotifications = "Unable to get notifications";
 
