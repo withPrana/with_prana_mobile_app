@@ -19,6 +19,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_group_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/profile_menu_item_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/screen_widgets/profile_screen_widgets/sign_out_confirmation_popup_widget.dart';
 
 class ProfileScreen extends HookWidget {
   ProfileScreen({super.key});
@@ -185,7 +186,14 @@ class ProfileScreen extends HookWidget {
                       menuName: "Sign Out",
                       theme: theme,
                       onTap: () {
-                        authController.signOut(context);
+                        showDialog(
+                          context: context,
+                          builder:
+                              (context) => SignOutConfirmationPopupWidget(
+                                theme: theme,
+                                authController: authController,
+                              ),
+                        );
                       },
                     ),
                   ],

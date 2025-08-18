@@ -12,7 +12,7 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_one.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
-import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/secondary_button_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/form_widgets/text_field_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/text_and_action_widget.dart';
@@ -105,7 +105,8 @@ class NameEntryScreen extends HookWidget {
                         emptyValidationErrorText: "Please enter your name",
                       ),
                       Spacer(),
-                      SecondaryButtonWidget(
+                      PrimaryButtonWidget(
+                        backgroundColor: theme.secondaryColor,
                         width: 200.r,
                         onTap: () {
                           if (formKey.currentState!.validate()) {
@@ -136,7 +137,8 @@ class NameEntryScreen extends HookWidget {
                       VerticalSpace40(),
                       Transform.scale(
                         scale: 0.8,
-                        child: TextAndActionWidget(theme: theme,
+                        child: TextAndActionWidget(
+                          theme: theme,
                           primaryText: "Already have an account?",
                           actionText: "Log in",
                           onActionClicked: () {

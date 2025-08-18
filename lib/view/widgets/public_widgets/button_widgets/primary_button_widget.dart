@@ -13,6 +13,8 @@ class PrimaryButtonWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? borderColor;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   final bool borderOnly;
   final bool primaryColorText;
   final TextStyle? textStyle;
@@ -26,6 +28,8 @@ class PrimaryButtonWidget extends StatelessWidget {
     this.child,
     this.textStyle,
     this.borderColor,
+    this.backgroundColor,
+    this.foregroundColor,
     this.borderOnly = false,
     this.primaryColorText = false,
   });
@@ -52,13 +56,13 @@ class PrimaryButtonWidget extends StatelessWidget {
                 color: borderColor ?? theme.inverseColor,
                 width: 2.r,
               ),
-              color: borderOnly ? null : theme.primaryColor,
+              color: borderOnly ? null : backgroundColor ?? theme.primaryColor,
             ),
             child: Center(
               child:
                   isLoading
                       ? SpinKitFadingCircle(
-                        color: theme.inverseColor,
+                        color: foregroundColor ?? theme.inverseColor,
                         size: 24.r,
                       )
                       : child ??
@@ -66,11 +70,9 @@ class PrimaryButtonWidget extends StatelessWidget {
                             name ?? '',
                             style:
                                 textStyle ??
-                                (primaryColorText
-                                    ? TypographyStyles.poppinsBold16Colored(
-                                      theme.primaryColor,
-                                    )
-                                    : TypographyStyles.poppinsBold16Inverse()),
+                                TypographyStyles.poppinsBold16Colored(
+                                  foregroundColor ?? theme.inverseColor,
+                                ),
                           ),
             ),
           ),

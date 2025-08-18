@@ -15,7 +15,7 @@ import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
-import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/secondary_button_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/button_widgets/primary_button_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/splash_screen_widgets/animated_text_widget.dart';
 
 class SplashScreen extends HookWidget {
@@ -257,7 +257,8 @@ class SplashScreen extends HookWidget {
                           width: 2.r,
                         ),
                       ),
-                      child: SecondaryButtonWidget(
+                      child: PrimaryButtonWidget(
+                        backgroundColor: theme.secondaryColor,
                         width: 128.r,
                         onTap: () {
                           RouteController.pushAndRemoveUntil(
