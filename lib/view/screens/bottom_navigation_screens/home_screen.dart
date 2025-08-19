@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
@@ -29,6 +30,7 @@ class HomeScreen extends HookWidget {
   final homeController = Get.find<HomeController>();
   final userAccountController = Get.find<UserAccountController>();
   final likedContentsController = Get.find<LikedContentsController>();
+  final commonController = Get.find<CommonController>();
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +114,7 @@ class HomeScreen extends HookWidget {
                 homeController: homeController,
                 theme: theme,
                 userAccountController: userAccountController,
+                commonController: commonController,
               ),
             ],
           ),

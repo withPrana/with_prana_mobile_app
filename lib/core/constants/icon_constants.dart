@@ -73,4 +73,6 @@ class IconConstants {
       "assets/icons/ic_home_menu_notifications.png";
   static const icHomeMenuUseOnYourComputer =
       "assets/icons/ic_home_menu_use_on_your_computer.png";
+  static const icHomeMenuTurnBgAudioState =
+      "assets/icons/ic_home_menu_bg_audio_state.png";
 }

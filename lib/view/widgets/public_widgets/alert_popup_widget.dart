@@ -9,7 +9,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 class AlertPopupWidget extends StatelessWidget {
   final ColorPalette theme;
   final String title;
-  final Widget content;
+  final Widget? content;
   final String cancelButtonName;
   final String submitButtonName;
   final VoidCallback onCancel;
@@ -17,9 +17,9 @@ class AlertPopupWidget extends StatelessWidget {
   final bool isLoadingSubmit;
   const AlertPopupWidget({
     super.key,
+    this.content,
     required this.theme,
     required this.title,
-    required this.content,
     required this.onCancel,
     required this.onSubmit,
     required this.cancelButtonName,
@@ -44,8 +44,7 @@ class AlertPopupWidget extends StatelessWidget {
               title,
               style: TypographyStyles.sniglet40020Colored(theme.primaryColor),
             ),
-            VerticalSpace8(),
-            content,
+            if (content != null) Column(children: [VerticalSpace8(), content!]),
             VerticalSpace24(),
             Row(
               spacing: 10.r,

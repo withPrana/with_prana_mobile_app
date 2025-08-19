@@ -43,7 +43,7 @@ class MyApp extends HookWidget {
             appLifecycleState.value = AppLifecycleState.paused;
           },
           onResumed: () {
-            commonController.backGroundAudioPlayer.resume();
+            commonController.resumeBgAudio();
             appLifecycleState.value = AppLifecycleState.resumed;
           },
         ),

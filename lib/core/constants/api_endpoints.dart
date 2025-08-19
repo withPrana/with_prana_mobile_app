@@ -1,8 +1,7 @@
 class ApiEndpoints {
   ////
-  // static const baseUrl = "https://prana-backend-4hut.onrender.com";
-  static const baseUrl =
-      "https://extends-prevention-settings-incentive.trycloudflare.com";
+  static const baseUrl = "https://with-prana-backend.onrender.com";
+  // static const baseUrl = "https://ae47fa936e82.ngrok-free.app";
 
   ////Auth
   static const signIn = "$baseUrl/api/user/login";

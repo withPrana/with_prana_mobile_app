@@ -1,37 +1,53 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/user_account_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/screens/link_web_screen.dart';
 import 'package:with_prana_mobile_app/view/screens/notification_screen.dart';
+import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_widgets/bg_music_state_popup_widget.dart';
 
-class HomeTopBarWidget extends StatelessWidget {
+class HomeTopBarWidget extends HookWidget {
   final HomeController homeController;
   final UserAccountController userAccountController;
+  final CommonController commonController;
   final ColorPalette theme;
   const HomeTopBarWidget({
     super.key,
     required this.homeController,
     required this.theme,
     required this.userAccountController,
+    required this.commonController,
   });
 
   @override
   Widget build(BuildContext context) {
+    final playBgMusic = useState(true);
+
+    useEffect(() {
+      Future.delayed(Duration.zero, () async {
+        playBgMusic.value = await SharedPrefs.getPlayBgAudio();
+      });
+      return null;
+    }, []);
+
     ////
-    void showDropdownMenu(BuildContext context) {
+    Future<void> showDropdownMenu(BuildContext context) async {
+      final playBgAudio = await SharedPrefs.getPlayBgAudio();
       showMenu(
         context: context,
         position: RelativeRect.fromLTRB(100.0, 100.0, 0.0, 0.0),
         menuPadding: EdgeInsets.only(left: 10.r, right: 10.r),
-        constraints: BoxConstraints(maxWidth: 205.r),
+        constraints: BoxConstraints(maxWidth: 235.r),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.r),
           side: BorderSide(color: theme.disabledLightColor),
@@ -49,11 +65,32 @@ class HomeTopBarWidget extends StatelessWidget {
             menuName: "Use on your computer",
             menuScreenPath: LinkWebScreen.routePath,
           ),
+          _customPopupMenuDivider(),
+          homeMenuItem(
+            menuIconPath: IconConstants.icHomeMenuTurnBgAudioState,
+            menuName:
+                playBgAudio
+                    ? "Turn off background music"
+                    : "Turn on background music",
+            menuScreenPath: "",
+          ),
         ],
         elevation: 8.0,
-      ).then((value) {
+      ).then((value) async {
         if (value != null) {
-          RouteController.push(context, value);
+          if (value.isEmpty) {
+            showDialog(
+              context: context,
+              builder:
+                  (context) => BgMusicStatePopupWidget(
+                    theme: theme,
+                    turnedOn: playBgAudio,
+                    commonController: commonController,
+                  ),
+            );
+          } else {
+            RouteController.push(context, value);
+          }
         }
       });
     }

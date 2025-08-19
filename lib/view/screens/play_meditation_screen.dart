@@ -38,7 +38,7 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   void dispose() {
     Future.delayed(Duration.zero, () async {
       await meditationPlayerController.audioPlayer.pause();
-      commonController.backGroundAudioPlayer.resume();
+      commonController.resumeBgAudio();
     });
     super.dispose();
   }

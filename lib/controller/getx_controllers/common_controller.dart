@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/core/constants/audio_contants.dart';
 import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 
 class CommonController extends GetxController {
@@ -9,15 +10,32 @@ class CommonController extends GetxController {
 
   ////
   Future<void> setupBgAudio() async {
-    try {
-      await backGroundAudioPlayer.setSource(AssetSource(AudioContants.audioBg));
-      await backGroundAudioPlayer.setReleaseMode(ReleaseMode.loop);
-      await backGroundAudioPlayer.resume();
-    } catch (e) {
-      AppDialogs.showToast(
-        message: e.toString(),
-        toastType: ToastTypeEnum.error,
-      );
+    final playBgMusic = await SharedPrefs.getPlayBgAudio();
+    await backGroundAudioPlayer.setSource(AssetSource(AudioContants.audioBg));
+    if (playBgMusic) {
+      try {
+        await backGroundAudioPlayer.setReleaseMode(ReleaseMode.loop);
+        await backGroundAudioPlayer.resume();
+      } catch (e) {
+        AppDialogs.showToast(
+          message: e.toString(),
+          toastType: ToastTypeEnum.error,
+        );
+      }
     }
+  }
+
+  ////
+  Future<void> resumeBgAudio() async {
+    final playBgMusic = await SharedPrefs.getPlayBgAudio();
+    if (playBgMusic) {
+      backGroundAudioPlayer.resume();
+    }
+  }
+
+  ////
+  Future<void> stopBgAudio() async {
+    backGroundAudioPlayer.stop();
+    SharedPrefs.setPlayBgAudio(false);
   }
 }

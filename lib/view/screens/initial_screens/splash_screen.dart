@@ -26,8 +26,6 @@ class SplashScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lifecycleState = useState(AppLifecycleState.resumed);
-
     final isLoggedIn = useState(false);
 
     final themeController = Get.find<ThemeController>();
@@ -55,28 +53,7 @@ class SplashScreen extends HookWidget {
       CurvedAnimation(parent: iconMoveController, curve: Curves.easeOutBack),
     );
 
-    _LifecycleObserver observeAppLifeCycle() {
-      final observer = _LifecycleObserver(
-        onStateChanged: (state) {
-          lifecycleState.value = state;
-
-          //// Controlling audio based on lifecycle state
-          if (state == AppLifecycleState.resumed) {
-            commonController.backGroundAudioPlayer.resume();
-          } else if (state == AppLifecycleState.paused ||
-              state == AppLifecycleState.inactive ||
-              state == AppLifecycleState.detached) {
-            commonController.backGroundAudioPlayer.pause();
-          }
-        },
-      );
-
-      WidgetsBinding.instance.addObserver(observer);
-      return observer;
-    }
-
     useEffect(() {
-      observeAppLifeCycle();
       Future.delayed(Duration.zero, () async {
         isLoggedIn.value = await SharedPrefs.isLoggedIn();
       });
@@ -292,16 +269,5 @@ class SplashScreen extends HookWidget {
         ],
       ),
     );
-  }
-}
-
-class _LifecycleObserver extends WidgetsBindingObserver {
-  final void Function(AppLifecycleState state) onStateChanged;
-
-  _LifecycleObserver({required this.onStateChanged});
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    onStateChanged(state);
   }
 }
