@@ -208,7 +208,7 @@ class ProfileScreen extends HookWidget {
                     ),
                   ),
                 ),
-                VerticalSpace120(),
+                VerticalBottomNavigationBarSpace(),
               ],
             ),
           ),

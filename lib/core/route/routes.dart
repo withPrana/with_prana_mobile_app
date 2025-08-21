@@ -86,6 +86,7 @@ Route getRoute(RouteSettings settings, BuildContext context) {
         PlayMeditationScreen(
           meditationCategory: args["category"],
           audioDetails: args['audioDetails'],
+          startingPoint: args['startingPoint'],
         ),
         settings,
       );

@@ -18,9 +18,11 @@ class PlayMeditationScreen extends StatefulHookWidget {
 
   final MeditationCategoryModel meditationCategory;
   final AudioPreviewModel audioDetails;
+  final Duration? startingPoint;
 
   const PlayMeditationScreen({
     super.key,
+    this.startingPoint,
     required this.meditationCategory,
     required this.audioDetails,
   });
@@ -34,14 +36,14 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   final meditationPlayerController = Get.find<MeditationPlayerController>();
   final commonController = Get.find<CommonController>();
 
-  @override
-  void dispose() {
-    Future.delayed(Duration.zero, () async {
-      await meditationPlayerController.audioPlayer.pause();
-      commonController.resumeBgAudio();
-    });
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   Future.delayed(Duration.zero, () async {
+  //     await meditationPlayerController.audioPlayer.pause();
+  //     commonController.resumeBgAudio();
+  //   });
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,11 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
 
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        meditationPlayerController.playMeditationAudio();
+        meditationPlayerController.playMeditationAudio(
+          audioDetails: widget.audioDetails,
+          meditationCategory: widget.meditationCategory,
+          startingPoint: widget.startingPoint,
+        );
         meditationPlayerController.setupAndListenForAudioState();
       });
       return null;

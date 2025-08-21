@@ -44,7 +44,7 @@ class SubscriptionStatusScreen extends StatelessWidget {
             SubscriptionWidget(showButton: false),
             VerticalSpace24(),
             SubscriptionPlansWidget(theme: theme),
-            VerticalSpace120(),
+            VerticalBottomNavigationBarSpace(),
           ],
         ),
       ),

@@ -45,7 +45,7 @@ class TermsAndPrivacyScreen extends HookWidget {
               actionButtonName: "Read Privacy Policy",
               readContent: readPrivacy,
             ),
-            VerticalSpace120(),
+            VerticalBottomNavigationBarSpace(),
           ],
         ),
       ),

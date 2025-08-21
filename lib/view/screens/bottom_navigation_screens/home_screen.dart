@@ -102,7 +102,7 @@ class HomeScreen extends HookWidget {
                                   );
                                 },
                               ),
-                              VerticalSpace152(),
+                              VerticalBottomNavigationBarSpace(),
                             ],
                           ),
                         ),

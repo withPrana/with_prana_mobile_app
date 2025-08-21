@@ -1,8 +1,10 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/audio_contants.dart';
 import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
 
 class MeditationPlayerController extends GetxController {
@@ -14,6 +16,12 @@ class MeditationPlayerController extends GetxController {
   final isPlaying = false.obs;
   final audioDuration = Duration.zero.obs;
   final audioPosition = Duration.zero.obs;
+
+  final lastPlayedAudioId = ''.obs;
+  final lastPlayedMeditationCategory = Rx<MeditationCategoryModel?>(null);
+  final lastPlayedAudioDetails = Rx<AudioPreviewModel?>(null);
+
+  final showFloatingMeditationPlayer = false.obs;
 
   @override
   void onClose() {
@@ -38,10 +46,22 @@ class MeditationPlayerController extends GetxController {
   }
 
   ////
-  Future<void> playMeditationAudio() async {
+  Future<void> playMeditationAudio({
+    required MeditationCategoryModel meditationCategory,
+    required AudioPreviewModel audioDetails,
+    Duration? startingPoint,
+  }) async {
     try {
       if (audioPosition.value != Duration.zero) {
-        await audioPlayer.seek(Duration.zero);
+        await audioPlayer.seek(startingPoint ?? Duration.zero);
+        await SharedPrefs.setLastPlayedMeditationId("1");
+        lastPlayedMeditationCategory.value = meditationCategory;
+        lastPlayedAudioDetails.value = audioDetails;
+        lastPlayedAudioId.value = "1";
+        showFloatingMeditationPlayer.value =
+            lastPlayedAudioDetails.value != null ||
+            lastPlayedAudioId.value.isNotEmpty ||
+            lastPlayedMeditationCategory.value != null;
       }
       await commonController.backGroundAudioPlayer.pause();
       await audioPlayer.setSource(
@@ -91,5 +111,16 @@ class MeditationPlayerController extends GetxController {
 
   Future<void> restartAudio() async {
     await audioPlayer.seek(Duration.zero);
+  }
+
+  void removeFloatingMediationPlayer() {
+    SharedPrefs.setLastPlayedMeditationId("");
+    lastPlayedMeditationCategory.value = null;
+    lastPlayedAudioDetails.value = null;
+    lastPlayedAudioId.value = "";
+    showFloatingMeditationPlayer.value =
+        lastPlayedAudioDetails.value != null ||
+        lastPlayedAudioId.value.isNotEmpty ||
+        lastPlayedMeditationCategory.value != null;
   }
 }

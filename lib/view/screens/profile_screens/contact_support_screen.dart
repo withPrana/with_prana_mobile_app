@@ -47,7 +47,7 @@ class ContactSupportScreen extends HookWidget {
                 theme: theme,
               ),
             ),
-            VerticalSpace120(),
+            VerticalBottomNavigationBarSpace(),
           ],
         ),
       ),

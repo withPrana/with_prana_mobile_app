@@ -102,45 +102,49 @@ class DownloadsScreen extends HookWidget {
           isSubscribed.value
               ? Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Access your saved meditations\nanytime, even offline.",
-                      style: TypographyStyles.sniglet40016Colored(
-                        theme.primaryColor,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Access your saved meditations\nanytime, even offline.",
+                        style: TypographyStyles.sniglet40016Colored(
+                          theme.primaryColor,
+                        ),
                       ),
-                    ),
-                    VerticalSpace16(),
-                    GridViewBuilderWidget(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisExtent: 220.r,
-                        mainAxisSpacing: 10.r,
-                      ),
-                      itemCount: madeForYouContents.length,
-                      itemBuilder: (context, index) {
-                        final content = madeForYouContents[index];
-                        return Transform.scale(
-                          scale: 1,
-                          child: Obx(
-                            () => ContentWithImageWidget(
-                              contentScale: 0.9,
-                              theme: theme,
-                              content: content,
-                              isLiked: likedContentsController
-                                  .likedContents
-                                  .value
-                                  .contains(content),
-                              onLiked: () {
-                                likedContentsController.likeContent(content);
-                              },
+                      VerticalSpace16(),
+                      GridViewBuilderWidget(
+                        primary: false,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisExtent: 220.r,
+                          mainAxisSpacing: 10.r,
+                        ),
+                        itemCount: madeForYouContents.length,
+                        itemBuilder: (context, index) {
+                          final content = madeForYouContents[index];
+                          return Transform.scale(
+                            scale: 1,
+                            child: Obx(
+                              () => ContentWithImageWidget(
+                                contentScale: 0.9,
+                                theme: theme,
+                                content: content,
+                                isLiked: likedContentsController
+                                    .likedContents
+                                    .value
+                                    .contains(content),
+                                onLiked: () {
+                                  likedContentsController.likeContent(content);
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                          );
+                        },
+                      ),
+                      VerticalBottomNavigationBarSpace(),
+                    ],
+                  ),
                 ),
               )
               : Column(

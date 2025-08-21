@@ -61,6 +61,7 @@ class MainAppbarWidget extends StatelessWidget {
           ),
           Text(
             name,
+            overflow: TextOverflow.ellipsis,
             style:
                 isInverse
                     ? TypographyStyles.poppinsBold16Inverse()

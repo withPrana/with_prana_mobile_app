@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/core/dependencies/getx_dependencies.dart';
 import 'package:with_prana_mobile_app/core/route/routes.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/firebase_options.dart';
 
 void main() async {
@@ -21,6 +23,7 @@ class MyApp extends HookWidget {
   MyApp({super.key});
 
   final commonController = Get.find<CommonController>();
+  final meditationPlayerController = Get.find<MeditationPlayerController>();
 
   // This widget is the root of your application.
   @override
@@ -48,6 +51,12 @@ class MyApp extends HookWidget {
           },
         ),
       );
+
+      Future.delayed(Duration.zero, () async {
+        meditationPlayerController.lastPlayedAudioId(
+          await SharedPrefs.getLastPlayedMeditationId(),
+        );
+      });
 
       return () {
         commonController.backGroundAudioPlayer.stop();

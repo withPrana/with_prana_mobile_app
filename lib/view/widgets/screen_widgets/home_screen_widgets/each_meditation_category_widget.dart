@@ -41,13 +41,16 @@ class EachMeditationCategoryWidget extends StatelessWidget {
               color: meditationCategory.contentColor,
             ),
             VerticalSpace8(),
-            Text(
-              meditationCategory.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.r,
-                fontWeight: FontWeight.w700,
-                color: meditationCategory.contentColor,
+            SizedBox(
+              width: 100.r,
+              child: Text(
+                meditationCategory.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14.r,
+                  fontWeight: FontWeight.w700,
+                  color: meditationCategory.contentColor,
+                ),
               ),
             ),
           ],

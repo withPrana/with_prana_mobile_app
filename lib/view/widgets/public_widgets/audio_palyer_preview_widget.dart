@@ -1,3 +1,4 @@
+import 'package:auto_scroll_text/auto_scroll_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -79,13 +80,18 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
                 /////title
                 SizedBox(
                   width: 160.w,
-                  child: Text(
+                  child: AutoScrollText(
                     audioDetails.title,
+                    curve: Curves.easeInOut,
+                    intervalSpaces: 20,
+                    delayBefore: Duration(milliseconds: 500),
+                    velocity: Velocity(pixelsPerSecond: Offset(40, 0)),
                     style: TypographyStyles.poppins60014Colored(
                       theme.primaryColor,
                     ),
                   ),
                 ),
+
                 VerticalSpace4(),
                 /////duration and category
                 Text(

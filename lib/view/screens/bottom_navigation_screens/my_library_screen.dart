@@ -65,6 +65,7 @@ class MyLibraryScreen extends StatelessWidget {
                     LibraryContentsWidget(
                       myLibraryController: myLibraryController,
                     ),
+                    VerticalBottomNavigationBarSpace(),
                   ],
                 );
               } else {

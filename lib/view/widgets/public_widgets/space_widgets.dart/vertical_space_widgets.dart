@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 
 class VerticalSpace2 extends StatelessWidget {
   const VerticalSpace2({super.key});
@@ -204,5 +206,23 @@ class VerticalSpace224 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(height: 224);
+  }
+}
+
+class VerticalBottomNavigationBarSpace extends StatelessWidget {
+  VerticalBottomNavigationBarSpace({super.key});
+
+  final meditationPlayerController = Get.find<MeditationPlayerController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () => SizedBox(
+        height:
+            meditationPlayerController.showFloatingMeditationPlayer.value
+                ? 200
+                : 120,
+      ),
+    );
   }
 }

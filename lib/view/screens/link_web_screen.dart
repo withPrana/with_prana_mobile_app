@@ -46,7 +46,7 @@ class LinkWebScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TypographyStyles.poppins40014(),
             ),
-            VerticalSpace120(),
+            VerticalBottomNavigationBarSpace(),
           ],
         ),
       ),

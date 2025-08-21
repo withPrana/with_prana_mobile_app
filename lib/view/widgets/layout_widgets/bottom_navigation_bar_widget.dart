@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/floating_meditation_player_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class BottomNavigationItemModel {
@@ -30,6 +32,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   final themeController = Get.find<ThemeController>();
   final homeController = Get.find<HomeController>();
+  final meditationPlayerController = Get.find<MeditationPlayerController>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,26 +70,35 @@ class BottomNavigationBarWidget extends StatelessWidget {
     ];
 
     final theme = themeController.appTheme.value!;
-    return Container(
-      width: ScreenSize.width(context),
-      padding: EdgeInsets.only(top: 8.h, bottom: 16.h),
-      decoration: BoxDecoration(
-        color: theme.inverseColor,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
-        border: Border(top: BorderSide(color: theme.disabledLightColor)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: List.generate(
-          5,
-          (index) => bottomNavigationItem(
-            context,
-            bottomNavigationItems[index],
-            theme,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        FloatingMeditationPlayerWidget(
+          theme: theme,
+          meditationPlayerController: meditationPlayerController,
+        ),
+        Container(
+          width: ScreenSize.width(context),
+          padding: EdgeInsets.only(top: 8.h, bottom: 16.h),
+          decoration: BoxDecoration(
+            color: theme.inverseColor,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+            border: Border(top: BorderSide(color: theme.disabledLightColor)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: List.generate(
+              5,
+              (index) => bottomNavigationItem(
+                context,
+                bottomNavigationItems[index],
+                theme,
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
@@ -152,7 +164,9 @@ class BottomNavigationBarWidget extends StatelessWidget {
                         ? TypographyStyles.poppins40010Colored(
                           theme.primaryColor,
                         )
-                        : TypographyStyles.poppins40010Colored(theme.disabledColor),
+                        : TypographyStyles.poppins40010Colored(
+                          theme.disabledColor,
+                        ),
               ),
             ],
           ),

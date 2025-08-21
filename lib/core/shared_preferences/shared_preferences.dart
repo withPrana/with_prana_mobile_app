@@ -6,6 +6,7 @@ class SharedPrefs {
   static const _userMailId = "userMailId";
   static const _userName = "userName";
   static const _playBgAudio = "playBgAudio";
+  static const _lastPlayedMeditationId = "lastPlayedMeditationId";
 
   ////check is the user has loged in or nit
   static Future<void> setIsLoggedIn(bool value) async {
@@ -62,9 +63,25 @@ class SharedPrefs {
     return prefs.getBool(_playBgAudio) ?? true;
   }
 
+  ////For playing meditation audio is floating player
+  static Future<void> setLastPlayedMeditationId(String value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_lastPlayedMeditationId, value);
+  }
+
+  static Future<String> getLastPlayedMeditationId() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_lastPlayedMeditationId) ?? '';
+  }
+
   ////Clears all
   static Future<void> clearAll() async {
     // final prefs = await SharedPreferences.getInstance();
-    await Future.wait([setIsLoggedIn(false), setUserId(""), setUserMailId("")]);
+    await Future.wait([
+      setIsLoggedIn(false),
+      setUserId(""),
+      setUserMailId(""),
+      setLastPlayedMeditationId(""),
+    ]);
   }
 }

@@ -57,7 +57,7 @@ class LikedContentsScreen extends StatelessWidget {
                     LikedContentsWidget(
                       likedContentsController: likedContentsController,
                     ),
-                    VerticalSpace120(),
+                    VerticalBottomNavigationBarSpace(),
                   ],
                 );
               } else {

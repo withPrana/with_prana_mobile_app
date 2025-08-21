@@ -53,7 +53,7 @@ class NotificationScreen extends StatelessWidget {
               },
               seperatorWidget: VerticalSpace16(),
             ),
-            VerticalSpace120(),
+            VerticalBottomNavigationBarSpace(),
           ],
         ),
       ),

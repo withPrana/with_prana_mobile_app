@@ -224,6 +224,16 @@ class TypographyStyles {
     );
   }
 
+  static TextStyle poppins40012Inverse() {
+    final themeController = Get.find<ThemeController>();
+    return TextStyle(
+      fontSize: 12.r,
+      color: themeController.appTheme.value?.inverseColor,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Poppins",
+    );
+  }
+
   static TextStyle poppins40012Colored(Color color) {
     return TextStyle(
       fontSize: 12.r,

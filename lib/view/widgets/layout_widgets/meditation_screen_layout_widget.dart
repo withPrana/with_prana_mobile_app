@@ -27,7 +27,10 @@ class MeditationScreenLayoutWidget extends HookWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               children: [
-                MainAppbarWidget(name: "🌙 Sleep & Rest", isInverse: true),
+                MainAppbarWidget(
+                  name: meditationCategory.name,
+                  isInverse: true,
+                ),
                 Expanded(child: body),
               ],
             ),

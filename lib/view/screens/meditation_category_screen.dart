@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/bottom_navigation_bar_widget.dart';
@@ -18,6 +19,7 @@ class MeditationCategoryScreen extends HookWidget {
   MeditationCategoryScreen({super.key, required this.meditationCategory});
 
   final themeController = Get.find<ThemeController>();
+  final meditationPlayerController = Get.find<MeditationPlayerController>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class MeditationCategoryScreen extends HookWidget {
           Expanded(
             child: MeditationCategoryAudiosWidget(
               meditationCategory: meditationCategory,
+              meditationPlayerController: meditationPlayerController,
             ),
           ),
         ],

@@ -21,25 +21,25 @@ class MeditationCategoriesWidget extends StatelessWidget {
     final meditationCategories = [
       MeditationCategoryModel(
         iconPath: IconConstants.icMeditationCategoryOne,
-        name: 'Breathe &\nBegin',
+        name: 'Breathe & Begin',
         color: const Color(0xFFFFF9FF),
         contentColor: const Color(0xFF8E4692),
       ),
       MeditationCategoryModel(
         iconPath: IconConstants.icMeditationCategoryTwo,
-        name: 'Sleep\n& Rest',
+        name: 'Sleep & Rest',
         color: const Color(0xFFF8F9FF),
         contentColor: const Color(0xFF545C90),
       ),
       MeditationCategoryModel(
         iconPath: IconConstants.icMeditationCategoryThree,
-        name: 'Focus & Mind\nSupport',
+        name: 'Focus & Mind Support',
         color: const Color(0xFFF1F9F4),
         contentColor: const Color(0xFF2B7272),
       ),
       MeditationCategoryModel(
         iconPath: IconConstants.icMeditationCategoryFour,
-        name: 'Healing &\nConnection',
+        name: 'Healing & Connection',
         color: const Color(0xFFFFF7F6),
         contentColor: const Color(0xFFA2605B),
       ),
@@ -77,11 +77,9 @@ class MeditationCategoriesWidget extends StatelessWidget {
                         ),
                         itemCount: 4,
                         itemBuilder:
-                            (context, index) =>
-                              EachMeditationCategoryWidget(
-                                meditationCategory: meditationCategories[index],
-                              ),
-                            
+                            (context, index) => EachMeditationCategoryWidget(
+                              meditationCategory: meditationCategories[index],
+                            ),
                       ),
                       Positioned.fill(
                         child: Center(
