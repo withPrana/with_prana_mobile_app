@@ -123,7 +123,11 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           meditationPlayerController
-                              .playAndPauseMeditationAudio();
+                              .playAndPauseMeditationAudio(
+                                meditationCategory: meditationCategory,
+                                audioDetails: audioDetails,
+                                playBgAudio: true,
+                              );
                         },
                         child: CircleAvatar(
                           radius: 14.r,

@@ -42,6 +42,10 @@ class MeditationPlayerController extends GetxController {
     audioPlayer.onPlayerComplete.listen((_) {
       audioPosition.value = Duration.zero;
       isPlaying.value = false;
+      removeFloatingMediationPlayer();
+      audioPlayer.setSource(
+        AssetSource(AudioContants.audioSampleMeditationTwo),
+      );
     });
   }
 
@@ -52,21 +56,21 @@ class MeditationPlayerController extends GetxController {
     Duration? startingPoint,
   }) async {
     try {
-      if (audioPosition.value != Duration.zero) {
-        await audioPlayer.seek(startingPoint ?? Duration.zero);
-        await SharedPrefs.setLastPlayedMeditationId("1");
-        lastPlayedMeditationCategory.value = meditationCategory;
-        lastPlayedAudioDetails.value = audioDetails;
-        lastPlayedAudioId.value = "1";
-        showFloatingMeditationPlayer.value =
-            lastPlayedAudioDetails.value != null ||
-            lastPlayedAudioId.value.isNotEmpty ||
-            lastPlayedMeditationCategory.value != null;
-      }
-      await commonController.backGroundAudioPlayer.pause();
       await audioPlayer.setSource(
         AssetSource(AudioContants.audioSampleMeditationTwo),
       );
+      await audioPlayer.seek(startingPoint ?? Duration.zero);
+      await SharedPrefs.setLastPlayedMeditationId("1");
+      lastPlayedMeditationCategory.value = meditationCategory;
+      lastPlayedAudioDetails.value = audioDetails;
+      lastPlayedAudioId.value = "1";
+      showFloatingMeditationPlayer.value =
+          lastPlayedAudioDetails.value != null ||
+          lastPlayedAudioId.value.isNotEmpty ||
+          lastPlayedMeditationCategory.value != null;
+
+      await commonController.backGroundAudioPlayer.pause();
+
       await audioPlayer.resume();
       isPlaying.value = true;
     } catch (e) {
@@ -99,12 +103,26 @@ class MeditationPlayerController extends GetxController {
     return formattedDuartion;
   }
 
-  Future<void> playAndPauseMeditationAudio() async {
+  Future<void> playAndPauseMeditationAudio({
+    MeditationCategoryModel? meditationCategory,
+    AudioPreviewModel? audioDetails,
+    required bool playBgAudio,
+  }) async {
     if (isPlaying.value) {
       await audioPlayer.pause();
       isPlaying.value = false;
+      if (playBgAudio) {
+        commonController.backGroundAudioPlayer.resume();
+      }
     } else {
       await audioPlayer.resume();
+      lastPlayedMeditationCategory.value = meditationCategory;
+      lastPlayedAudioDetails.value = audioDetails;
+      lastPlayedAudioId.value = "1";
+      showFloatingMeditationPlayer.value =
+          lastPlayedAudioDetails.value != null ||
+          lastPlayedAudioId.value.isNotEmpty ||
+          lastPlayedMeditationCategory.value != null;
       isPlaying.value = true;
     }
   }

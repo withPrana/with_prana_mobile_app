@@ -5,8 +5,10 @@ import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 
 class MeditationCategoryBgWidget extends StatelessWidget {
   final MeditationCategoryModel meditationCategory;
+  final bool whiteBg;
   const MeditationCategoryBgWidget({
     super.key,
+    this.whiteBg=true,
     required this.meditationCategory,
   });
 
@@ -24,7 +26,7 @@ class MeditationCategoryBgWidget extends StatelessWidget {
               width: ScreenSize.width(context),
               fit: BoxFit.cover,
             ),
-            Positioned(
+           if(whiteBg) Positioned(
               bottom: 0,
               child: Container(
                 width: ScreenSize.width(context),

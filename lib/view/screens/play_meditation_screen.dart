@@ -36,15 +36,6 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   final meditationPlayerController = Get.find<MeditationPlayerController>();
   final commonController = Get.find<CommonController>();
 
-  // @override
-  // void dispose() {
-  //   Future.delayed(Duration.zero, () async {
-  //     await meditationPlayerController.audioPlayer.pause();
-  //     commonController.resumeBgAudio();
-  //   });
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
@@ -111,6 +102,7 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
       bottomNavigationBar: AudioPlayerControllerWidget(
         theme: theme,
         meditationCategory: widget.meditationCategory,
+        audioDetails: widget.audioDetails,
         meditationPlayerController: meditationPlayerController,
       ),
     );

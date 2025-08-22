@@ -12,6 +12,7 @@ class CommonController extends GetxController {
   Future<void> setupBgAudio() async {
     final playBgMusic = await SharedPrefs.getPlayBgAudio();
     await backGroundAudioPlayer.setSource(AssetSource(AudioContants.audioBg));
+    await backGroundAudioPlayer.setVolume(0.3);
     if (playBgMusic) {
       try {
         await backGroundAudioPlayer.setReleaseMode(ReleaseMode.loop);

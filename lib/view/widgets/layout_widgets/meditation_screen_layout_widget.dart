@@ -9,11 +9,15 @@ class MeditationScreenLayoutWidget extends HookWidget {
   final MeditationCategoryModel meditationCategory;
   final Widget body;
   final Widget? bottomNavigationBar;
+  final bool whiteBg;
+  final double? padding;
   const MeditationScreenLayoutWidget({
     super.key,
+    this.whiteBg = true,
+    this.bottomNavigationBar,
+    this.padding,
     required this.body,
     required this.meditationCategory,
-    this.bottomNavigationBar,
   });
 
   @override
@@ -22,9 +26,12 @@ class MeditationScreenLayoutWidget extends HookWidget {
       extendBody: true,
       body: Stack(
         children: [
-          MeditationCategoryBgWidget(meditationCategory: meditationCategory),
+          MeditationCategoryBgWidget(
+            meditationCategory: meditationCategory,
+            whiteBg: whiteBg,
+          ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            padding: EdgeInsets.symmetric(horizontal: padding ?? 16.w),
             child: Column(
               children: [
                 MainAppbarWidget(

@@ -13,11 +13,12 @@ class AudioPlayerControllerWidget extends StatelessWidget {
   final ColorPalette theme;
   final MeditationCategoryModel meditationCategory;
   final MeditationPlayerController meditationPlayerController;
+  final AudioPreviewModel audioDetails;
   const AudioPlayerControllerWidget({
     super.key,
     required this.theme,
     required this.meditationCategory,
-    required this.meditationPlayerController,
+    required this.meditationPlayerController, required this.audioDetails,
   });
 
   @override
@@ -129,7 +130,11 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           meditationPlayerController
-                              .playAndPauseMeditationAudio();
+                              .playAndPauseMeditationAudio(
+                                meditationCategory: meditationCategory,
+                                audioDetails: audioDetails,
+                                playBgAudio: false
+                              );
                         },
                         child: Container(
                           width: 48.r,

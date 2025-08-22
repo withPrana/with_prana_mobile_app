@@ -46,7 +46,7 @@ class HomeTopBarWidget extends HookWidget {
       showMenu(
         context: context,
         position: RelativeRect.fromLTRB(100.0, 100.0, 0.0, 0.0),
-        menuPadding: EdgeInsets.only(left: 10.r, right: 10.r),
+        menuPadding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),
         constraints: BoxConstraints(maxWidth: 235.r),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.r),

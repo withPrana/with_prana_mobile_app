@@ -43,6 +43,7 @@ class MyApp extends HookWidget {
         LifecycleObserver(
           onPaused: () {
             commonController.backGroundAudioPlayer.pause();
+            meditationPlayerController.playAndPauseMeditationAudio(playBgAudio: false);
             appLifecycleState.value = AppLifecycleState.paused;
           },
           onResumed: () {
