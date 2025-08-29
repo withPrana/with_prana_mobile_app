@@ -133,6 +133,8 @@ class MeditationPlayerController extends GetxController {
 
   void removeFloatingMediationPlayer() {
     SharedPrefs.setLastPlayedMeditationId("");
+    audioPosition.value = Duration.zero;
+    audioPlayer.stop();
     lastPlayedMeditationCategory.value = null;
     lastPlayedAudioDetails.value = null;
     lastPlayedAudioId.value = "";

@@ -48,7 +48,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               enableBorder
                   ? Border.all(
                     width: 1.r,
-                    color: audioDetails.iconColor.withValues(alpha: 0.2),
+                    color: audioDetails.iconColor.withValues(alpha: 0.05),
                   )
                   : null,
           borderRadius: BorderRadius.circular(28.r),
@@ -61,7 +61,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color:
                     enableIconBgColor
-                        ? audioDetails.iconColor.withValues(alpha: 0.2)
+                        ? audioDetails.iconColor.withValues(alpha: 0.05)
                         : null,
                 borderRadius: BorderRadius.circular(18.r),
               ),
@@ -83,9 +83,9 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
                   child: AutoScrollText(
                     audioDetails.title,
                     curve: Curves.easeInOut,
-                    intervalSpaces: 20,
+                    intervalSpaces: 10,
                     delayBefore: Duration(milliseconds: 500),
-                    velocity: Velocity(pixelsPerSecond: Offset(40, 0)),
+                    velocity: Velocity(pixelsPerSecond: Offset(20, 0)),
                     style: TypographyStyles.poppins60014Colored(
                       theme.primaryColor,
                     ),
@@ -106,7 +106,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
             /////play button
             CircleAvatar(
               radius: 19.r,
-              backgroundColor: audioDetails.iconColor.withValues(alpha: 0.2),
+              backgroundColor: audioDetails.iconColor.withValues(alpha: 0.05),
               child: Center(
                 child: Icon(
                   Icons.play_arrow_rounded,

@@ -52,7 +52,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
             },
             child: Container(
               width: ScreenSize.width(context),
-              padding: EdgeInsets.all(10.r),
+              padding: EdgeInsets.symmetric(horizontal: 4.r, vertical: 2.r),
               margin: EdgeInsets.all(10.r),
               decoration: BoxDecoration(
                 color: meditationCategory.contentColor,
@@ -60,7 +60,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
                   width: 1.r,
                   color: audioDetails.iconColor.withValues(alpha: 0.2),
                 ),
-                borderRadius: BorderRadius.circular(20.r),
+                borderRadius: BorderRadius.circular(16.r),
               ),
               child: Column(
                 children: [
@@ -87,20 +87,20 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
                         children: [
                           /////title
                           SizedBox(
-                            width: 160.w,
+                            width: 180.w,
                             child: AutoScrollText(
                               audioDetails.title,
                               curve: Curves.easeInOut,
-                              intervalSpaces: 20,
+                              intervalSpaces: 10,
                               delayBefore: Duration(milliseconds: 500),
                               velocity: Velocity(
-                                pixelsPerSecond: Offset(40, 0),
+                                pixelsPerSecond: Offset(20, 0),
                               ),
                               style: TypographyStyles.poppinsBold12Inverse(),
                             ),
                           ),
 
-                          VerticalSpace4(),
+                          // VerticalSpace2(),
                           /////duration and category
                           Text(
                             audioDetails.category,
@@ -147,7 +147,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  VerticalSpace8(),
+                  VerticalSpace4(),
                   LayoutBuilder(
                     builder:
                         (context, constraints) => SizedBox(

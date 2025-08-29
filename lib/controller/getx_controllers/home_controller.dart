@@ -70,11 +70,11 @@ class HomeController extends GetxController {
   String getGreeting() {
     final hour = DateTime.now().hour;
 
-    if (hour < 11 && hour > 4) {
+    if (hour > 4 && hour < 12) {
       return 'Good morning';
-    } else if (hour < 17) {
+    } else if (hour > 12 && hour < 17) {
       return 'Good afternoon';
-    } else if (hour < 21) {
+    } else if (hour > 17 && hour < 21) {
       return 'Good evening';
     } else {
       return 'Good night';
