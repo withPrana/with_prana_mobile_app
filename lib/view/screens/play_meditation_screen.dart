@@ -8,7 +8,9 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_pla
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/meditation_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/play_meditation_screen_widgets/audio_player_controller_widget.dart';
@@ -16,7 +18,7 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/play_meditatio
 class PlayMeditationScreen extends StatefulHookWidget {
   static const routePath = "/play-meditation";
 
-  final MeditationCategoryModel meditationCategory;
+  final CategoryResponseModel meditationCategory;
   final AudioPreviewModel audioDetails;
   final Duration? startingPoint;
 
@@ -39,6 +41,8 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
+
+    final contentColor = hexToColor(widget.meditationCategory.color ?? '');
 
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -76,9 +80,7 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
             Text(
               widget.audioDetails.title,
               textAlign: TextAlign.center,
-              style: TypographyStyles.sniglet40024Colored(
-                widget.meditationCategory.contentColor,
-              ),
+              style: TypographyStyles.sniglet40024Colored(contentColor),
             ),
             VerticalSpace8(),
             Text(

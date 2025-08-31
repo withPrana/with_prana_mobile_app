@@ -5,20 +5,7 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
 
-////
-class MeditationCategoryModel {
-  final String iconPath;
-  final String name;
-  final Color color;
-  final Color contentColor;
 
-  MeditationCategoryModel({
-    required this.iconPath,
-    required this.name,
-    required this.color,
-    required this.contentColor,
-  });
-}
 
 //////
 class AudioPreviewModel {

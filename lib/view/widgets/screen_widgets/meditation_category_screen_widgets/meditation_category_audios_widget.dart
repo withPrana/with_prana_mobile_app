@@ -3,12 +3,14 @@ import 'package:get/state_manager.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
+import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
+import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/list_view_builder_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/audio_palyer_preview_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class MeditationCategoryAudiosWidget extends StatelessWidget {
-  final MeditationCategoryModel meditationCategory;
+  final CategoryResponseModel meditationCategory;
   final MeditationPlayerController meditationPlayerController;
   const MeditationCategoryAudiosWidget({
     super.key,
@@ -18,6 +20,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contentColor = hexToColor(meditationCategory.color ?? '');
     final audios = [
       AudioPreviewModel(
         iconPath: ImageConstants.imgAudioPreviewOne,
@@ -25,7 +28,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Breathe & Begin",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 10,
       ),
       AudioPreviewModel(
@@ -34,7 +37,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Sleep & Rest",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 7,
       ),
       AudioPreviewModel(
@@ -43,7 +46,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Focus & Mind Support",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 12,
       ),
       AudioPreviewModel(
@@ -52,7 +55,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Healing & Connection",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 14,
       ),
       AudioPreviewModel(
@@ -61,7 +64,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Breathe & Begin",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 10,
       ),
       AudioPreviewModel(
@@ -70,7 +73,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Sleep & Rest",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 7,
       ),
       AudioPreviewModel(
@@ -79,7 +82,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Focus & Mind Support",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 12,
       ),
       AudioPreviewModel(
@@ -88,7 +91,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Healing & Connection",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 14,
       ),
       AudioPreviewModel(
@@ -97,7 +100,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Breathe & Begin",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 10,
       ),
       AudioPreviewModel(
@@ -106,7 +109,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Sleep & Rest",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 7,
       ),
       AudioPreviewModel(
@@ -115,7 +118,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Focus & Mind Support",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 12,
       ),
       AudioPreviewModel(
@@ -124,7 +127,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
         category: "Healing & Connection",
         description:
             "Get comfortable in bed, dim the lights, and press play. Let the sound gently carry you into stillness.",
-        iconColor: meditationCategory.contentColor,
+        iconColor: contentColor,
         minutes: 14,
       ),
     ];

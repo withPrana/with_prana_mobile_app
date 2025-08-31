@@ -2,8 +2,8 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
-import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
+import 'package:get/get.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/category_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
@@ -14,90 +14,79 @@ import 'package:with_prana_mobile_app/view/widgets/screen_widgets/home_screen_wi
 
 class MeditationCategoriesWidget extends StatelessWidget {
   final ColorPalette theme;
-  const MeditationCategoriesWidget({super.key, required this.theme});
+  final CategoryController categoryController;
+  const MeditationCategoriesWidget({
+    super.key,
+    required this.theme,
+    required this.categoryController,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final meditationCategories = [
-      MeditationCategoryModel(
-        iconPath: IconConstants.icMeditationCategoryOne,
-        name: 'Breathe & Begin',
-        color: const Color(0xFFFFF9FF),
-        contentColor: const Color(0xFF8E4692),
-      ),
-      MeditationCategoryModel(
-        iconPath: IconConstants.icMeditationCategoryTwo,
-        name: 'Sleep & Rest',
-        color: const Color(0xFFF8F9FF),
-        contentColor: const Color(0xFF545C90),
-      ),
-      MeditationCategoryModel(
-        iconPath: IconConstants.icMeditationCategoryThree,
-        name: 'Focus & Mind Support',
-        color: const Color(0xFFF1F9F4),
-        contentColor: const Color(0xFF2B7272),
-      ),
-      MeditationCategoryModel(
-        iconPath: IconConstants.icMeditationCategoryFour,
-        name: 'Healing & Connection',
-        color: const Color(0xFFFFF7F6),
-        contentColor: const Color(0xFFA2605B),
-      ),
-    ];
-    return Column(
-      children: [
-        Container(
-          width: ScreenSize.width(context),
-          padding: EdgeInsets.all(20.r),
-          decoration: BoxDecoration(
-            color: theme.inverseColor,
-            border: Border.all(
-              color: theme.primaryScreenGradient[0],
-              width: 1.r,
+    return Obx(() {
+      final categories = categoryController.categories.value;
+      if (categories.isEmpty) {
+        return SizedBox();
+      }
+      return Column(
+        children: [
+          Container(
+            width: ScreenSize.width(context),
+            padding: EdgeInsets.all(20.r),
+            decoration: BoxDecoration(
+              color: theme.inverseColor,
+              border: Border.all(
+                color: theme.primaryScreenGradient[0],
+                width: 1.r,
+              ),
+              borderRadius: BorderRadius.circular(30.r),
             ),
-            borderRadius: BorderRadius.circular(30.r),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Let’s Begin With", style: TypographyStyles.sniglet40016()),
-              VerticalSpace8(),
-              LayoutBuilder(
-                builder: (context, contraints) {
-                  final maxWidth = contraints.maxWidth;
-                  final mainAxisExtend = (maxWidth / 2) - 20.r;
-                  return Stack(
-                    children: [
-                      GridViewBuilderWidget(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisExtent: mainAxisExtend,
-                          crossAxisSpacing: 20.r,
-                          mainAxisSpacing: 20.r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Let’s Begin With",
+                  style: TypographyStyles.sniglet40016(),
+                ),
+                VerticalSpace8(),
+                LayoutBuilder(
+                  builder: (context, contraints) {
+                    final maxWidth = contraints.maxWidth;
+                    final mainAxisExtend = (maxWidth / 2) - 20.r;
+                    return Stack(
+                      children: [
+                        GridViewBuilderWidget(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisExtent: mainAxisExtend,
+                                crossAxisSpacing: 20.r,
+                                mainAxisSpacing: 20.r,
+                              ),
+                          itemCount: 4,
+                          itemBuilder:
+                              (context, index) => EachMeditationCategoryWidget(
+                                meditationCategory: categories[index],
+                              ),
                         ),
-                        itemCount: 4,
-                        itemBuilder:
-                            (context, index) => EachMeditationCategoryWidget(
-                              meditationCategory: meditationCategories[index],
+                        Positioned.fill(
+                          child: Center(
+                            child: Image.asset(
+                              ImageConstants.imgCategoriesCenterFlower,
+                              width: 24.r,
                             ),
-                      ),
-                      Positioned.fill(
-                        child: Center(
-                          child: Image.asset(
-                            ImageConstants.imgCategoriesCenterFlower,
-                            width: 24.r,
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ],
+                      ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-        ),
-        VerticalSpace32(),
-      ],
-    );
+          VerticalSpace32(),
+        ],
+      );
+    });
   }
 }

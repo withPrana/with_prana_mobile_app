@@ -6,6 +6,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_pla
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/play_meditation_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
@@ -23,6 +24,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ///////////
     return Obx(() {
+      ////////
       final meditationCategory =
           meditationPlayerController.lastPlayedMeditationCategory.value;
       final audioDetails =
@@ -30,11 +32,13 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
       final audioPosition = meditationPlayerController.audioPosition.value;
       final lastPlayedAudioId =
           meditationPlayerController.lastPlayedAudioId.value;
+      /////////
       if (audioDetails == null ||
           meditationCategory == null ||
           lastPlayedAudioId.isEmpty) {
         return SizedBox();
       } else {
+        final contentColor = hexToColor(meditationCategory.color ?? '');
         ////////
         return Dismissible(
           key: Key("floating-player$lastPlayedAudioId"),
@@ -55,7 +59,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 4.r, vertical: 2.r),
               margin: EdgeInsets.all(10.r),
               decoration: BoxDecoration(
-                color: meditationCategory.contentColor,
+                color: contentColor,
                 border: Border.all(
                   width: 1.r,
                   color: audioDetails.iconColor.withValues(alpha: 0.2),
@@ -139,7 +143,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
                                     ? Icons.pause
                                     : Icons.play_arrow_rounded,
                                 size: 16.r,
-                                color: meditationCategory.contentColor,
+                                color: contentColor,
                               ),
                             ),
                           ),

@@ -6,6 +6,7 @@ import 'package:with_prana_mobile_app/core/constants/audio_contants.dart';
 import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
 import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
+import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 
 class MeditationPlayerController extends GetxController {
   CommonController commonController;
@@ -18,7 +19,7 @@ class MeditationPlayerController extends GetxController {
   final audioPosition = Duration.zero.obs;
 
   final lastPlayedAudioId = ''.obs;
-  final lastPlayedMeditationCategory = Rx<MeditationCategoryModel?>(null);
+  final lastPlayedMeditationCategory = Rx<CategoryResponseModel?>(null);
   final lastPlayedAudioDetails = Rx<AudioPreviewModel?>(null);
 
   final showFloatingMeditationPlayer = false.obs;
@@ -51,7 +52,7 @@ class MeditationPlayerController extends GetxController {
 
   ////
   Future<void> playMeditationAudio({
-    required MeditationCategoryModel meditationCategory,
+    required CategoryResponseModel meditationCategory,
     required AudioPreviewModel audioDetails,
     Duration? startingPoint,
   }) async {
@@ -104,7 +105,7 @@ class MeditationPlayerController extends GetxController {
   }
 
   Future<void> playAndPauseMeditationAudio({
-    MeditationCategoryModel? meditationCategory,
+    CategoryResponseModel? meditationCategory,
     AudioPreviewModel? audioDetails,
     required bool playBgAudio,
   }) async {

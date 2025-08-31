@@ -8,6 +8,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controll
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/core/utils/safe_area_lengths.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/content_and_action_widget.dart';
@@ -36,6 +37,7 @@ class OtpVerificationScreen extends HookWidget {
       body: Container(
         width: ScreenSize.width(context),
         height: ScreenSize.height(context),
+        padding: EdgeInsets.only(bottom: safeAreaBottomHeight(context)),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -66,6 +68,7 @@ class OtpVerificationScreen extends HookWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: SafeArea(
+                bottom: false,
                 child: Form(
                   key: formKey,
                   child: Column(

@@ -12,6 +12,7 @@ import 'package:with_prana_mobile_app/core/enums/toast_type_enum.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/app_dialogs.dart';
+import 'package:with_prana_mobile_app/core/utils/safe_area_lengths.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/initial_question_screen_two.dart';
 import 'package:with_prana_mobile_app/view/screens/initial_screens/sign_in_screen.dart';
@@ -38,6 +39,7 @@ class InitialQuestionScreenOne extends StatelessWidget {
       body: Container(
         width: ScreenSize.width(context),
         height: ScreenSize.height(context),
+        padding: EdgeInsets.only(bottom: safeAreaBottomHeight(context)),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -64,6 +66,7 @@ class InitialQuestionScreenOne extends StatelessWidget {
               ),
             ),
             SafeArea(
+              bottom: false,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(

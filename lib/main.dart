@@ -65,32 +65,29 @@ class MyApp extends HookWidget {
       };
     }, []);
 
-    return SafeArea(
-      top: false,
-      child: ScreenUtilInit(
-        designSize: const Size(360, 800),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'With Prana',
-          theme: ThemeData(
-            appBarTheme: AppBarTheme(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-            ),
-            fontFamily: 'Poppins',
-            visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'With Prana',
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
           ),
-          onGenerateRoute: (settings) => getRoute(settings, context),
-          builder:
-              (context, child) => MediaQuery(
-                data: MediaQuery.of(
-                  context,
-                ).copyWith(textScaler: TextScaler.noScaling),
-                child: FlutterSmartDialog.init()(context, child),
-              ),
+          fontFamily: 'Poppins',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        onGenerateRoute: (settings) => getRoute(settings, context),
+        builder:
+            (context, child) => MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: TextScaler.noScaling),
+              child: FlutterSmartDialog.init()(context, child),
+            ),
       ),
     );
   }

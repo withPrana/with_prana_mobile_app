@@ -6,12 +6,14 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_pla
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class AudioPlayerControllerWidget extends StatelessWidget {
   final ColorPalette theme;
-  final MeditationCategoryModel meditationCategory;
+  final CategoryResponseModel meditationCategory;
   final MeditationPlayerController meditationPlayerController;
   final AudioPreviewModel audioDetails;
   const AudioPlayerControllerWidget({
@@ -23,6 +25,8 @@ class AudioPlayerControllerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contentColor = hexToColor(meditationCategory.color ?? '');
+    final bgColor = contentColor.withValues(alpha: 0.1);
     return Container(
       width: ScreenSize.width(context),
       height: 175.r,
@@ -42,9 +46,9 @@ class AudioPlayerControllerWidget extends StatelessWidget {
           Obx(
             () => Slider(
               padding: EdgeInsets.zero,
-              thumbColor: meditationCategory.contentColor,
-              activeColor: meditationCategory.contentColor,
-              inactiveColor: meditationCategory.color,
+              thumbColor: contentColor,
+              activeColor: contentColor,
+              inactiveColor: bgColor,
               value:
                   meditationPlayerController.audioPosition.value.inSeconds
                       .toDouble(),
@@ -95,9 +99,9 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                           vertical: 6.r,
                         ),
                         decoration: BoxDecoration(
-                          color: meditationCategory.color,
+                          color: bgColor,
                           border: Border.all(
-                            color: meditationCategory.contentColor,
+                            color: contentColor,
                             width: 1.r,
                           ),
                           borderRadius: BorderRadius.circular(200.r),
@@ -108,12 +112,12 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                             ImageIcon(
                               AssetImage(IconConstants.icRestartAudio),
                               size: 18.r,
-                              color: meditationCategory.contentColor,
+                              color: contentColor,
                             ),
                             Text(
                               "Restart",
                               style: TypographyStyles.poppins40012Colored(
-                                meditationCategory.contentColor,
+                                contentColor,
                               ),
                             ),
                           ],
@@ -141,7 +145,7 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                           height: 48.r,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: meditationCategory.contentColor,
+                            color: contentColor,
                           ),
                           child: Center(
                             child: Obx(
@@ -167,7 +171,7 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                       child: InkWell(
                         child: ImageIcon(
                           AssetImage(IconConstants.icAddToLibrary),
-                          color: meditationCategory.contentColor,
+                          color: contentColor,
                           size: 24.r,
                         ),
                       ),

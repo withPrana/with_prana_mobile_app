@@ -66,6 +66,7 @@ class MailEntryScreen extends HookWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: SafeArea(
+                bottom: false,
                 child: Form(
                   key: formKey,
                   child: Column(
@@ -145,7 +146,8 @@ class MailEntryScreen extends HookWidget {
                       VerticalSpace8(),
                       Transform.scale(
                         scale: 0.8,
-                        child: TextAndActionWidget(theme: theme,
+                        child: TextAndActionWidget(
+                          theme: theme,
                           primaryText: "Already have an account?",
                           actionText: "Log in",
                           onActionClicked: () {

@@ -7,6 +7,7 @@ import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controll
 import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
+import 'package:with_prana_mobile_app/core/utils/safe_area_lengths.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/home_screen.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/floating_meditation_player_widget.dart';
@@ -79,7 +80,10 @@ class BottomNavigationBarWidget extends StatelessWidget {
         ),
         Container(
           width: ScreenSize.width(context),
-          padding: EdgeInsets.only(top: 8.h, bottom: 16.h),
+          padding: EdgeInsets.only(
+            top: 8.h,
+            bottom: safeAreaBottomHeight(context) + 16.h,
+          ),
           decoration: BoxDecoration(
             color: theme.inverseColor,
             borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),

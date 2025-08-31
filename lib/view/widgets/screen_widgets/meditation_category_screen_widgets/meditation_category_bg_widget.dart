@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
+import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 
 class MeditationCategoryBgWidget extends StatelessWidget {
-  final MeditationCategoryModel meditationCategory;
+  final CategoryResponseModel meditationCategory;
   final bool whiteBg;
   const MeditationCategoryBgWidget({
     super.key,
@@ -14,6 +15,7 @@ class MeditationCategoryBgWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final contentColor = hexToColor(meditationCategory.color ?? '');
     return Positioned.fill(
       child: SizedBox(
         width: ScreenSize.width(context),
@@ -37,7 +39,7 @@ class MeditationCategoryBgWidget extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     stops: [0.2, 0.32],
                     colors: [
-                      meditationCategory.contentColor.withValues(alpha: 0),
+                      contentColor.withValues(alpha: 0),
                       Colors.white,
                     ],
                   ),
