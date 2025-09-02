@@ -52,6 +52,7 @@ class LikedContentsWidget extends StatelessWidget {
                 meditationCategory: CategoryResponseModel(),
                 audioDetails: AudioPreviewModel(
                   iconPath: content.iconPath,
+                  thumbnail: "",
                   title: content.title,
                   category: content.category,
                   iconColor: content.iconColor,

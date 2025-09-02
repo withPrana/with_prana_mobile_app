@@ -84,7 +84,7 @@ class HomeScreen extends HookWidget {
                               data: categoryController.categories.value,
                               noDataMessage: "No data",
                               isLoading:
-                                  categoryController.isLoadingCategory.value,
+                                  categoryController.isLoadingCategories.value,
                               dataWidget: Column(
                                 children: [
                                   ////

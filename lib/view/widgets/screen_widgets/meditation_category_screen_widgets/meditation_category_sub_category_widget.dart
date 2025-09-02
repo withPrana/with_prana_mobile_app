@@ -15,7 +15,7 @@ class MeditationCategorySubCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final contentColor = hexToColor(category.color ?? '');
+    final contentColor = hexToColor(hex: category.color ?? '', theme: theme);
     final bgColor = contentColor.withValues(alpha: 0.1);
     final names = ["🌙 Sleep & Deep Rest", "💓 Emotional Wellbeing"];
 

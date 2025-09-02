@@ -20,12 +20,16 @@ class AudioPlayerControllerWidget extends StatelessWidget {
     super.key,
     required this.theme,
     required this.meditationCategory,
-    required this.meditationPlayerController, required this.audioDetails,
+    required this.meditationPlayerController,
+    required this.audioDetails,
   });
 
   @override
   Widget build(BuildContext context) {
-    final contentColor = hexToColor(meditationCategory.color ?? '');
+    final contentColor = hexToColor(
+      hex: meditationCategory.color ?? '',
+      theme: theme,
+    );
     final bgColor = contentColor.withValues(alpha: 0.1);
     return Container(
       width: ScreenSize.width(context),
@@ -100,10 +104,7 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                           color: bgColor,
-                          border: Border.all(
-                            color: contentColor,
-                            width: 1.r,
-                          ),
+                          border: Border.all(color: contentColor, width: 1.r),
                           borderRadius: BorderRadius.circular(200.r),
                         ),
                         child: Row(
@@ -137,7 +138,7 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                               .playAndPauseMeditationAudio(
                                 meditationCategory: meditationCategory,
                                 audioDetails: audioDetails,
-                                playBgAudio: false
+                                playBgAudio: false,
                               );
                         },
                         child: Container(

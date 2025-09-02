@@ -13,6 +13,8 @@ class MeditationPlayerController extends GetxController {
 
   MeditationPlayerController({required this.commonController});
 
+  final isLoadingMeditationAudio = false.obs;
+
   final audioPlayer = AudioPlayer();
   final isPlaying = false.obs;
   final audioDuration = Duration.zero.obs;
@@ -45,7 +47,9 @@ class MeditationPlayerController extends GetxController {
       isPlaying.value = false;
       removeFloatingMediationPlayer();
       audioPlayer.setSource(
-        AssetSource(AudioContants.audioSampleMeditationTwo),
+        lastPlayedAudioDetails.value?.audioUrl != null
+            ? UrlSource(lastPlayedAudioDetails.value?.audioUrl ?? '')
+            : AssetSource(AudioContants.audioSampleMeditationTwo),
       );
     });
   }
@@ -56,9 +60,12 @@ class MeditationPlayerController extends GetxController {
     required AudioPreviewModel audioDetails,
     Duration? startingPoint,
   }) async {
+    isLoadingMeditationAudio.value = true;
     try {
       await audioPlayer.setSource(
-        AssetSource(AudioContants.audioSampleMeditationTwo),
+        audioDetails.audioUrl != null
+            ? UrlSource(audioDetails.audioUrl ?? '')
+            : AssetSource(AudioContants.audioSampleMeditationTwo),
       );
       await audioPlayer.seek(startingPoint ?? Duration.zero);
       await SharedPrefs.setLastPlayedMeditationId("1");
@@ -79,6 +86,8 @@ class MeditationPlayerController extends GetxController {
         message: "unable to play audio $e",
         toastType: ToastTypeEnum.error,
       );
+    } finally {
+      isLoadingMeditationAudio.value = false;
     }
   }
 
@@ -136,12 +145,9 @@ class MeditationPlayerController extends GetxController {
     SharedPrefs.setLastPlayedMeditationId("");
     audioPosition.value = Duration.zero;
     audioPlayer.stop();
-    lastPlayedMeditationCategory.value = null;
-    lastPlayedAudioDetails.value = null;
-    lastPlayedAudioId.value = "";
-    showFloatingMeditationPlayer.value =
-        lastPlayedAudioDetails.value != null ||
-        lastPlayedAudioId.value.isNotEmpty ||
-        lastPlayedMeditationCategory.value != null;
+    // lastPlayedMeditationCategory.value = null;
+    // lastPlayedAudioDetails.value = null;
+    // lastPlayedAudioId.value = "";
+    showFloatingMeditationPlayer.value = false;
   }
 }

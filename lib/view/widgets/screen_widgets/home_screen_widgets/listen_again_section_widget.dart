@@ -17,6 +17,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
     final listenAgainAudios = [
       AudioPreviewModel(
         iconPath: ImageConstants.imgAudioPreviewOne,
+        thumbnail: "",
         title: "Soothing Wind Before Sleep",
         category: "Breathe & Begin",
         iconColor: Color(0xffCCD3FF),
@@ -24,6 +25,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
       ),
       AudioPreviewModel(
         iconPath: ImageConstants.imgAudioPreviewTwo,
+        thumbnail: "",
         title: "Gentle Morning Start",
         category: "Sleep & Rest",
         iconColor: Color(0xffFCCCFF),
@@ -31,6 +33,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
       ),
       AudioPreviewModel(
         iconPath: ImageConstants.imgAudioPreviewThree,
+        thumbnail: "",
         title: "Quiet Mind, Clear Focus",
         category: "Focus & Mind Support",
         iconColor: Color(0xffBAE2BA),
@@ -38,6 +41,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
       ),
       AudioPreviewModel(
         iconPath: ImageConstants.imgAudioPreviewFour,
+        thumbnail: "",
         title: "Soft Heart, Strong Boundaries",
         category: "Healing & Connection",
         iconColor: Color(0xffFFCDC9),

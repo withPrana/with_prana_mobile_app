@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/meditation_category_screen_widgets/meditation_category_bg_widget.dart';
 
 class MeditationScreenLayoutWidget extends HookWidget {
   final CategoryResponseModel meditationCategory;
+  final ColorPalette theme;
   final Widget body;
   final Widget? bottomNavigationBar;
   final bool whiteBg;
@@ -18,6 +20,7 @@ class MeditationScreenLayoutWidget extends HookWidget {
     this.padding,
     required this.body,
     required this.meditationCategory,
+    required this.theme,
   });
 
   @override
@@ -29,13 +32,14 @@ class MeditationScreenLayoutWidget extends HookWidget {
           MeditationCategoryBgWidget(
             meditationCategory: meditationCategory,
             whiteBg: whiteBg,
+            theme: theme,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: padding ?? 16.w),
             child: Column(
               children: [
                 MainAppbarWidget(
-                  name: meditationCategory.name??'',
+                  name: meditationCategory.name ?? '',
                   isInverse: true,
                 ),
                 Expanded(child: body),

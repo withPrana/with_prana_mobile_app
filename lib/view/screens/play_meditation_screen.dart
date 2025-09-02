@@ -12,6 +12,7 @@ import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/meditation_screen_layout_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/loader_widgets/data_loader_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/play_meditation_screen_widgets/audio_player_controller_widget.dart';
 
@@ -42,7 +43,10 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   Widget build(BuildContext context) {
     final theme = themeController.appTheme.value!;
 
-    final contentColor = hexToColor(widget.meditationCategory.color ?? '');
+    final contentColor = hexToColor(
+      hex: widget.meditationCategory.color ?? '',
+      theme: theme,
+    );
 
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -57,56 +61,76 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
     }, []);
 
     return MeditationScreenLayoutWidget(
+      theme: theme,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            VerticalSpace16(),
-            Container(
-              width: ScreenSize.width(context),
-              height: ScreenSize.width(context) + 20.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.r),
-                border: Border.all(
-                  color: theme.disabledLightestColor,
-                  width: 10.r,
+        child: Obx(
+          () => DataLoaderWidget(
+            loadingPositionTop: ScreenSize.width(context) / 1.5,
+            noDataMessagePositionTop: ScreenSize.width(context) / 1.5,
+            data: "",
+            noDataMessage: "No meditation found",
+            isLoading:
+                meditationPlayerController.isLoadingMeditationAudio.value,
+            dataWidget: Column(
+              children: [
+                VerticalSpace16(),
+                Container(
+                  width: ScreenSize.width(context),
+                  height: ScreenSize.width(context) + 20.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.r),
+                    border: Border.all(
+                      color: theme.disabledLightestColor,
+                      width: 10.r,
+                    ),
+                    image: DecorationImage(
+                      image:
+                          widget.audioDetails.thumbnail.isEmpty
+                              ? AssetImage(ImageConstants.imgMeditationCategory)
+                              : NetworkImage(widget.audioDetails.thumbnail),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-                image: DecorationImage(
-                  image: AssetImage(ImageConstants.imgMeditationCategory),
-                  fit: BoxFit.cover,
+                VerticalSpace16(),
+                Text(
+                  widget.audioDetails.title,
+                  textAlign: TextAlign.center,
+                  style: TypographyStyles.sniglet40024Colored(contentColor),
                 ),
-              ),
+                VerticalSpace8(),
+                Text(
+                  widget.audioDetails.category.isNotEmpty
+                      ? "${widget.audioDetails.minutes} min • ${widget.audioDetails.category}"
+                      : "${widget.audioDetails.minutes} min",
+                  style: TypographyStyles.poppins40012(),
+                ),
+                VerticalSpace24(),
+                if ((widget.audioDetails.description ?? '').isNotEmpty)
+                  Text(
+                    widget.audioDetails.description ?? '',
+                    textAlign: TextAlign.center,
+                    style: TypographyStyles.poppins40014(),
+                  ),
+                VerticalSpace224(),
+              ],
             ),
-            VerticalSpace16(),
-            Text(
-              widget.audioDetails.title,
-              textAlign: TextAlign.center,
-              style: TypographyStyles.sniglet40024Colored(contentColor),
-            ),
-            VerticalSpace8(),
-            Text(
-              widget.audioDetails.category.isNotEmpty
-                  ? "${widget.audioDetails.minutes} min • ${widget.audioDetails.category}"
-                  : "${widget.audioDetails.minutes} min",
-              style: TypographyStyles.poppins40012(),
-            ),
-            VerticalSpace24(),
-            if ((widget.audioDetails.description ?? '').isNotEmpty)
-              Text(
-                widget.audioDetails.description ?? '',
-                textAlign: TextAlign.center,
-                style: TypographyStyles.poppins40014(),
-              ),
-            VerticalSpace224(),
-          ],
+            theme: theme,
+          ),
         ),
       ),
       meditationCategory: widget.meditationCategory,
-      bottomNavigationBar: AudioPlayerControllerWidget(
-        theme: theme,
-        meditationCategory: widget.meditationCategory,
-        audioDetails: widget.audioDetails,
-        meditationPlayerController: meditationPlayerController,
-      ),
+      bottomNavigationBar: Obx(() {
+        if (meditationPlayerController.isLoadingMeditationAudio.value) {
+          return SizedBox();
+        }
+        return AudioPlayerControllerWidget(
+          theme: theme,
+          meditationCategory: widget.meditationCategory,
+          audioDetails: widget.audioDetails,
+          meditationPlayerController: meditationPlayerController,
+        );
+      }),
     );
   }
 }

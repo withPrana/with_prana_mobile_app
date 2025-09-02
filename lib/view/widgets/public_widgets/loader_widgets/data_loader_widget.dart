@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
-import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/loader_widgets/no_data_widget.dart';
 
 class DataLoaderWidget extends StatelessWidget {
   final dynamic data;
@@ -13,11 +13,13 @@ class DataLoaderWidget extends StatelessWidget {
   final Widget dataWidget;
   final ColorPalette theme;
   final double? loadingPositionTop;
+  final double? noDataMessagePositionTop;
   const DataLoaderWidget({
     super.key,
     this.noDataWidget,
     this.loadingWidget,
     this.loadingPositionTop,
+    this.noDataMessagePositionTop,
     required this.data,
     required this.noDataMessage,
     required this.isLoading,
@@ -46,18 +48,9 @@ class DataLoaderWidget extends StatelessWidget {
         ),
       );
     } else if ((data is List && data.isEmpty) || data == null) {
-      return Padding(
-        padding: EdgeInsets.only(
-          top: loadingPositionTop ?? ((ScreenSize.height(context) / 2) - 16.r),
-        ),
-        child:
-            noDataWidget ??
-            Center(
-              child: Text(
-                noDataMessage,
-                style: TypographyStyles.poppins40014(),
-              ),
-            ),
+      return NoDataWidget(
+        message: noDataMessage,
+        positionTop: noDataMessagePositionTop,
       );
     } else {
       return dataWidget;

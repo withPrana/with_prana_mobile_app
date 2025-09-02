@@ -67,6 +67,7 @@ class MeditationCategoriesWidget extends StatelessWidget {
                           itemBuilder:
                               (context, index) => EachMeditationCategoryWidget(
                                 meditationCategory: categories[index],
+                                theme: theme,
                               ),
                         ),
                         Positioned.fill(

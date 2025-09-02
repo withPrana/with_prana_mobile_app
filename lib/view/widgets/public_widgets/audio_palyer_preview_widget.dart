@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
@@ -18,10 +19,12 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
   final Color? iconColor;
   final bool enableBorder;
   final bool enableIconBgColor;
+  final double? textWidth;
   AudioPalyerPreviewWidget({
     super.key,
     this.backgroundColor,
     this.iconColor,
+    this.textWidth,
     this.enableBorder = true,
     this.enableIconBgColor = true,
     required this.audioDetails,
@@ -68,7 +71,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               ),
               child: Center(
                 child: ImageIcon(
-                  AssetImage(audioDetails.iconPath),
+                  AssetImage(ImageConstants.imgAudioPreviewOne),
                   color: audioDetails.iconColor,
                   size: 36.r,
                 ),
@@ -80,7 +83,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               children: [
                 /////title
                 SizedBox(
-                  width: 160.w,
+                  width: textWidth ?? 160.w,
                   child: AutoScrollText(
                     audioDetails.title,
                     curve: Curves.easeInOut,
@@ -95,11 +98,15 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
 
                 VerticalSpace4(),
                 /////duration and category
-                Text(
-                  audioDetails.category.isNotEmpty
-                      ? "${audioDetails.minutes} min • ${audioDetails.category}"
-                      : "${audioDetails.minutes} min",
-                  style: TypographyStyles.poppins40012(),
+                SizedBox(
+                  width: 175.w,
+                  child: Text(
+                    audioDetails.category.isNotEmpty
+                        ? "${audioDetails.minutes} min • ${audioDetails.category}"
+                        : "${audioDetails.minutes} min",
+                    overflow: TextOverflow.ellipsis,
+                    style: TypographyStyles.poppins40012(),
+                  ),
                 ),
               ],
             ),

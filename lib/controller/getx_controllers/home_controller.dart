@@ -5,23 +5,25 @@ import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
 import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bottom_navigation_screen.dart';
 
-
-
 //////
 class AudioPreviewModel {
   final String iconPath;
   final String title;
   final String category;
+  final String thumbnail;
   final String? description;
   final Color iconColor;
+  final String? audioUrl;
   final int minutes;
 
   AudioPreviewModel({
     required this.iconPath,
     required this.title,
     required this.category,
+    required this.thumbnail,
     this.description,
     required this.iconColor,
+    this.audioUrl,
     required this.minutes,
   });
 }

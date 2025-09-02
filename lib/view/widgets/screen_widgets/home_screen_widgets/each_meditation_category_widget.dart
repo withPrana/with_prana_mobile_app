@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:with_prana_mobile_app/core/route/route_controller.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
 import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/screens/meditation_category_screen.dart';
@@ -8,6 +9,7 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.
 
 class EachMeditationCategoryWidget extends StatelessWidget {
   final CategoryResponseModel meditationCategory;
+  final ColorPalette theme;
   final double? width;
   final double? height;
 
@@ -16,11 +18,15 @@ class EachMeditationCategoryWidget extends StatelessWidget {
     this.width,
     this.height,
     required this.meditationCategory,
+    required this.theme,
   });
 
   @override
   Widget build(BuildContext context) {
-    final contentColor = hexToColor(meditationCategory.color ?? '');
+    final contentColor = hexToColor(
+      hex: meditationCategory.color ?? '',
+      theme: theme,
+    );
     final bgColor = contentColor.withValues(alpha: 0.1);
     return InkWell(
       onTap: () {
