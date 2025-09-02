@@ -97,7 +97,6 @@ class MadeForYouSectionWidget extends HookWidget {
                       isLiked: likedContentsController.likedContents.value
                           .contains(content),
                       onLiked: () {
-                        likedContentsController.likeContent(content);
                       },
                     ),
                   );

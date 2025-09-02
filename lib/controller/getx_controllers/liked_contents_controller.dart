@@ -1,33 +1,33 @@
 import 'package:get/get.dart';
-import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/services.dart/liked_contents_service.dart';
+import 'package:with_prana_mobile_app/core/shared_preferences/shared_preferences.dart';
+import 'package:with_prana_mobile_app/models/liked_contents_models/like_models.dart';
+import 'package:with_prana_mobile_app/models/liked_contents_models/liked_contents_models.dart';
 
 class LikedContentsController extends GetxController {
-  final likedContents = <MadeForYouContentModel>[].obs;
-  final categories =
-      [
-        "🌙 Sleep & Rest",
-        "🎯 Focus & Mind Support",
-        "🫂 Healing & Connection",
-        "🌙 Sleep & Rest",
-        "🎯 Focus & Mind Support",
-      ].obs;
-  final selectedCategory = "".obs;
+  final likedContents = <LikedContentsResponseModel>[].obs;
 
-  void selectCategory(String category) {
-    if (selectedCategory.value != category) {
-      selectedCategory(category);
-    }
+  final isLoadingLikedContents = false.obs;
+
+  ///like
+  Future<void> likeMeditation(String meditationId) async {
+    final userId = await SharedPrefs.getUserId();
+    final body = AddLikeBodyModel(userId: userId, meditationId: meditationId);
+    await LikedContentsService.likeMeditation(body);
   }
 
-  void likeContent(MadeForYouContentModel content) {
-    if (likedContents.contains(content)) {
-      likedContents.remove(content);
-    } else {
-      likedContents.add(content);
-    }
+  ///dislike
+  Future<void> dislikeMeditation(String meditationId) async {
+    final userId = await SharedPrefs.getUserId();
+    final body = AddLikeBodyModel(userId: userId, meditationId: meditationId);
+    await LikedContentsService.dislikeMeditation(body);
   }
 
-  void removeLikedContent(MadeForYouContentModel content) {
-    likedContents.remove(content);
+  Future<void> getLikedContents() async {
+    isLoadingLikedContents.value = true;
+    final userId = await SharedPrefs.getUserId();
+    final response = await LikedContentsService.getLikedContents(userId);
+    likedContents.value = response;
+    isLoadingLikedContents.value = false;
   }
 }

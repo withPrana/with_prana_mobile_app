@@ -77,7 +77,8 @@ class LoginFormWidget extends HookWidget {
                   // Future.wait([
                   //   SharedPrefs.setIsLoggedIn(true),
                   //   SharedPrefs.setUserName("Shamjad"),
-                  //   SharedPrefs.setUserMailId("shamjad@gmail.com"),
+                  //   SharedPrefs.setUserMailId("mshamjad4@gmail.com"),
+                  //   SharedPrefs.setUserId("18"),
                   // ]);
                 },
                 isLoading: authController.isLoadingSendOtp.value,

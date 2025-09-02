@@ -10,7 +10,7 @@ class CategoryServices {
     final response = await ApiCalls.callApi(
       request: ApiRequestEnum.get,
       useToken: false,
-      url: ApiEndpoints.categoryEndpoint,
+      url: ApiEndpoints.categoryEndpointEndpoint,
       functionFor: "Category",
       errorMessage: "Unable to get categories",
     );
@@ -32,7 +32,7 @@ class CategoryServices {
     final response = await ApiCalls.callApi(
       request: ApiRequestEnum.get,
       useToken: false,
-      url: "${ApiEndpoints.categoryEndpoint}/$categoryId",
+      url: "${ApiEndpoints.categoryEndpointEndpoint}/$categoryId",
       functionFor: "Category by id",
       errorMessage: "Unable to get category",
     );
@@ -48,7 +48,7 @@ class CategoryServices {
     final response = await ApiCalls.callApi(
       request: ApiRequestEnum.get,
       useToken: false,
-      url: ApiEndpoints.subCategoryEndpoint,
+      url: ApiEndpoints.subCategoryEndpointEndpoint,
       functionFor: "Category",
       errorMessage: "Unable to get sub categories",
     );

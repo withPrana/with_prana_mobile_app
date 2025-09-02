@@ -38,9 +38,10 @@ class DailyThoughtWidget extends StatelessWidget {
               ),
               VerticalSpace8(),
               AudioPalyerPreviewWidget(
-                textWidth: 150.w,
+                textWidth: 140.w,
                 meditationCategory: CategoryResponseModel(),
                 audioDetails: AudioPreviewModel(
+                  id: "",
                   iconPath: ImageConstants.imgAudioPreviewOne,
                   thumbnail: "",
                   title: "Peace begins with a smile",

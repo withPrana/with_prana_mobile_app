@@ -7,6 +7,7 @@ import 'package:with_prana_mobile_app/view/screens/bottom_navigation_screens/bot
 
 //////
 class AudioPreviewModel {
+  final String id;
   final String iconPath;
   final String title;
   final String category;
@@ -17,6 +18,7 @@ class AudioPreviewModel {
   final int minutes;
 
   AudioPreviewModel({
+    required this.id,
     required this.iconPath,
     required this.title,
     required this.category,

@@ -83,7 +83,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
               children: [
                 /////title
                 SizedBox(
-                  width: textWidth ?? 160.w,
+                  width: 160.w,
                   child: AutoScrollText(
                     audioDetails.title,
                     curve: Curves.easeInOut,
@@ -99,7 +99,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
                 VerticalSpace4(),
                 /////duration and category
                 SizedBox(
-                  width: 175.w,
+                  width: textWidth ?? 175.w,
                   child: Text(
                     audioDetails.category.isNotEmpty
                         ? "${audioDetails.minutes} min • ${audioDetails.category}"

@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/common_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
+import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/meditation_player_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/constants/image_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
@@ -38,9 +40,11 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
   final themeController = Get.find<ThemeController>();
   final meditationPlayerController = Get.find<MeditationPlayerController>();
   final commonController = Get.find<CommonController>();
+  final likedContentsController = Get.find<LikedContentsController>();
 
   @override
   Widget build(BuildContext context) {
+    final isLiked = useState(false);
     final theme = themeController.appTheme.value!;
 
     final contentColor = hexToColor(
@@ -74,23 +78,65 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
             dataWidget: Column(
               children: [
                 VerticalSpace16(),
-                Container(
-                  width: ScreenSize.width(context),
-                  height: ScreenSize.width(context) + 20.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.r),
-                    border: Border.all(
-                      color: theme.disabledLightestColor,
-                      width: 10.r,
+                Stack(
+                  children: [
+                    Container(
+                      width: ScreenSize.width(context),
+                      height: ScreenSize.width(context) + 20.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.r),
+                        border: Border.all(
+                          color: theme.disabledLightestColor,
+                          width: 10.r,
+                        ),
+                        image: DecorationImage(
+                          image:
+                              widget.audioDetails.thumbnail.isEmpty
+                                  ? AssetImage(
+                                    ImageConstants.imgMeditationCategory,
+                                  )
+                                  : NetworkImage(widget.audioDetails.thumbnail),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    image: DecorationImage(
-                      image:
-                          widget.audioDetails.thumbnail.isEmpty
-                              ? AssetImage(ImageConstants.imgMeditationCategory)
-                              : NetworkImage(widget.audioDetails.thumbnail),
-                      fit: BoxFit.cover,
+                    Positioned(
+                      bottom: 24.r,
+                      right: 24.r,
+                      child: InkWell(
+                        onTap: () {
+                          if (isLiked.value) {
+                            likedContentsController.dislikeMeditation(
+                              widget.audioDetails.id,
+                            );
+                            isLiked.value = false;
+                          } else {
+                            likedContentsController.likeMeditation(
+                              widget.audioDetails.id,
+                            );
+                            isLiked.value = true;
+                          }
+                        },
+                        child: CircleAvatar(
+                          radius: 14.r,
+                          backgroundColor:
+                              isLiked.value
+                                  ? Colors.red
+                                  : theme.inverseColor.withValues(alpha: 0.6),
+                          child: Center(
+                            child: ImageIcon(
+                              AssetImage(IconConstants.icFavourite),
+                              size: 16.r,
+                              color:
+                                  isLiked.value
+                                      ? theme.inverseColor
+                                      : theme.disabledColor,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 VerticalSpace16(),
                 Text(

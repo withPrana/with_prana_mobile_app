@@ -36,6 +36,7 @@ class MeditationCategoryAudiosWidget extends StatelessWidget {
       final audios =
           (meditationCategoryById!.meditations ?? []).map((meditation) {
             return AudioPreviewModel(
+              id: meditation.id??'',
               audioUrl: meditation.link,
               description: meditation.description,
               thumbnail: meditation.thumbnail ?? '',

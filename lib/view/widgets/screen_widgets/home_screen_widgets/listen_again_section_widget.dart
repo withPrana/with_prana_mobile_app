@@ -16,6 +16,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final listenAgainAudios = [
       AudioPreviewModel(
+        id: "",
         iconPath: ImageConstants.imgAudioPreviewOne,
         thumbnail: "",
         title: "Soothing Wind Before Sleep",
@@ -24,6 +25,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
         minutes: 10,
       ),
       AudioPreviewModel(
+        id: "",
         iconPath: ImageConstants.imgAudioPreviewTwo,
         thumbnail: "",
         title: "Gentle Morning Start",
@@ -32,6 +34,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
         minutes: 7,
       ),
       AudioPreviewModel(
+        id: "",
         iconPath: ImageConstants.imgAudioPreviewThree,
         thumbnail: "",
         title: "Quiet Mind, Clear Focus",
@@ -40,6 +43,7 @@ class ListenAgainSectionWidget extends StatelessWidget {
         minutes: 12,
       ),
       AudioPreviewModel(
+        id: "",
         iconPath: ImageConstants.imgAudioPreviewFour,
         thumbnail: "",
         title: "Soft Heart, Strong Boundaries",

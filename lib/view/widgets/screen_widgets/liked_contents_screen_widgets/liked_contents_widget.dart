@@ -6,6 +6,7 @@ import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
+import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/list_view_builder_widget.dart';
@@ -13,9 +14,14 @@ import 'package:with_prana_mobile_app/view/widgets/public_widgets/audio_palyer_p
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 
 class LikedContentsWidget extends StatelessWidget {
-  const LikedContentsWidget({super.key, required this.likedContentsController});
-
   final LikedContentsController likedContentsController;
+  final ColorPalette theme;
+
+  const LikedContentsWidget({
+    super.key,
+    required this.likedContentsController,
+    required this.theme,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class LikedContentsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(28.r),
             child: SwipeActionCell(
               backgroundColor: Colors.red,
-              key: ObjectKey(content.index),
+              key: ObjectKey(content.id),
               trailingActions: [
                 SwipeAction(
                   widthSpace: 100.w,
@@ -43,20 +49,20 @@ class LikedContentsWidget extends StatelessWidget {
                     ),
                   ),
                   performsFirstActionWithFullSwipe: true,
-                  onTap: (handler) {
-                    likedContentsController.removeLikedContent(content);
-                  },
+                  onTap: (handler) {},
                 ),
               ],
               child: AudioPalyerPreviewWidget(
                 meditationCategory: CategoryResponseModel(),
                 audioDetails: AudioPreviewModel(
-                  iconPath: content.iconPath,
+                  id: "",
+                  iconPath: "",
                   thumbnail: "",
-                  title: content.title,
-                  category: content.category,
-                  iconColor: content.iconColor,
-                  minutes: content.minutes,
+                  title: content.meditation?.title ?? '',
+                  category: "Sleep and Rest",
+                  iconColor: theme.primaryColor,
+                  audioUrl: content.meditation?.link,
+                  minutes: content.meditation?.duration ?? 0,
                 ),
               ),
             ),

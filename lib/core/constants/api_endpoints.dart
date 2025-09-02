@@ -5,12 +5,20 @@ class ApiEndpoints {
   //     "https://sd-bottle-possibility-early.trycloudflare.com";
 
   ////Auth
-  static const signIn = "$baseUrl/api/user/login";
-  static const registerAccount = "$baseUrl/api/user/register";
-  static const resendOtp = "$baseUrl/api/user/resend-otp";
-  static const verifyOtp = "$baseUrl/api/user/verify";
+  static const signInEndpoint = "$baseUrl/api/user/login";
+  static const registerAccountEndpoint = "$baseUrl/api/user/register";
+  static const resendOtpEndpoint = "$baseUrl/api/user/resend-otp";
+  static const verifyOtpEndpoint = "$baseUrl/api/user/verify";
+
+  ////user
+  static const getUserByIdEndpoint = "$baseUrl/api/admin/users";
 
   ////Category
-  static const categoryEndpoint = "$baseUrl/api/category";
-  static const subCategoryEndpoint = "$baseUrl/api/category";
+  static const categoryEndpointEndpoint = "$baseUrl/api/category";
+  static const subCategoryEndpointEndpoint = "$baseUrl/api/category";
+
+  ////Liked content
+  static const addLikeEndpoint = "$baseUrl/api/liked/like";
+  static const dislikeEndpoint = "$baseUrl/api/liked/dislike";
+  static const getLikedContentsEndpoint = "$baseUrl/api/liked/user";
 }

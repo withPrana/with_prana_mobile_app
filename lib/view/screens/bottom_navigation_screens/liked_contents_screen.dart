@@ -1,18 +1,21 @@
 // ignore_for_file: invalid_use_of_protected_member
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/home_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/liked_contents_controller.dart';
 import 'package:with_prana_mobile_app/controller/getx_controllers/theme_controller.dart';
+import 'package:with_prana_mobile_app/core/utils/callbacks.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_screen_layout_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/layout_widgets/main_appbar_widget.dart';
+import 'package:with_prana_mobile_app/view/widgets/public_widgets/loader_widgets/data_loader_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/liked_contents_screen_widgets/liked_content_categories_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/liked_contents_screen_widgets/liked_contents_widget.dart';
 import 'package:with_prana_mobile_app/view/widgets/screen_widgets/liked_contents_screen_widgets/no_contents_widget.dart';
 
-class LikedContentsScreen extends StatelessWidget {
+class LikedContentsScreen extends HookWidget {
   LikedContentsScreen({super.key});
 
   final likedContentsController = Get.find<LikedContentsController>();
@@ -21,6 +24,15 @@ class LikedContentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = themeController.appTheme.value!;
+
+    useEffect(() {
+      Callbacks.postFrameCallback((_) {
+        likedContentsController.getLikedContents();
+      });
+      return null;
+    }, []);
+
     return MainScreenLayoutWidget(
       enableAnimation: true,
       canPop: false,
@@ -45,23 +57,11 @@ class LikedContentsScreen extends StatelessWidget {
         child: Column(
           children: [
             VerticalSpace16(),
-            Obx(() {
-              if (likedContentsController.likedContents.value.isNotEmpty) {
-                return Column(
-                  children: [
-                    LikedContentCategoriesWidget(
-                      likedContentsController: likedContentsController,
-                      themeController: themeController,
-                    ),
-                    VerticalSpace24(),
-                    LikedContentsWidget(
-                      likedContentsController: likedContentsController,
-                    ),
-                    VerticalBottomNavigationBarSpace(),
-                  ],
-                );
-              } else {
-                return TweenAnimationBuilder<double>(
+            Obx(
+              () => DataLoaderWidget(
+                data: likedContentsController.likedContents.value,
+                noDataMessage: "No contents",
+                noDataWidget: TweenAnimationBuilder<double>(
                   tween: Tween(begin: 0, end: 1),
                   duration: Duration(milliseconds: 500),
                   builder:
@@ -72,9 +72,25 @@ class LikedContentsScreen extends StatelessWidget {
                           homeController: homeController,
                         ),
                       ),
-                );
-              }
-            }),
+                ),
+                isLoading: likedContentsController.isLoadingLikedContents.value,
+                dataWidget: Column(
+                  children: [
+                    LikedContentCategoriesWidget(
+                      likedContentsController: likedContentsController,
+                      themeController: themeController,
+                    ),
+                    VerticalSpace24(),
+                    LikedContentsWidget(
+                      likedContentsController: likedContentsController,
+                      theme: theme,
+                    ),
+                    VerticalBottomNavigationBarSpace(),
+                  ],
+                ),
+                theme: theme,
+              ),
+            ),
           ],
         ),
       ),

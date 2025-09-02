@@ -26,6 +26,7 @@ class LibraryContentsWidget extends StatelessWidget {
             child: AudioPalyerPreviewWidget(
               meditationCategory: CategoryResponseModel(),
               audioDetails: AudioPreviewModel(
+                id: "",
                 iconPath: content.iconPath,
                 thumbnail: "",
                 title: content.title,

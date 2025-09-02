@@ -141,6 +141,7 @@ class AuthController extends GetxController {
           SharedPrefs.setUserMailId(user.email ?? ''),
           SharedPrefs.setUserName(user.displayName ?? ''),
           SharedPrefs.setIsLoggedIn(true),
+          SharedPrefs.setUserId("18"),
         ]);
         RouteController.pushAndRemoveUntil(
           context,

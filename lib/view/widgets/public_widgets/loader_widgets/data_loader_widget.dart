@@ -48,10 +48,11 @@ class DataLoaderWidget extends StatelessWidget {
         ),
       );
     } else if ((data is List && data.isEmpty) || data == null) {
-      return NoDataWidget(
-        message: noDataMessage,
-        positionTop: noDataMessagePositionTop,
-      );
+      return noDataWidget ??
+          NoDataWidget(
+            message: noDataMessage,
+            positionTop: noDataMessagePositionTop,
+          );
     } else {
       return dataWidget;
     }

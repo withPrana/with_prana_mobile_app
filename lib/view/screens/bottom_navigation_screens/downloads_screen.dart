@@ -134,9 +134,7 @@ class DownloadsScreen extends HookWidget {
                                     .likedContents
                                     .value
                                     .contains(content),
-                                onLiked: () {
-                                  likedContentsController.likeContent(content);
-                                },
+                                onLiked: () {},
                               ),
                             ),
                           );
