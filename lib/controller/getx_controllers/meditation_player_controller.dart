@@ -45,7 +45,7 @@ class MeditationPlayerController extends GetxController {
     audioPlayer.onPlayerComplete.listen((_) {
       audioPosition.value = Duration.zero;
       isPlaying.value = false;
-      removeFloatingMediationPlayer();
+      removeFloatingMediationPlayer(false);
       audioPlayer.setSource(
         lastPlayedAudioDetails.value?.audioUrl != null
             ? UrlSource(lastPlayedAudioDetails.value?.audioUrl ?? '')
@@ -137,17 +137,24 @@ class MeditationPlayerController extends GetxController {
     }
   }
 
+  Future<void> seekAudio(int value) async {
+    final position = Duration(seconds: value);
+    audioPlayer.seek(position);
+  }
+
   Future<void> restartAudio() async {
     await audioPlayer.seek(Duration.zero);
   }
 
-  void removeFloatingMediationPlayer() {
+  void removeFloatingMediationPlayer(bool removeAudioDetails) {
     SharedPrefs.setLastPlayedMeditationId("");
     audioPosition.value = Duration.zero;
     audioPlayer.stop();
-    // lastPlayedMeditationCategory.value = null;
-    // lastPlayedAudioDetails.value = null;
-    // lastPlayedAudioId.value = "";
+    if(removeAudioDetails){
+      lastPlayedMeditationCategory.value = null;
+    lastPlayedAudioDetails.value = null;
+    lastPlayedAudioId.value = "";
+    }
     showFloatingMeditationPlayer.value = false;
   }
 }

@@ -53,10 +53,10 @@ class HomeScreen extends HookWidget {
     final theme = themeController.appTheme.value!;
     return DoubleTapToExit(
       child: Scaffold(
+        extendBody: true,
         body: Container(
           width: ScreenSize.width(context),
           height: ScreenSize.height(context),
-          padding: EdgeInsets.only(bottom: safeAreaBottomHeight(context)),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -70,7 +70,11 @@ class HomeScreen extends HookWidget {
               SingleChildScrollView(
                 ////top bg image and its contents
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  padding: EdgeInsets.only(
+                    left: 16.w,
+                    right: 16.w,
+                    bottom: safeAreaBottomHeight(context),
+                  ),
                   child: TweenAnimationBuilder<double>(
                     tween: Tween(begin: 0, end: 1),
                     duration: Duration(milliseconds: 500),

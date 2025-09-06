@@ -60,7 +60,10 @@ class AudioPlayerControllerWidget extends StatelessWidget {
               max: meditationPlayerController.audioDuration.value.inSeconds
                   .toDouble()
                   .clamp(0, double.infinity),
-              onChanged: (value) {},
+              onChanged: (value) {
+                print(value.toString);
+                meditationPlayerController.seekAudio(value.toInt());
+              },
             ),
           ),
           VerticalSpace12(),

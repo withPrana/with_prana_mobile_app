@@ -48,7 +48,7 @@ class FloatingMeditationPlayerWidget extends StatelessWidget {
           key: Key("floating-player$lastPlayedAudioId"),
           direction: DismissDirection.endToStart,
           onDismissed: (direction) {
-            meditationPlayerController.removeFloatingMediationPlayer();
+            meditationPlayerController.removeFloatingMediationPlayer(true);
           },
           child: InkWell(
             onTap: () {
