@@ -122,7 +122,7 @@ class MeditationPlayerController extends GetxController {
       await audioPlayer.pause();
       isPlaying.value = false;
       if (playBgAudio) {
-        commonController.backGroundAudioPlayer.resume();
+        commonController.resumeBgAudio();
       }
     } else {
       await audioPlayer.resume();
@@ -144,16 +144,18 @@ class MeditationPlayerController extends GetxController {
 
   Future<void> restartAudio() async {
     await audioPlayer.seek(Duration.zero);
+    audioPlayer.resume();
+    isPlaying.value = true;
   }
 
   void removeFloatingMediationPlayer(bool removeAudioDetails) {
     SharedPrefs.setLastPlayedMeditationId("");
     audioPosition.value = Duration.zero;
     audioPlayer.stop();
-    if(removeAudioDetails){
+    if (removeAudioDetails) {
       lastPlayedMeditationCategory.value = null;
-    lastPlayedAudioDetails.value = null;
-    lastPlayedAudioId.value = "";
+      lastPlayedAudioDetails.value = null;
+      lastPlayedAudioId.value = "";
     }
     showFloatingMeditationPlayer.value = false;
   }

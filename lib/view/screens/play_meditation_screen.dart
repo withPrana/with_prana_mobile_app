@@ -24,10 +24,12 @@ class PlayMeditationScreen extends StatefulHookWidget {
   final CategoryResponseModel meditationCategory;
   final AudioPreviewModel audioDetails;
   final Duration? startingPoint;
+  final bool multipleAudio;
 
   const PlayMeditationScreen({
     super.key,
     this.startingPoint,
+    this.multipleAudio = false,
     required this.meditationCategory,
     required this.audioDetails,
   });
@@ -158,7 +160,7 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
                     textAlign: TextAlign.center,
                     style: TypographyStyles.poppins40014(),
                   ),
-                VerticalSpace224(),
+                VerticalSpace260(),
               ],
             ),
             theme: theme,
@@ -175,6 +177,7 @@ class _PlayMeditationScreenState extends State<PlayMeditationScreen> {
           meditationCategory: widget.meditationCategory,
           audioDetails: widget.audioDetails,
           meditationPlayerController: meditationPlayerController,
+          multipleAudio: widget.multipleAudio,
         );
       }),
     );

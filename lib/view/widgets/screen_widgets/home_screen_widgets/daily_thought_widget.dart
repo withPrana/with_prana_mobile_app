@@ -40,6 +40,7 @@ class DailyThoughtWidget extends StatelessWidget {
               AudioPalyerPreviewWidget(
                 textWidth: 140.w,
                 meditationCategory: CategoryResponseModel(),
+                multipleAudio: true,
                 audioDetails: AudioPreviewModel(
                   id: "",
                   iconPath: ImageConstants.imgAudioPreviewOne,

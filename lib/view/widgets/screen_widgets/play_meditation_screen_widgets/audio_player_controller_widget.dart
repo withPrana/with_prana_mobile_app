@@ -7,6 +7,7 @@ import 'package:with_prana_mobile_app/core/constants/icon_constants.dart';
 import 'package:with_prana_mobile_app/core/theme/color_palette.dart';
 import 'package:with_prana_mobile_app/core/theme/typography_styles.dart';
 import 'package:with_prana_mobile_app/core/utils/hex_to_color.dart';
+import 'package:with_prana_mobile_app/core/utils/safe_area_lengths.dart';
 import 'package:with_prana_mobile_app/core/utils/screen_size.dart';
 import 'package:with_prana_mobile_app/models/category_models/category_models.dart';
 import 'package:with_prana_mobile_app/view/widgets/public_widgets/space_widgets.dart/vertical_space_widgets.dart';
@@ -16,12 +17,14 @@ class AudioPlayerControllerWidget extends StatelessWidget {
   final CategoryResponseModel meditationCategory;
   final MeditationPlayerController meditationPlayerController;
   final AudioPreviewModel audioDetails;
+  final bool multipleAudio;
   const AudioPlayerControllerWidget({
     super.key,
     required this.theme,
     required this.meditationCategory,
     required this.meditationPlayerController,
     required this.audioDetails,
+    required this.multipleAudio,
   });
 
   @override
@@ -33,8 +36,8 @@ class AudioPlayerControllerWidget extends StatelessWidget {
     final bgColor = contentColor.withValues(alpha: 0.1);
     return Container(
       width: ScreenSize.width(context),
-      height: 175.r,
-      padding: EdgeInsets.symmetric(horizontal: 40.r, vertical: 30.r),
+      height: 175.r + safeAreaBottomHeight(context),
+      padding: EdgeInsets.only(left: 40.r, right: 40.r, top: 30.r),
       decoration: BoxDecoration(
         color: theme.inverseColor,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
@@ -61,7 +64,6 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                   .toDouble()
                   .clamp(0, double.infinity),
               onChanged: (value) {
-                print(value.toString);
                 meditationPlayerController.seekAudio(value.toInt());
               },
             ),
@@ -85,92 +87,65 @@ class AudioPlayerControllerWidget extends StatelessWidget {
             ],
           ),
           VerticalSpace24(),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final maxWidth = constraints.maxWidth;
-              final itemWidth = maxWidth / 3;
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  /// Restart button
-                  SizedBox(
-                    width: itemWidth,
-                    child: InkWell(
-                      onTap: () {
-                        meditationPlayerController.restartAudio();
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(right: itemWidth - (88.w)),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10.r,
-                          vertical: 6.r,
-                        ),
-                        decoration: BoxDecoration(
-                          color: bgColor,
-                          border: Border.all(color: contentColor, width: 1.r),
-                          borderRadius: BorderRadius.circular(200.r),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ImageIcon(
-                              AssetImage(IconConstants.icRestartAudio),
-                              size: 18.r,
-                              color: contentColor,
-                            ),
-                            Text(
-                              "Restart",
-                              style: TypographyStyles.poppins40012Colored(
-                                contentColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  /// Play/pause button
-                  SizedBox(
-                    width: itemWidth,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: InkWell(
-                        onTap: () {
-                          meditationPlayerController
-                              .playAndPauseMeditationAudio(
-                                meditationCategory: meditationCategory,
-                                audioDetails: audioDetails,
-                                playBgAudio: false,
-                              );
-                        },
-                        child: Container(
-                          width: 48.r,
-                          height: 48.r,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
+          Stack(
+            children: [
+              ////////
+              SizedBox(
+                height: 48.r,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    /// Restart button
+                    multipleAudio
+                        ? InkWell(
+                          onTap: () {
+                            meditationPlayerController.restartAudio();
+                          },
+                          child: ImageIcon(
+                            AssetImage(IconConstants.icRestartAudio),
+                            size: 24.r,
                             color: contentColor,
                           ),
-                          child: Center(
-                            child: Obx(
-                              () => Icon(
-                                meditationPlayerController.isPlaying.value
-                                    ? Icons.pause
-                                    : Icons.play_arrow,
-                                color: theme.inverseColor,
-                                size: 24.r,
+                        )
+                        : InkWell(
+                          onTap: () {
+                            meditationPlayerController.restartAudio();
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10.r,
+                              vertical: 6.r,
+                            ),
+                            decoration: BoxDecoration(
+                              color: bgColor,
+                              border: Border.all(
+                                color: contentColor,
+                                width: 1.r,
                               ),
+                              borderRadius: BorderRadius.circular(200.r),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              spacing: 4.r,
+                              children: [
+                                ImageIcon(
+                                  AssetImage(IconConstants.icRestartAudio),
+                                  size: 18.r,
+                                  color: contentColor,
+                                ),
+                                Text(
+                                  "Restart",
+                                  style: TypographyStyles.poppins40012Colored(
+                                    contentColor,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
 
-                  /// Add to library button
-                  SizedBox(
-                    width: itemWidth,
-                    child: Align(
+                    /// Add to library button
+                    Align(
                       alignment: Alignment.centerRight,
                       child: InkWell(
                         child: ImageIcon(
@@ -180,10 +155,71 @@ class AudioPlayerControllerWidget extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+              /////
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 16.r,
+                children: [
+                  ////previous button
+                  if (multipleAudio)
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.skip_previous,
+                        size: 32.r,
+                        color: contentColor,
+                      ),
+                    ),
+
+                  /// Play/pause button
+                  Align(
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        meditationPlayerController.playAndPauseMeditationAudio(
+                          meditationCategory: meditationCategory,
+                          audioDetails: audioDetails,
+                          playBgAudio: false,
+                        );
+                      },
+                      child: Container(
+                        width: 48.r,
+                        height: 48.r,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: contentColor,
+                        ),
+                        child: Center(
+                          child: Obx(
+                            () => Icon(
+                              meditationPlayerController.isPlaying.value
+                                  ? Icons.pause
+                                  : Icons.play_arrow,
+                              color: theme.inverseColor,
+                              size: 24.r,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
+
+                  /////next button
+                  if (multipleAudio)
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.skip_next,
+                        size: 32.r,
+                        color: contentColor,
+                      ),
+                    ),
                 ],
-              );
-            },
+              ),
+            ],
           ),
         ],
       ),

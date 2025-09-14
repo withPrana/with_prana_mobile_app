@@ -20,6 +20,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
   final bool enableBorder;
   final bool enableIconBgColor;
   final double? textWidth;
+  final bool multipleAudio;
   AudioPalyerPreviewWidget({
     super.key,
     this.backgroundColor,
@@ -27,6 +28,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
     this.textWidth,
     this.enableBorder = true,
     this.enableIconBgColor = true,
+    this.multipleAudio = false,
     required this.audioDetails,
     required this.meditationCategory,
   });
@@ -41,6 +43,7 @@ class AudioPalyerPreviewWidget extends StatelessWidget {
         RouteController.push(context, PlayMeditationScreen.routePath, {
           "category": meditationCategory,
           "audioDetails": audioDetails,
+          "multipleAudio":multipleAudio,
         });
       },
       child: Container(
